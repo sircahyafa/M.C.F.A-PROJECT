@@ -1,8 +1,8 @@
 {
-  "name": "M.C.F.A PROJECT — MC Fathul Adzim",
-  "short_name": "MCFA Project",
+  "name": "M.C.F.A PROJECT",
+  "short_name": "M.C.F.A",
   "description": "Blueprint kehidupan MC Fathul Adzim — timeline, aktivitas, dan target menuju MC Fathul Adzim Sejati.",
-  "start_url": "./index_PROJECT.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
