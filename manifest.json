@@ -1,7 +1,7 @@
 {
   "name": "M.C.F.A PROJECT",
-  "short_name": "MCFA PROJECT",
-  "description": "M.C.F.A Project — dashboard konten & progres MC Fathul Adzim.",
+  "short_name": "M.C.F.A PROJECT",
+  "description": "M.C.F.A Project",
   "start_url": "./index.html",
   "scope": "./",
   "id": "./index.html",
