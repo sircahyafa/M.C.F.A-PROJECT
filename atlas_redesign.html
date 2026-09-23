@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Peta Lengkap Kecerdasan, Kapasitas &amp; Kompetensi Manusia — Atlas Pengembangan Diri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,400;0,9..144,440;0,9..144,500;0,9..144,600;1,9..144,340;1,9..144,400&family=Source+Sans+3:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PERSONAL HUMAN DEVELOPMENT ATLAS — Design System
+   Light Human Atlas: warm ivory base, muted domain-specific colors,
+   editorial serif display + humanist sans body, precise spacing scale.
+   ============================================================ */
+
+:root{
+  /* ---- Layered light backgrounds ---- */
+  --bg-main:#FBF8F2;        /* warm ivory — page background */
+  --bg-section:#F4F0E7;     /* soft neutral — section band background */
+  --bg-surface:#FFFFFF;     /* white — domain card surface */
+  --bg-raised:#FFFFFF;
+
+  /* ---- Ink / text ---- */
+  --ink-1:#221F1A;          /* primary text — warm near-black, not pure black */
+  --ink-2:#4A463E;          /* secondary text */
+  --ink-3:#7A7568;          /* tertiary / caption text */
+  --ink-4:#A7A196;          /* faint / metadata */
+  --hairline:#E4DECF;       /* structural hairline border */
+  --hairline-soft:#EDE8DB;
+
+  /* ---- Contrast accents (not tied to a single domain) ---- */
+  --navy:#232A45;           /* deep navy — reserved for contrast elements */
+  --navy-tint:#EEF0F5;
+  --gold:#A9822F;           /* muted warm amber — system accent, used sparingly */
+  --gold-tint:#F6F0E1;
+
+  /* ---- Spacing scale (section 17) ---- */
+  --sp-1:4px;  --sp-2:8px;  --sp-3:12px; --sp-4:16px;
+  --sp-5:24px; --sp-6:32px; --sp-7:40px; --sp-8:48px;
+  --sp-9:64px; --sp-10:80px; --sp-11:96px;
+
+  /* ---- Radius tokens ---- */
+  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-xl:24px; --r-pill:999px;
+
+  /* ---- Shadow tokens (restrained) ---- */
+  --shadow-sm:0 1px 2px rgba(34,31,26,0.05);
+  --shadow-md:0 4px 16px rgba(34,31,26,0.06);
+  --shadow-lg:0 12px 36px rgba(34,31,26,0.09);
+
+  /* ---- Transition tokens ---- */
+  --ease:cubic-bezier(.2,.7,.3,1);
+  --t-fast:160ms; --t-med:240ms;
+
+  /* ---- Grid tokens ---- */
+  --content-max:1440px;
+  --gutter:40px;
+}
+
+@media (max-width:720px){
+  :root{ --gutter:20px; }
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+}
+
+body{
+  background:var(--bg-main);
+  color:var(--ink-1);
+  font-family:'Source Sans 3','Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.5;
+}
+
+/* subtle paper texture / warmth — function: gives the ivory field quiet depth */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    radial-gradient(ellipse 1100px 700px at 12% -8%, rgba(169,130,47,0.05), transparent 60%),
+    radial-gradient(ellipse 900px 650px at 92% 6%, rgba(46,125,168,0.04), transparent 55%),
+    radial-gradient(ellipse 800px 800px at 50% 105%, rgba(122,90,168,0.035), transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.wrap{position:relative;z-index:1;max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter);}
+
+a{color:inherit;}
+::selection{background:rgba(169,130,47,0.22);}
+
+:focus-visible{
+  outline:2px solid var(--navy);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* ============ TYPE SCALE ============ */
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:0.08em;
+  color:var(--gold);
+  font-weight:500;
+}
+h1,h2,h3{
+  font-family:'Fraunces',serif;
+  font-weight:440;
+  color:var(--ink-1);
+  letter-spacing:-0.01em;
+}
+
+/* ============ STICKY MOBILE NAV (section 23) ============ */
+.mini-nav{
+  position:sticky; top:0; z-index:50;
+  display:none;
+  background:rgba(251,248,242,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hairline);
+  padding:10px var(--gutter);
+  gap:6px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.mini-nav a{
+  flex-shrink:0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  text-decoration:none;
+  padding:7px 13px;
+  border-radius:var(--r-pill);
+  border:1px solid var(--hairline);
+  background:var(--bg-surface);
+  white-space:nowrap;
+}
+.mini-nav a:active{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+/* ============ HERO — the atlas cover ============ */
+.hero{
+  position:relative;
+  padding:var(--sp-11) var(--gutter) var(--sp-10);
+  overflow:hidden;
+  border-bottom:1px solid var(--hairline);
+}
+.hero-grid{
+  max-width:var(--content-max);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:var(--sp-9);
+  align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:var(--sp-6);
+}
+.hero-eyebrow .dot{width:4px;height:4px;background:var(--gold);border-radius:50%;}
+.hero h1{
+  font-size:clamp(38px,4.6vw,68px);
+  line-height:1.06;
+  max-width:640px;
+}
+.hero h1 .em{
+  font-style:italic;
+  font-weight:340;
+  color:var(--gold);
+}
+.hero-sub{
+  margin-top:var(--sp-6);
+  max-width:480px;
+  font-size:17px;
+  line-height:1.7;
+  color:var(--ink-2);
+  font-weight:400;
+}
+.hero-cta{
+  margin-top:var(--sp-7);
+  display:flex;
+  gap:var(--sp-4);
+  flex-wrap:wrap;
+}
+.btn{
+  font-family:'Source Sans 3',sans-serif;
+  font-size:13.5px;
+  font-weight:600;
+  padding:13px 24px;
+  border-radius:var(--r-pill);
+  cursor:pointer;
+  transition:transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn-primary{background:var(--navy);color:#fff;border:1px solid var(--navy);}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:var(--shadow-md);}
+.btn-ghost{background:transparent;color:var(--ink-1);border:1px solid var(--hairline);}
+.btn-ghost:hover{border-color:var(--ink-3);}
+
+/* Hero visual: abstract constellation of human capability */
+.hero-visual{
+  position:relative;
+  aspect-ratio:1/1;
+  max-width:520px;
+  margin:0 auto;
+}
+.hero-visual svg{width:100%;height:100%;}
+.hero-visual .hv-node{transition:opacity 400ms ease;}
+
+/* ============ ATLAS METRICS (section 4) ============ */
+.metrics{
+  max-width:var(--content-max);
+  margin:0 auto;
+  padding:0 var(--gutter);
+  margin-top:var(--sp-9);
+}
+.metrics-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--hairline);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--bg-surface);
+}
+.metric{
+  padding:var(--sp-7) var(--sp-6);
+  border-left:1px solid var(--hairline);
+  position:relative;
+}
+.metric:first-child{border-left:none;}
+.metric::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--metric-accent, var(--gold));
+}
+.metric .num{
+  font-family:'Fraunces',serif;
+  font-size:38px;
+  font-weight:500;
+  color:var(--ink-1);
+  line-height:1;
+}
+.metric .lbl{
+  margin-top:var(--sp-3);
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink-1);
+}
+.metric .desc{
+  margin-top:4px;
+  font-size:12px;
+  color:var(--ink-3);
+  line-height:1.5;
+}
+
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:var(--sp-7);}
+  .hero-visual{max-width:360px;order:-1;}
+  .hero h1{max-width:100%;}
+}
+@media (max-width:640px){
+  .metrics-grid{grid-template-columns:1fr 1fr;}
+  .metric{border-left:none;border-top:1px solid var(--hairline);}
+  .metric:nth-child(1),.metric:nth-child(2){border-top:none;}
+  .metric:nth-child(odd){border-left:none;}
+  .metric:nth-child(even){border-left:1px solid var(--hairline);}
+  .hero{padding:var(--sp-9) var(--gutter) var(--sp-8);}
+  .mini-nav{display:flex;}
+}
+
+/* ============ SECTION HEADERS ============ */
+.section-head{
+  padding:var(--sp-10) var(--gutter) var(--sp-6);
+  max-width:var(--content-max);
+  margin:0 auto;
+}
+.section-head .eyebrow{display:block;margin-bottom:var(--sp-3);}
+.section-head h2{
+  font-size:clamp(26px,2.8vw,38px);
+  max-width:720px;
+}
+.section-head p{
+  margin-top:var(--sp-4);
+  font-size:15px;
+  line-height:1.7;
+  color:var(--ink-2);
+  max-width:680px;
+}
+.section-head p .hl{color:var(--gold);font-weight:600;}
+
+/* ============ WHAT'S NEW BAND ============ */
+.whatsnew{
+  max-width:var(--content-max);
+  margin:var(--sp-9) auto 0;
+  padding:0 var(--gutter);
+}
+.whatsnew-inner{
+  border:1px solid var(--hairline);
+  border-radius:var(--r-lg);
+  background:linear-gradient(135deg, var(--gold-tint), var(--bg-surface) 65%);
+  padding:var(--sp-7) var(--sp-8);
+  display:flex;
+  gap:var(--sp-8);
+  flex-wrap:wrap;
+  align-items:center;
+}
+.whatsnew-copy{flex:1;min-width:260px;}
+.whatsnew-copy .eyebrow{margin-bottom:var(--sp-2);}
+.whatsnew-copy .headline{
+  font-family:'Fraunces',serif;
+  font-size:21px;
+  color:var(--ink-1);
+  line-height:1.4;
+  max-width:420px;
+}
+.whatsnew-stats{display:flex;gap:var(--sp-7);flex-wrap:wrap;}
+.whatsnew-stat .num{font-family:'Fraunces',serif;font-size:26px;color:var(--gold);font-weight:500;}
+.whatsnew-stat .lbl{font-size:11.5px;color:var(--ink-3);margin-top:4px;line-height:1.4;}
+
+/* ============ THE MAP (radial overview, section 5) ============ */
+.atlas-map-section{
+  background:var(--bg-section);
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+  padding:var(--sp-10) 0 var(--sp-10);
+  margin-top:var(--sp-10);
+}
+.map-wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 var(--gutter);
+}
+.map-visual{
+  position:relative;
+  width:100%;
+  max-width:920px;
+  margin:var(--sp-8) auto 0;
+  aspect-ratio:1/1;
+}
+.map-visual svg{width:100%;height:100%;overflow:visible;}
+.map-node{
+  cursor:pointer;
+  transition:transform var(--t-fast) var(--ease);
+}
+.map-node:hover{transform:scale(1.18);}
+.map-node text{
+  font-family:'JetBrains Mono',monospace;
+  pointer-events:none;
+  user-select:none;
+}
+.map-legend{
+  margin-top:var(--sp-7);
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--sp-2) var(--sp-6);
+  justify-content:center;
+  font-size:11.5px;
+  color:var(--ink-3);
+}
+.map-legend span{display:inline-flex;align-items:center;gap:6px;}
+.map-legend i{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+@media (max-width:640px){
+  .whatsnew-inner{padding:var(--sp-6);}
+  .whatsnew-stats{gap:var(--sp-5);}
+}
+
+/* ============ DOMAIN GROUP LABEL (visual rhythm dividers) ============ */
+.domain-group-label{
+  max-width:var(--content-max);
+  margin:var(--sp-9) auto var(--sp-5);
+  padding:0 var(--gutter);
+  display:flex;
+  align-items:center;
+  gap:var(--sp-4);
+}
+.domain-group-label .tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.09em;
+  color:var(--ink-3);
+  white-space:nowrap;
+}
+.domain-group-label .rule{height:1px;background:var(--hairline);flex:1;}
+
+/* ============ DOMAIN GRID & CARD ============ */
+.domain-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:var(--sp-5);
+  padding:0 var(--gutter) var(--sp-5);
+  max-width:var(--content-max);
+  margin:0 auto;
+}
+.domain-card{
+  --accent:#000; --tint:#fff;
+  background:var(--bg-surface);
+  border:1px solid var(--hairline);
+  border-radius:var(--r-lg);
+  padding:var(--sp-6) var(--sp-5) var(--sp-5);
+  position:relative;
+  transition:transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease), border-color var(--t-med) var(--ease);
+  display:flex;
+  flex-direction:column;
+  scroll-margin-top:70px;
+}
+.domain-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--accent);
+}
+.domain-card.is-new{
+  background:linear-gradient(168deg, var(--tint), var(--bg-surface) 55%);
+  border-color:var(--accent);
+  border-width:1.5px;
+}
+
+.domain-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:var(--sp-3);
+  margin-bottom:var(--sp-4);
+}
+.domain-num{
+  font-family:'Fraunces',serif;
+  font-size:44px;
+  font-weight:400;
+  line-height:0.8;
+  color:var(--accent);
+  opacity:0.9;
+  letter-spacing:-0.02em;
+}
+.domain-icon-wrap{
+  width:38px;height:38px;
+  border-radius:var(--r-md);
+  background:var(--tint);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  color:var(--accent);
+}
+.domain-icon{width:19px;height:19px;}
+
+.domain-category{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:0.08em;
+  color:var(--accent);
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+.domain-category .badge-count{
+  color:var(--ink-4);
+  font-weight:500;
+  letter-spacing:0.03em;
+}
+.domain-titles h3{
+  font-family:'Source Sans 3',sans-serif;
+  font-weight:700;
+  font-size:16.5px;
+  letter-spacing:0;
+  color:var(--ink-1);
+  line-height:1.28;
+}
+.domain-titles .tagline{
+  font-size:12.5px;
+  color:var(--ink-3);
+  margin-top:5px;
+  font-weight:400;
+  line-height:1.45;
+}
+.domain-meaning{
+  font-size:13px;
+  color:var(--ink-2);
+  margin-top:var(--sp-4);
+  font-weight:400;
+  line-height:1.6;
+  font-style:italic;
+  font-family:'Fraunces',serif;
+  border-left:2px solid var(--accent);
+  padding-left:var(--sp-3);
+}
+.why-added{
+  margin-top:var(--sp-3);
+  font-size:11.5px;
+  color:var(--ink-2);
+  font-weight:400;
+  line-height:1.55;
+  border-left:2px solid var(--gold);
+  padding-left:var(--sp-3);
+  background:var(--gold-tint);
+  padding-top:8px;padding-bottom:8px;padding-right:10px;
+  border-radius:0 6px 6px 0;
+}
+.why-added .lbl{
+  display:block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:0.08em;
+  color:var(--gold);
+  margin-bottom:3px;
+}
+
+.new-domain-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:0.07em;
+  color:#fff;
+  background:var(--accent);
+  border-radius:var(--r-pill);
+  padding:3px 9px;
+  vertical-align:middle;
+}
+.new-domain-badge .dot{width:4px;height:4px;background:#fff;border-radius:50%;}
+
+/* ---- Competency list ---- */
+.comp-list{
+  list-style:none;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2px;
+  margin-top:var(--sp-5);
+  border-top:1px solid var(--hairline-soft);
+  padding-top:var(--sp-2);
+}
+.comp-list li{
+  font-size:12.8px;
+  color:var(--ink-2);
+  line-height:1.4;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-weight:400;
+  padding:7px 6px;
+  border-radius:6px;
+  transition:background var(--t-fast) var(--ease);
+}
+.comp-list li:hover{background:var(--tint);}
+.comp-list li .n{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  color:var(--accent);
+  flex-shrink:0;
+  min-width:22px;
+  padding-top:2px;
+  opacity:0.75;
+}
+.comp-body{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+  flex:1;
+}
+.comp-name{
+  color:var(--ink-1);
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+}
+.comp-meaning{
+  font-size:11.5px;
+  color:var(--ink-3);
+  font-weight:400;
+  line-height:1.45;
+}
+.comp-list li.added{
+  background:var(--tint);
+}
+.comp-list li.added .n{color:var(--accent);opacity:1;}
+.new-pill{
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px;
+  letter-spacing:0.06em;
+  color:#fff;
+  background:var(--accent);
+  border-radius:var(--r-pill);
+  padding:1.5px 6px;
+  display:inline-flex;
+  align-items:center;
+  line-height:1.5;
+}
+
+@media (max-width:1180px){
+  .domain-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:640px){
+  .domain-grid{grid-template-columns:1fr;}
+  .domain-num{font-size:36px;}
+}
+
+/* ============ VISUAL BREAK (section 26 rhythm) ============ */
+.visual-break{
+  max-width:var(--content-max);
+  margin:var(--sp-9) auto;
+  padding:0 var(--gutter);
+}
+.visual-break-inner{
+  border-radius:var(--r-lg);
+  background:var(--navy);
+  color:#fff;
+  padding:var(--sp-8) var(--sp-8);
+  display:flex;
+  align-items:center;
+  gap:var(--sp-7);
+  flex-wrap:wrap;
+  position:relative;
+  overflow:hidden;
+}
+.visual-break-inner::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:radial-gradient(600px 300px at 85% 20%, rgba(169,130,47,0.25), transparent 60%);
+  pointer-events:none;
+}
+.visual-break-text{flex:1;min-width:260px;position:relative;}
+.visual-break-text .eyebrow{color:var(--gold);}
+.visual-break-text p{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:19px;
+  line-height:1.55;
+  color:#fff;
+  margin-top:var(--sp-3);
+  max-width:480px;
+}
+
+/* ============ DOMAIN 24 — INTEGRATION CHAMBER ============ */
+.integration-chamber{
+  max-width:var(--content-max);
+  margin:0 auto;
+  padding:0 var(--gutter) var(--sp-10);
+}
+.chamber-inner{
+  border-radius:var(--r-xl);
+  background:
+    radial-gradient(560px 420px at 50% 0%, rgba(107,90,160,0.10), transparent 65%),
+    linear-gradient(180deg, #F4EFF9, var(--bg-surface) 45%);
+  border:1.5px solid #D8CCE9;
+  padding:var(--sp-9) var(--sp-8) var(--sp-8);
+  position:relative;
+  overflow:hidden;
+}
+.chamber-head{
+  text-align:center;
+  max-width:640px;
+  margin:0 auto var(--sp-8);
+  position:relative;
+}
+.chamber-head .eyebrow{
+  display:block;
+  justify-content:center;
+  color:#6B5AA0;
+}
+.chamber-num{
+  font-family:'Fraunces',serif;
+  font-size:64px;
+  font-weight:400;
+  color:#6B5AA0;
+  line-height:1;
+  margin:var(--sp-4) 0 var(--sp-2);
+}
+.chamber-title{
+  font-size:clamp(24px,3vw,32px);
+  color:var(--ink-1);
+}
+.chamber-tagline{
+  margin-top:var(--sp-3);
+  font-size:14.5px;
+  color:var(--ink-2);
+  line-height:1.6;
+}
+.chamber-converge{
+  max-width:560px;
+  margin:0 auto var(--sp-8);
+  aspect-ratio:16/7;
+}
+.chamber-converge svg{width:100%;height:100%;}
+.chamber-comp-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2px;
+  max-width:900px;
+  margin:0 auto;
+}
+.chamber-comp-grid .n{color:#6B5AA0;}
+.chamber-comp-grid li.added{background:#F1EEF6;}
+.chamber-comp-grid li.added .n{color:#6B5AA0;}
+.chamber-comp-grid .new-pill{background:#6B5AA0;}
+
+@media (max-width:720px){
+  .chamber-comp-grid{grid-template-columns:1fr;}
+  .chamber-inner{padding:var(--sp-7) var(--sp-5) var(--sp-6);}
+}
+
+/* ============ FRAMEWORK — HOW TO READ THE ATLAS ============ */
+.framework-section{
+  background:var(--bg-section);
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+  padding:var(--sp-10) 0 var(--sp-10);
+  margin-top:var(--sp-10);
+}
+.fw-modules{
+  max-width:var(--content-max);
+  margin:0 auto;
+  padding:0 var(--gutter);
+  display:flex;
+  flex-direction:column;
+  gap:var(--sp-9);
+}
+.fw-module{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:var(--sp-7);
+}
+.fw-module-head{display:flex;flex-direction:column;gap:var(--sp-2);}
+.fw-module-head .idx{
+  font-family:'Fraunces',serif;
+  font-size:34px;
+  color:var(--ink-4);
+  line-height:1;
+}
+.fw-module-head h4{
+  font-family:'Source Sans 3',sans-serif;
+  font-weight:700;
+  font-size:15.5px;
+  color:var(--ink-1);
+  margin-top:4px;
+}
+.fw-module-head p{
+  font-size:12.5px;
+  color:var(--ink-3);
+  line-height:1.55;
+  margin-top:2px;
+}
+
+/* Kategori kecerdasan / Jenis kompetensi: chip grid */
+.fw-chip-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:var(--sp-3);
+}
+.fw-chip{
+  display:flex;
+  gap:var(--sp-3);
+  align-items:flex-start;
+  padding:var(--sp-4);
+  background:var(--bg-surface);
+  border:1px solid var(--hairline);
+  border-radius:var(--r-md);
+}
+.fw-chip .swatch{width:10px;height:10px;border-radius:3px;flex-shrink:0;margin-top:4px;}
+.fw-chip .t{font-size:13px;font-weight:700;color:var(--ink-1);display:block;}
+.fw-chip .d{font-size:11.5px;color:var(--ink-3);margin-top:2px;display:block;line-height:1.45;}
+
+/* Priority progression — vertical staircase (section 12) */
+.fw-priority-flow{
+  display:flex;
+  flex-direction:column;
+}
+.fw-priority-step{
+  display:flex;
+  align-items:center;
+  gap:var(--sp-4);
+  padding:var(--sp-4) var(--sp-4);
+  background:var(--bg-surface);
+  border:1px solid var(--hairline);
+  border-radius:var(--r-md);
+  position:relative;
+}
+.fw-priority-step + .fw-priority-step{margin-top:var(--sp-3);}
+.fw-priority-step::before{
+  content:"";
+  position:absolute;
+  left:calc(var(--sp-4) + 15px);
+  top:-13px;
+  width:1px;height:13px;
+  background:var(--hairline);
+}
+.fw-priority-step:first-child::before{display:none;}
+.fw-priority-step .pnum{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  font-size:19px;
+  width:32px;height:32px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  color:#fff;
+}
+.fw-priority-step .t{font-size:13.5px;font-weight:700;color:var(--ink-1);display:block;}
+.fw-priority-step .d{font-size:11.5px;color:var(--ink-3);margin-top:2px;display:block;}
+
+/* Learning path — roadmap (section 13) */
+.fw-path{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  align-items:center;
+}
+.fw-path-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px 6px 6px;
+  background:var(--bg-surface);
+  border:1px solid var(--hairline);
+  border-radius:var(--r-pill);
+  font-size:12px;
+  color:var(--ink-2);
+  margin:3px;
+}
+.fw-path-item .circ{
+  width:22px;height:22px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.fw-path-item:nth-child(4n+1) .circ{background:#3E5C9A;}
+.fw-path-item:nth-child(4n+2) .circ{background:#8A5478;}
+.fw-path-item:nth-child(4n+3) .circ{background:#5E8A5A;}
+.fw-path-item:nth-child(4n+4) .circ{background:#A05A3C;}
+
+/* One activity many benefits — connector diagram (section 14) */
+.fw-activity{display:flex;flex-direction:column;gap:var(--sp-5);}
+.fw-activity-diagram{
+  background:var(--bg-surface);
+  border:1px solid var(--hairline);
+  border-radius:var(--r-lg);
+  padding:var(--sp-6);
+}
+.fw-activity-diagram svg{width:100%;height:auto;display:block;}
+.fw-activity blockquote{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:15px;
+  color:var(--gold);
+  line-height:1.55;
+  border-left:2px solid var(--gold);
+  padding-left:var(--sp-4);
+}
+
+@media (max-width:900px){
+  .fw-module{grid-template-columns:1fr;gap:var(--sp-4);}
+  .fw-chip-grid{grid-template-columns:1fr;}
+}
+
+/* ============ PHILOSOPHY ============ */
+.philosophy{
+  padding:var(--sp-11) var(--gutter);
+  text-align:center;
+  max-width:900px;
+  margin:0 auto;
+  position:relative;
+}
+.philosophy::before{
+  content:"";
+  position:absolute;
+  top:20px;left:50%;transform:translateX(-50%);
+  width:640px;height:640px;
+  max-width:90vw;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(169,130,47,0.05), transparent 70%);
+  pointer-events:none;
+  z-index:-1;
+}
+.philosophy .eyebrow{display:block;margin-bottom:var(--sp-6);}
+.philosophy .quote{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-weight:340;
+  font-size:clamp(22px,2.6vw,32px);
+  line-height:1.55;
+  color:var(--ink-1);
+}
+.philosophy .attr{
+  margin-top:var(--sp-5);
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.08em;
+  color:var(--gold);
+}
+.pillars{
+  display:flex;
+  justify-content:center;
+  gap:var(--sp-8);
+  margin-top:var(--sp-9);
+  flex-wrap:wrap;
+}
+.pillar{
+  font-size:12px;
+  letter-spacing:0.04em;
+  font-weight:600;
+  color:var(--ink-3);
+  position:relative;
+  padding-bottom:var(--sp-3);
+}
+.pillar::after{
+  content:"";
+  position:absolute;
+  bottom:0;left:50%;transform:translateX(-50%);
+  width:22px;height:2px;
+  background:var(--gold);
+  border-radius:2px;
+}
+
+/* ============ FOOTER ============ */
+footer{
+  border-top:1px solid var(--hairline);
+  padding:var(--sp-6) var(--gutter);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:var(--sp-3);
+  max-width:var(--content-max);
+  margin:0 auto;
+  font-size:12px;
+  color:var(--ink-3);
+}
+footer .brand{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  color:var(--ink-1);
+  font-weight:500;
+}
+
+/* ============ SCROLL REVEAL (single orchestrated pattern) ============ */
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity 560ms var(--ease), transform 560ms var(--ease);
+}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+@media (max-width:640px){
+  .visual-break-inner{padding:var(--sp-6);}
+  .philosophy{padding:var(--sp-9) var(--gutter);}
+  .pillars{gap:var(--sp-6);}
+}
+
+</style>
+</head>
+<body>
+
+<nav class="mini-nav" aria-label="Navigasi cepat">
+  <a href="#overview">Overview</a>
+  <a href="#domain-1">Domains</a>
+  <a href="#framework">Framework</a>
+  <a href="#framework">Learning Path</a>
+  <a href="#philosophy">Philosophy</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="overview">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow eyebrow"><span class="dot"></span>PERSONAL HUMAN DEVELOPMENT ATLAS<span class="dot"></span></div>
+      <h1>Peta Lengkap ke <span class="em">Kecerdasan, Kapasitas,</span><br>dan Kompetensi Manusia</h1>
+      <p class="hero-sub">Satu peta, ribuan kemungkinan. Untuk mengenali diri, membangun arah, dan menjadi versi terbaik — dipetakan lintas 24 domain kehidupan manusia.</p>
+      <div class="hero-cta">
+        <a href="#domain-1" class="btn btn-primary">Jelajahi 24 Domain</a>
+        <a href="#framework" class="btn btn-ghost">Cara Membaca Peta</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="false"><svg viewBox="0 0 520 520" role="img" aria-label="Ilustrasi jaringan koneksi 24 domain manusia">
+<g><line x1="260.0" y1="155.5" x2="322.9" y2="108.2" stroke="var(--hairline)" stroke-width="1"/><line x1="322.9" y1="108.2" x2="358.1" y2="161.9" stroke="var(--hairline)" stroke-width="1"/><line x1="358.1" y1="161.9" x2="364.4" y2="216.7" stroke="var(--hairline)" stroke-width="1"/><line x1="364.4" y1="216.7" x2="432.9" y2="260.0" stroke="var(--hairline)" stroke-width="1"/><line x1="432.9" y1="260.0" x2="396.0" y2="316.4" stroke="var(--hairline)" stroke-width="1"/><line x1="396.0" y1="316.4" x2="346.0" y2="346.0" stroke="var(--hairline)" stroke-width="1"/><line x1="346.0" y1="346.0" x2="329.4" y2="427.6" stroke="var(--hairline)" stroke-width="1"/><line x1="329.4" y1="427.6" x2="260.0" y2="415.8" stroke="var(--hairline)" stroke-width="1"/><line x1="260.0" y1="415.8" x2="210.2" y2="380.2" stroke="var(--hairline)" stroke-width="1"/><line x1="210.2" y1="380.2" x2="186.1" y2="333.9" stroke="var(--hairline)" stroke-width="1"/><line x1="186.1" y1="333.9" x2="108.2" y2="322.9" stroke="var(--hairline)" stroke-width="1"/><line x1="108.2" y1="322.9" x2="121.3" y2="260.0" stroke="var(--hairline)" stroke-width="1"/><line x1="121.3" y1="260.0" x2="155.6" y2="216.7" stroke="var(--hairline)" stroke-width="1"/><line x1="155.6" y1="216.7" x2="137.7" y2="137.7" stroke="var(--hairline)" stroke-width="1"/><line x1="137.7" y1="137.7" x2="203.6" y2="124.0" stroke="var(--hairline)" stroke-width="1"/><line x1="203.6" y1="124.0" x2="260.0" y2="155.5" stroke="var(--hairline)" stroke-width="1"/><line x1="260.0" y1="155.5" x2="329.4" y2="427.6" stroke="var(--hairline)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.7"/><line x1="358.1" y1="161.9" x2="186.1" y2="333.9" stroke="var(--hairline)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.7"/><line x1="432.9" y1="260.0" x2="155.6" y2="216.7" stroke="var(--hairline)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.7"/><line x1="346.0" y1="346.0" x2="322.9" y2="108.2" stroke="var(--hairline)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.7"/><line x1="210.2" y1="380.2" x2="203.6" y2="124.0" stroke="var(--hairline)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.7"/><line x1="108.2" y1="322.9" x2="364.4" y2="216.7" stroke="var(--hairline)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.7"/><line x1="396.0" y1="316.4" x2="121.3" y2="260.0" stroke="var(--hairline)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.7"/><line x1="260.0" y1="415.8" x2="137.7" y2="137.7" stroke="var(--hairline)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.7"/><line x1="260" y1="260" x2="260.0" y2="155.5" stroke="#3E5C9A" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="322.9" y2="108.2" stroke="#2B7A78" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="358.1" y2="161.9" stroke="#B85C6B" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="364.4" y2="216.7" stroke="#B8813A" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="432.9" y2="260.0" stroke="#7A5AA8" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="396.0" y2="316.4" stroke="#2E7DA8" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="346.0" y2="346.0" stroke="#5E8A5A" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="329.4" y2="427.6" stroke="#A05A3C" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="260.0" y2="415.8" stroke="#8A5478" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="210.2" y2="380.2" stroke="#2E7A82" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="186.1" y2="333.9" stroke="#3E5A9E" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="108.2" y2="322.9" stroke="#B85040" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="121.3" y2="260.0" stroke="#2F8272" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="155.6" y2="216.7" stroke="#96872E" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="137.7" y2="137.7" stroke="#B0632E" stroke-width="0.6" opacity="0.35"/><line x1="260" y1="260" x2="203.6" y2="124.0" stroke="#4E7A3E" stroke-width="0.6" opacity="0.35"/></g>
+<g><circle class="hv-node" cx="260.0" cy="155.5" r="5.0" fill="#3E5C9A" opacity="0.88"/><circle class="hv-node" cx="322.9" cy="108.2" r="6.6" fill="#2B7A78" opacity="0.88"/><circle class="hv-node" cx="358.1" cy="161.9" r="8.2" fill="#B85C6B" opacity="0.88"/><circle class="hv-node" cx="364.4" cy="216.7" r="5.0" fill="#B8813A" opacity="0.88"/><circle class="hv-node" cx="432.9" cy="260.0" r="6.6" fill="#7A5AA8" opacity="0.88"/><circle class="hv-node" cx="396.0" cy="316.4" r="8.2" fill="#2E7DA8" opacity="0.88"/><circle class="hv-node" cx="346.0" cy="346.0" r="5.0" fill="#5E8A5A" opacity="0.88"/><circle class="hv-node" cx="329.4" cy="427.6" r="6.6" fill="#A05A3C" opacity="0.88"/><circle class="hv-node" cx="260.0" cy="415.8" r="8.2" fill="#8A5478" opacity="0.88"/><circle class="hv-node" cx="210.2" cy="380.2" r="5.0" fill="#2E7A82" opacity="0.88"/><circle class="hv-node" cx="186.1" cy="333.9" r="6.6" fill="#3E5A9E" opacity="0.88"/><circle class="hv-node" cx="108.2" cy="322.9" r="8.2" fill="#B85040" opacity="0.88"/><circle class="hv-node" cx="121.3" cy="260.0" r="5.0" fill="#2F8272" opacity="0.88"/><circle class="hv-node" cx="155.6" cy="216.7" r="6.6" fill="#96872E" opacity="0.88"/><circle class="hv-node" cx="137.7" cy="137.7" r="8.2" fill="#B0632E" opacity="0.88"/><circle class="hv-node" cx="203.6" cy="124.0" r="5.0" fill="#4E7A3E" opacity="0.88"/></g>
+<circle cx="260" cy="260" r="34" fill="var(--bg-surface)" stroke="var(--gold)" stroke-width="1.3"/>
+<circle cx="260" cy="260" r="34" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.3"><animate attributeName="r" values="34;42;34" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0;0.3" dur="6s" repeatCount="indefinite"/></circle>
+<text x="260" y="256" text-anchor="middle" font-family="Fraunces, serif" font-size="20" fill="var(--ink-1)" font-weight="500">24</text>
+<text x="260" y="273" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" letter-spacing="0.05em" fill="var(--ink-3)">DOMAIN</text>
+</svg></div>
+  </div>
+</section>
+
+<!-- ============ ATLAS METRICS ============ -->
+<div class="metrics">
+  <div class="metrics-grid">
+    <div class="metric reveal" style="--metric-accent:#3E5C9A;"><div class="num">24</div><div class="lbl">Domain Kecerdasan</div><div class="desc">Wilayah kemampuan manusia, dari berpikir hingga mewariskan makna.</div></div>
+    <div class="metric reveal" style="--metric-accent:#8A5478;"><div class="num">288</div><div class="lbl">Kompetensi Terpetakan</div><div class="desc">Setiap satu bisa dikenali, dilatih, dan dikembangkan secara sadar.</div></div>
+    <div class="metric reveal" style="--metric-accent:#557D51;"><div class="num">6</div><div class="lbl">Tingkat Prioritas</div><div class="desc">Dari fondasi paling dasar hingga eksekusi praktis sehari-hari.</div></div>
+    <div class="metric reveal" style="--metric-accent:#A9822F;"><div class="num">24</div><div class="lbl">Langkah Urutan Belajar</div><div class="desc">Jalur yang disarankan dari mengenal diri hingga warisan hidup.</div></div>
+  </div>
+</div>
+
+<!-- ============ WHAT'S NEW ============ -->
+<div class="whatsnew">
+  <div class="whatsnew-inner reveal">
+    <div class="whatsnew-copy">
+      <span class="eyebrow">EDISI DIPERLUAS</span>
+      <div class="headline">Apa yang baru dari peta aslinya — tak satu pun dikurangi, hanya ditambahkan.</div>
+    </div>
+    <div class="whatsnew-stats">
+      <div class="whatsnew-stat"><div class="num">+2</div><div class="lbl">Domain baru<br>(23 &amp; 24)</div></div>
+      <div class="whatsnew-stat"><div class="num">+68</div><div class="lbl">Kompetensi baru<br>ditambahkan</div></div>
+      <div class="whatsnew-stat"><div class="num">220→288</div><div class="lbl">Total kompetensi<br>terpetakan</div></div>
+      <div class="whatsnew-stat"><div class="num">20→24</div><div class="lbl">Langkah urutan<br>belajar</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ THE MAP ============ -->
+<section class="atlas-map-section">
+  <div class="map-wrap">
+    <div class="section-head" style="padding:0;">
+      <span class="eyebrow">THE MAP</span>
+      <h2>Dua Puluh Empat Domain, Satu Sistem</h2>
+      <p>Sebelum masuk ke setiap domain, lihat dulu bagaimana semuanya saling terhubung. Ketuk sebuah titik untuk langsung menuju domain tersebut.</p>
+    </div>
+    <div class="map-visual reveal"><svg viewBox="0 0 600 600" role="img" aria-label="Peta radial 24 domain manusia, dapat diklik untuk menuju setiap domain">
+<circle cx="300" cy="300" r="235" fill="none" stroke="var(--hairline)" stroke-width="1"/><circle cx="300" cy="300" r="129" fill="none" stroke="var(--hairline)" stroke-width="1" stroke-dasharray="2 5"/>
+<g><line x1="300" y1="300" x2="300.0" y2="65.0" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="360.8" y2="73.0" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="417.5" y2="96.5" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="466.2" y2="133.8" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="503.5" y2="182.5" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="527.0" y2="239.2" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="535.0" y2="300.0" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="527.0" y2="360.8" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="503.5" y2="417.5" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="466.2" y2="466.2" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="417.5" y2="503.5" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="360.8" y2="527.0" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="300.0" y2="535.0" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="239.2" y2="527.0" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="182.5" y2="503.5" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="133.8" y2="466.2" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="96.5" y2="417.5" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="73.0" y2="360.8" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="65.0" y2="300.0" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="73.0" y2="239.2" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="96.5" y2="182.5" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="133.8" y2="133.8" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="182.5" y2="96.5" stroke="var(--hairline)" stroke-width="0.75"/><line x1="300" y1="300" x2="239.2" y2="73.0" stroke="var(--hairline)" stroke-width="0.75"/></g>
+<g><a href="#domain-1" class="map-node" aria-label="Domain 1: KOGNITIF &amp; INTELEKTUAL"><circle cx="300.0" cy="65.0" r="15" fill="#EEF1F9" stroke="#3E5C9A" stroke-width="1.3"/><text x="300.0" y="69.0" text-anchor="middle" font-size="10.5" fill="#3E5C9A" font-weight="600">1</text></a><a href="#domain-2" class="map-node" aria-label="Domain 2: BAHASA &amp; KOMUNIKASI"><circle cx="360.8" cy="73.0" r="15" fill="#EAF4F3" stroke="#2B7A78" stroke-width="1.3"/><text x="360.8" y="77.0" text-anchor="middle" font-size="10.5" fill="#2B7A78" font-weight="600">2</text></a><a href="#domain-3" class="map-node" aria-label="Domain 3: EMOSIONAL"><circle cx="417.5" cy="96.5" r="15" fill="#F7EEEF" stroke="#B85C6B" stroke-width="1.3"/><text x="417.5" y="100.5" text-anchor="middle" font-size="10.5" fill="#B85C6B" font-weight="600">3</text></a><a href="#domain-4" class="map-node" aria-label="Domain 4: SOSIAL &amp; INTERPERSONAL"><circle cx="466.2" cy="133.8" r="15" fill="#F8F1E7" stroke="#B8813A" stroke-width="1.3"/><text x="466.2" y="137.8" text-anchor="middle" font-size="10.5" fill="#B8813A" font-weight="600">4</text></a><a href="#domain-5" class="map-node" aria-label="Domain 5: KREATIVITAS &amp; INOVASI"><circle cx="503.5" cy="182.5" r="15" fill="#F2EEF7" stroke="#7A5AA8" stroke-width="1.3"/><text x="503.5" y="186.5" text-anchor="middle" font-size="10.5" fill="#7A5AA8" font-weight="600">5</text></a><a href="#domain-6" class="map-node" aria-label="Domain 6: PRAKTIS &amp; EKSEKUSI"><circle cx="527.0" cy="239.2" r="15" fill="#EAF3F7" stroke="#2E7DA8" stroke-width="1.3"/><text x="527.0" y="243.2" text-anchor="middle" font-size="10.5" fill="#2E7DA8" font-weight="600">6</text></a><a href="#domain-7" class="map-node" aria-label="Domain 7: ADAPTASI &amp; KETAHANAN"><circle cx="535.0" cy="300.0" r="15" fill="#EFF4EE" stroke="#5E8A5A" stroke-width="1.3"/><text x="535.0" y="304.0" text-anchor="middle" font-size="10.5" fill="#5E8A5A" font-weight="600">7</text></a><a href="#domain-8" class="map-node" aria-label="Domain 8: MORAL &amp; KARAKTER"><circle cx="527.0" cy="360.8" r="15" fill="#F6EEE8" stroke="#A05A3C" stroke-width="1.3"/><text x="527.0" y="364.8" text-anchor="middle" font-size="10.5" fill="#A05A3C" font-weight="600">8</text></a><a href="#domain-9" class="map-node" aria-label="Domain 9: SPIRITUAL &amp; MAKNA"><circle cx="503.5" cy="417.5" r="15" fill="#F5EEF3" stroke="#8A5478" stroke-width="1.3"/><text x="503.5" y="421.5" text-anchor="middle" font-size="10.5" fill="#8A5478" font-weight="600">9</text></a><a href="#domain-10" class="map-node" aria-label="Domain 10: BUDAYA &amp; GLOBAL"><circle cx="466.2" cy="466.2" r="15" fill="#EAF4F4" stroke="#2E7A82" stroke-width="1.3"/><text x="466.2" y="470.2" text-anchor="middle" font-size="10.5" fill="#2E7A82" font-weight="600">10</text></a><a href="#domain-11" class="map-node" aria-label="Domain 11: TEKNOLOGI &amp; DIGITAL"><circle cx="417.5" cy="503.5" r="15" fill="#EDF0F9" stroke="#3E5A9E" stroke-width="1.3"/><text x="417.5" y="507.5" text-anchor="middle" font-size="10.5" fill="#3E5A9E" font-weight="600">11</text></a><a href="#domain-12" class="map-node" aria-label="Domain 12: FISIK &amp; KESEHATAN"><circle cx="360.8" cy="527.0" r="15" fill="#F7EDEA" stroke="#B85040" stroke-width="1.3"/><text x="360.8" y="531.0" text-anchor="middle" font-size="10.5" fill="#B85040" font-weight="600">12</text></a><a href="#domain-13" class="map-node" aria-label="Domain 13: SPASIAL &amp; VISUAL"><circle cx="300.0" cy="535.0" r="15" fill="#EAF4F1" stroke="#2F8272" stroke-width="1.3"/><text x="300.0" y="539.0" text-anchor="middle" font-size="10.5" fill="#2F8272" font-weight="600">13</text></a><a href="#domain-14" class="map-node" aria-label="Domain 14: FINANSIAL &amp; KEKAYAAN"><circle cx="239.2" cy="527.0" r="15" fill="#F6F4E9" stroke="#96872E" stroke-width="1.3"/><text x="239.2" y="531.0" text-anchor="middle" font-size="10.5" fill="#96872E" font-weight="600">14</text></a><a href="#domain-15" class="map-node" aria-label="Domain 15: KINESTETIK &amp; GERAK TUBUH"><circle cx="182.5" cy="503.5" r="15" fill="#F7F0E7" stroke="#B0632E" stroke-width="1.3"/><text x="182.5" y="507.5" text-anchor="middle" font-size="10.5" fill="#B0632E" font-weight="600">15</text></a><a href="#domain-16" class="map-node" aria-label="Domain 16: NATURALIS &amp; EKOLOGIS"><circle cx="133.8" cy="466.2" r="15" fill="#EEF4EA" stroke="#4E7A3E" stroke-width="1.3"/><text x="133.8" y="470.2" text-anchor="middle" font-size="10.5" fill="#4E7A3E" font-weight="600">16</text></a><a href="#domain-17" class="map-node" aria-label="Domain 17: MUSIKAL &amp; ESTETIKA"><circle cx="96.5" cy="417.5" r="15" fill="#F4EEF4" stroke="#8A5488" stroke-width="1.3"/><text x="96.5" y="421.5" text-anchor="middle" font-size="10.5" fill="#8A5488" font-weight="600">17</text></a><a href="#domain-18" class="map-node" aria-label="Domain 18: EKSISTENSIAL &amp; FILOSOFIS"><circle cx="73.0" cy="360.8" r="15" fill="#EDEFF6" stroke="#3A4A7A" stroke-width="1.3"/><text x="73.0" y="364.8" text-anchor="middle" font-size="10.5" fill="#3A4A7A" font-weight="600">18</text></a><a href="#domain-19" class="map-node" aria-label="Domain 19: KEPEMIMPINAN &amp; PENGARUH"><circle cx="65.0" cy="300.0" r="15" fill="#E9F1F3" stroke="#245E6E" stroke-width="1.3"/><text x="65.0" y="304.0" text-anchor="middle" font-size="10.5" fill="#245E6E" font-weight="600">19</text></a><a href="#domain-20" class="map-node" aria-label="Domain 20: INTUISI &amp; KESADARAN MENDALAM"><circle cx="73.0" cy="239.2" r="15" fill="#F3EEF4" stroke="#78507E" stroke-width="1.3"/><text x="73.0" y="243.2" text-anchor="middle" font-size="10.5" fill="#78507E" font-weight="600">20</text></a><a href="#domain-21" class="map-node" aria-label="Domain 21: KARIER, KEWIRAUSAHAAN &amp; KONTRIBUSI"><circle cx="96.5" cy="182.5" r="15" fill="#F7F1E7" stroke="#A8632E" stroke-width="1.3"/><text x="96.5" y="186.5" text-anchor="middle" font-size="10.5" fill="#A8632E" font-weight="600">21</text></a><a href="#domain-22" class="map-node" aria-label="Domain 22: KELUARGA &amp; PENGASUHAN"><circle cx="133.8" cy="133.8" r="15" fill="#F6EEEF" stroke="#A0525E" stroke-width="1.3"/><text x="133.8" y="137.8" text-anchor="middle" font-size="10.5" fill="#A0525E" font-weight="600">22</text></a><a href="#domain-23" class="map-node" aria-label="Domain 23: RELASIONAL &amp; KEINTIMAN"><circle cx="182.5" cy="96.5" r="15" fill="#F5EDEE" stroke="#9C4E58" stroke-width="1.3"/><text x="182.5" y="100.5" text-anchor="middle" font-size="10.5" fill="#9C4E58" font-weight="600">23</text></a><a href="#domain-24" class="map-node" aria-label="Domain 24: INTEGRASI &amp; KEBIJAKSANAAN HIDUP"><circle cx="239.2" cy="73.0" r="15" fill="#F1EEF6" stroke="#6B5AA0" stroke-width="1.3"/><text x="239.2" y="77.0" text-anchor="middle" font-size="10.5" fill="#6B5AA0" font-weight="600">24</text></a></g>
+<circle cx="300" cy="300" r="46" fill="var(--bg-surface)" stroke="#6B5AA0" stroke-width="1.5"/>
+<text x="300" y="294" text-anchor="middle" font-family="Fraunces, serif" font-size="15" fill="var(--ink-1)">Atlas</text>
+<text x="300" y="312" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--ink-3)">24 DOMAIN</text>
+</svg></div>
+    <div class="map-legend"><span><i style="background:#3E5C9A"></i>DIRI &amp; RELASI DASAR</span><span><i style="background:#7A5AA8"></i>MENCIPTA &amp; BERTAHAN</span><span><i style="background:#2E7A82"></i>DUNIA &amp; SUMBER DAYA</span><span><i style="background:#B0632E"></i>GERAK &amp; PENGARUH</span><span><i style="background:#78507E"></i>KESADARAN &amp; INTEGRASI</span></div>
+  </div>
+</section>
+
+<!-- ============ DOMAIN SECTION (1-23) ============ -->
+<div class="section-head">
+  <span class="eyebrow">01 — 24</span>
+  <h2>Dua Puluh Empat Domain Manusia</h2>
+  <p>Disusun dari yang paling mendasar (berpikir, merasa, berkomunikasi) hingga yang paling terintegrasi (kepemimpinan, warisan, dan makna hidup). Kompetensi bertanda <span class="hl">baru</span> adalah tambahan pada edisi ini. Setiap domain berisi kompetensi yang bisa dikenali, dilatih, dan dikembangkan.</p>
+</div>
+
+<div class="domain-group-label reveal"><span class="tag">DIRI &amp; RELASI DASAR</span><span class="rule"></span></div>
+<div class="domain-grid"><article class="domain-card reveal" style="--accent:#3E5C9A;--text:#3E5C9A;--tint:#EEF1F9;" id="domain-1">
+  <div class="domain-head">
+    <div class="domain-num">01</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 L21 19 H3 Z"/><path d="M12 3 V19"/><path d="M7.2 11 H16.8"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 01 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>KOGNITIF &amp; INTELEKTUAL</h3>
+    <div class="tagline">Berpikir, memahami, menganalisis, dan memecahkan masalah.</div>
+  </div>
+  <div class="domain-meaning">kemampuan berpikir itu sendiri — mesin di balik semua domain lain. Tanpa ini, kompetensi lain tidak punya alat untuk bekerja.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">1</span><div class="comp-body"><span class="comp-name">IQ (Intelligence Quotient)</span><span class="comp-meaning">ukuran kasar seberapa cepat dan tepat kamu memproses informasi baru.</span></div></li><li class=""><span class="n">2</span><div class="comp-body"><span class="comp-name">Gf (Fluid Intelligence)</span><span class="comp-meaning">kemampuan memecahkan masalah baru tanpa bergantung pada pengalaman sebelumnya.</span></div></li><li class=""><span class="n">3</span><div class="comp-body"><span class="comp-name">Gc (Crystallized Intelligence)</span><span class="comp-meaning">kemampuan memakai pengetahuan dan pengalaman yang sudah terkumpul selama hidup.</span></div></li><li class=""><span class="n">4</span><div class="comp-body"><span class="comp-name">Critical Thinking</span><span class="comp-meaning">menguji apakah sebuah klaim benar-benar masuk akal sebelum mempercayainya.</span></div></li><li class=""><span class="n">5</span><div class="comp-body"><span class="comp-name">Analytical Thinking</span><span class="comp-meaning">memecah masalah besar menjadi bagian-bagian kecil yang bisa dipahami satu per satu.</span></div></li><li class=""><span class="n">6</span><div class="comp-body"><span class="comp-name">Metacognition</span><span class="comp-meaning">menyadari bagaimana caramu sendiri berpikir, bukan hanya apa yang kamu pikirkan.</span></div></li><li class=""><span class="n">7</span><div class="comp-body"><span class="comp-name">Systems Thinking</span><span class="comp-meaning">melihat bagaimana banyak bagian saling memengaruhi, bukan menilai satu bagian secara terpisah.</span></div></li><li class=""><span class="n">8</span><div class="comp-body"><span class="comp-name">Decision Making</span><span class="comp-meaning">memilih tindakan terbaik di tengah informasi yang tidak pernah lengkap.</span></div></li><li class=""><span class="n">9</span><div class="comp-body"><span class="comp-name">Problem Solving</span><span class="comp-meaning">mengubah situasi yang membingungkan menjadi langkah-langkah yang bisa dikerjakan.</span></div></li><li class=""><span class="n">10</span><div class="comp-body"><span class="comp-name">Logical Reasoning</span><span class="comp-meaning">menarik kesimpulan yang benar-benar mengikuti dari fakta yang ada, bukan dari asumsi.</span></div></li><li class="added"><span class="n">10a</span><div class="comp-body"><span class="comp-name">Cognitive Bias Awareness<span class="new-pill">baru</span></span><span class="comp-meaning">mengenali kapan pikiranmu sendiri menipumu lewat jalan pintas berpikir yang keliru.</span></div></li><li class="added"><span class="n">10b</span><div class="comp-body"><span class="comp-name">Abstract Reasoning<span class="new-pill">baru</span></span><span class="comp-meaning">berpikir dengan pola dan konsep, bukan hanya dengan hal-hal yang bisa dilihat langsung.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#2B7A78;--text:#2B7A78;--tint:#EAF4F3;" id="domain-2">
+  <div class="domain-head">
+    <div class="domain-num">02</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h3l2-7 3 14 3-11 2 7 3-3h4"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 02 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>BAHASA &amp; KOMUNIKASI</h3>
+    <div class="tagline">Menyampaikan, menerima, dan mempengaruhi.</div>
+  </div>
+  <div class="domain-meaning">menjembatani apa yang ada di kepalamu dengan apa yang dipahami orang lain — tanpa ini, kemampuan berpikir sehebat apa pun tidak sampai ke siapa-siapa.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">11</span><div class="comp-body"><span class="comp-name">Linguistic Intelligence</span><span class="comp-meaning">kepekaan alami terhadap struktur dan makna bahasa.</span></div></li><li class=""><span class="n">12</span><div class="comp-body"><span class="comp-name">Communication</span><span class="comp-meaning">menyampaikan maksud secara jelas sehingga tidak disalahpahami.</span></div></li><li class=""><span class="n">13</span><div class="comp-body"><span class="comp-name">Public Speaking</span><span class="comp-meaning">menyampaikan gagasan di depan banyak orang dengan percaya diri dan terstruktur.</span></div></li><li class=""><span class="n">14</span><div class="comp-body"><span class="comp-name">Active Listening</span><span class="comp-meaning">benar-benar menyimak, bukan sekadar menunggu giliran bicara.</span></div></li><li class=""><span class="n">15</span><div class="comp-body"><span class="comp-name">Writing</span><span class="comp-meaning">menuangkan pikiran ke dalam tulisan yang runtut dan bisa dipahami.</span></div></li><li class=""><span class="n">16</span><div class="comp-body"><span class="comp-name">Negotiation</span><span class="comp-meaning">mencari titik temu yang menguntungkan kedua pihak, bukan sekadar menang.</span></div></li><li class=""><span class="n">17</span><div class="comp-body"><span class="comp-name">Persuasion</span><span class="comp-meaning">mengajak orang lain melihat sudut pandangmu dengan cara yang jujur dan meyakinkan.</span></div></li><li class=""><span class="n">18</span><div class="comp-body"><span class="comp-name">Storytelling</span><span class="comp-meaning">mengemas pesan dalam bentuk cerita agar lebih mudah diingat dan menyentuh.</span></div></li><li class=""><span class="n">19</span><div class="comp-body"><span class="comp-name">Multilingualism</span><span class="comp-meaning">kemampuan berpindah antar bahasa untuk menjangkau lebih banyak orang.</span></div></li><li class=""><span class="n">20</span><div class="comp-body"><span class="comp-name">Verbal &amp; Nonverbal Communication</span><span class="comp-meaning">menyelaraskan kata-kata dengan nada suara, ekspresi, dan bahasa tubuh.</span></div></li><li class="added"><span class="n">20a</span><div class="comp-body"><span class="comp-name">Deep Listening &amp; Silence<span class="new-pill">baru</span></span><span class="comp-meaning">memberi ruang diam agar orang lain merasa benar-benar didengar, bukan buru-buru direspons.</span></div></li><li class="added"><span class="n">20b</span><div class="comp-body"><span class="comp-name">Cross-Generational Communication<span class="new-pill">baru</span></span><span class="comp-meaning">menyesuaikan cara bicara agar tersambung lintas usia dan cara pandang.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#B85C6B;--text:#AB5563;--tint:#F7EEEF;" id="domain-3">
+  <div class="domain-head">
+    <div class="domain-num">03</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5c-4-2.6-8-5.9-8-10A4.7 4.7 0 0 1 12 7a4.7 4.7 0 0 1 8 3.5c0 4.1-4 7.4-8 10z"/><path d="M7 11.5h2l1.3-2 1.6 3.5 1.1-1.5h3"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 03 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>EMOSIONAL</h3>
+    <div class="tagline">Mengenali, mengelola, dan menyeimbangkan emosi.</div>
+  </div>
+  <div class="domain-meaning">mengenali dan mengelola dunia batinmu sendiri — fondasi supaya emosi menjadi alat, bukan menjadi majikan.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">21</span><div class="comp-body"><span class="comp-name">EQ (Emotional Quotient)</span><span class="comp-meaning">ukuran seberapa baik kamu memahami dan mengatur emosi diri sendiri dan orang lain.</span></div></li><li class=""><span class="n">22</span><div class="comp-body"><span class="comp-name">EI (Emotional Intelligence)</span><span class="comp-meaning">kemampuan menggunakan pemahaman emosi itu secara praktis dalam relasi sehari-hari.</span></div></li><li class=""><span class="n">23</span><div class="comp-body"><span class="comp-name">Self-Awareness</span><span class="comp-meaning">mengenali apa yang sedang kamu rasakan, saat kamu merasakannya.</span></div></li><li class=""><span class="n">24</span><div class="comp-body"><span class="comp-name">Self-Regulation</span><span class="comp-meaning">menahan reaksi impulsif dan memilih respons yang lebih tepat.</span></div></li><li class=""><span class="n">25</span><div class="comp-body"><span class="comp-name">Motivation</span><span class="comp-meaning">dorongan dari dalam diri untuk terus bergerak menuju tujuan, bukan menunggu dorongan dari luar.</span></div></li><li class=""><span class="n">26</span><div class="comp-body"><span class="comp-name">Empathy</span><span class="comp-meaning">merasakan dan memahami apa yang dialami orang lain dari sudut pandang mereka.</span></div></li><li class=""><span class="n">27</span><div class="comp-body"><span class="comp-name">Emotional Control</span><span class="comp-meaning">tidak membiarkan emosi sesaat mengambil alih keputusan penting.</span></div></li><li class=""><span class="n">28</span><div class="comp-body"><span class="comp-name">Stress Management</span><span class="comp-meaning">menjaga diri tetap berfungsi baik saat tekanan meningkat.</span></div></li><li class=""><span class="n">29</span><div class="comp-body"><span class="comp-name">Resilience</span><span class="comp-meaning">bangkit kembali setelah gagal atau terpuruk, bukan menghindari jatuh sama sekali.</span></div></li><li class=""><span class="n">30</span><div class="comp-body"><span class="comp-name">Positive Thinking</span><span class="comp-meaning">memilih memaknai situasi secara konstruktif tanpa menyangkal kenyataan.</span></div></li><li class="added"><span class="n">30a</span><div class="comp-body"><span class="comp-name">Emotional Granularity<span class="new-pill">baru</span></span><span class="comp-meaning">mampu membedakan emosi secara halus, bukan hanya "senang" atau "sedih".</span></div></li><li class="added"><span class="n">30b</span><div class="comp-body"><span class="comp-name">Grief Processing<span class="new-pill">baru</span></span><span class="comp-meaning">memberi ruang dan waktu bagi diri untuk melalui kehilangan tanpa memendamnya.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#B8813A;--text:#986B30;--tint:#F8F1E7;" id="domain-4">
+  <div class="domain-head">
+    <div class="domain-num">04</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M8 8.3 10.3 16M16 8.3 13.7 16M8.2 7h7.6"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 04 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>SOSIAL &amp; INTERPERSONAL</h3>
+    <div class="tagline">Memahami orang lain, membangun hubungan.</div>
+  </div>
+  <div class="domain-meaning">membangun dan menjaga hubungan dengan orang lain — karena hampir semua hal berharga dalam hidup terjadi bersama manusia lain.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">31</span><div class="comp-body"><span class="comp-name">SI (Social Intelligence)</span><span class="comp-meaning">kepekaan membaca dinamika sosial dalam suatu kelompok atau situasi.</span></div></li><li class=""><span class="n">32</span><div class="comp-body"><span class="comp-name">Interpersonal Intelligence</span><span class="comp-meaning">kemampuan memahami dan berinteraksi secara efektif dengan orang lain satu per satu.</span></div></li><li class=""><span class="n">33</span><div class="comp-body"><span class="comp-name">Empathy</span><span class="comp-meaning">merasakan dan memahami apa yang dialami orang lain dari sudut pandang mereka.</span></div></li><li class=""><span class="n">34</span><div class="comp-body"><span class="comp-name">Social Skills</span><span class="comp-meaning">keterampilan praktis menjalin dan menjaga interaksi sosial sehari-hari.</span></div></li><li class=""><span class="n">35</span><div class="comp-body"><span class="comp-name">Conflict Resolution</span><span class="comp-meaning">menyelesaikan perselisihan tanpa merusak hubungan.</span></div></li><li class=""><span class="n">36</span><div class="comp-body"><span class="comp-name">Teamwork</span><span class="comp-meaning">memainkan peranmu dengan baik dalam sebuah tim, bukan bekerja sendiri-sendiri.</span></div></li><li class=""><span class="n">37</span><div class="comp-body"><span class="comp-name">Networking</span><span class="comp-meaning">memperluas dan merawat jaringan relasi yang saling menguntungkan.</span></div></li><li class=""><span class="n">38</span><div class="comp-body"><span class="comp-name">Cultural Sensitivity</span><span class="comp-meaning">kepekaan menghormati perbedaan latar belakang budaya orang lain.</span></div></li><li class=""><span class="n">39</span><div class="comp-body"><span class="comp-name">Trust Building</span><span class="comp-meaning">menjadi orang yang bisa diandalkan sehingga orang lain berani bergantung padamu.</span></div></li><li class=""><span class="n">40</span><div class="comp-body"><span class="comp-name">Relationship Management</span><span class="comp-meaning">mengelola dinamika hubungan agar tetap sehat dan berkelanjutan.</span></div></li><li class="added"><span class="n">40a</span><div class="comp-body"><span class="comp-name">Boundary Setting<span class="new-pill">baru</span></span><span class="comp-meaning">menetapkan batas yang sehat tanpa merasa bersalah.</span></div></li><li class="added"><span class="n">40b</span><div class="comp-body"><span class="comp-name">Reading Social Cues<span class="new-pill">baru</span></span><span class="comp-meaning">menangkap sinyal tak terucap dalam interaksi, seperti nada atau bahasa tubuh.</span></div></li></ul>
+</article></div>
+<div class="domain-group-label reveal"><span class="tag">MENCIPTA &amp; BERTAHAN</span><span class="rule"></span></div>
+<div class="domain-grid"><article class="domain-card reveal" style="--accent:#7A5AA8;--text:#7A5AA8;--tint:#F2EEF7;" id="domain-5">
+  <div class="domain-head">
+    <div class="domain-num">05</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5M5 5l3.5 3.5M15.5 15.5 19 19M19 5l-3.5 3.5M8.5 15.5 5 19"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 05 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>KREATIVITAS &amp; INOVASI</h3>
+    <div class="tagline">Melihat kemungkinan baru, mencipta solusi.</div>
+  </div>
+  <div class="domain-meaning">kemampuan menciptakan sesuatu yang baru — mengubah keterbatasan menjadi kemungkinan.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">41</span><div class="comp-body"><span class="comp-name">CI (Creative Intelligence)</span><span class="comp-meaning">kapasitas dasar untuk menghasilkan gagasan yang baru dan bernilai.</span></div></li><li class=""><span class="n">42</span><div class="comp-body"><span class="comp-name">Divergent Thinking</span><span class="comp-meaning">memunculkan banyak kemungkinan jawaban, bukan langsung terpaku pada satu solusi.</span></div></li><li class=""><span class="n">43</span><div class="comp-body"><span class="comp-name">Convergent Thinking</span><span class="comp-meaning">menyaring banyak ide menjadi satu solusi terbaik yang bisa dijalankan.</span></div></li><li class=""><span class="n">44</span><div class="comp-body"><span class="comp-name">Idea Generation</span><span class="comp-meaning">kemampuan terus memunculkan gagasan baru secara aktif.</span></div></li><li class=""><span class="n">45</span><div class="comp-body"><span class="comp-name">Design Thinking</span><span class="comp-meaning">menyelesaikan masalah dengan berangkat dari kebutuhan nyata orang yang akan memakainya.</span></div></li><li class=""><span class="n">46</span><div class="comp-body"><span class="comp-name">Imagination</span><span class="comp-meaning">membayangkan hal yang belum ada sebagai bahan mentah untuk menciptakan sesuatu.</span></div></li><li class=""><span class="n">47</span><div class="comp-body"><span class="comp-name">Innovation</span><span class="comp-meaning">mengubah ide kreatif menjadi sesuatu yang benar-benar baru dan berguna.</span></div></li><li class=""><span class="n">48</span><div class="comp-body"><span class="comp-name">Aesthetic Sense</span><span class="comp-meaning">kepekaan merasakan apa yang indah dan harmonis.</span></div></li><li class=""><span class="n">49</span><div class="comp-body"><span class="comp-name">Originality</span><span class="comp-meaning">berani menghasilkan sesuatu yang benar-benar milikmu, bukan tiruan.</span></div></li><li class=""><span class="n">50</span><div class="comp-body"><span class="comp-name">Flexibility</span><span class="comp-meaning">mudah menyesuaikan pendekatan kreatif saat situasi berubah.</span></div></li><li class="added"><span class="n">50a</span><div class="comp-body"><span class="comp-name">Improvisation<span class="new-pill">baru</span></span><span class="comp-meaning">menciptakan solusi secara spontan saat rencana tidak berjalan sesuai perkiraan.</span></div></li><li class="added"><span class="n">50b</span><div class="comp-body"><span class="comp-name">Playful Experimentation<span class="new-pill">baru</span></span><span class="comp-meaning">mencoba hal baru dengan ringan tanpa takut salah, seperti bermain.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#2E7DA8;--text:#2E7DA8;--tint:#EAF3F7;" id="domain-6">
+  <div class="domain-head">
+    <div class="domain-num">06</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 06 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>PRAKTIS &amp; EKSEKUSI</h3>
+    <div class="tagline">Mengubah rencana jadi tindakan.</div>
+  </div>
+  <div class="domain-meaning">mengubah rencana dan niat baik menjadi hasil nyata — tempat semua ide akhirnya diuji oleh kenyataan.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">51</span><div class="comp-body"><span class="comp-name">PI (Practical Intelligence)</span><span class="comp-meaning">kecerdasan menyelesaikan masalah nyata sehari-hari, bukan hanya teori.</span></div></li><li class=""><span class="n">52</span><div class="comp-body"><span class="comp-name">Adaptability</span><span class="comp-meaning">menyesuaikan cara kerja saat kondisi di lapangan berubah dari rencana.</span></div></li><li class=""><span class="n">53</span><div class="comp-body"><span class="comp-name">Productivity</span><span class="comp-meaning">menghasilkan output nyata dari usaha yang dikeluarkan.</span></div></li><li class=""><span class="n">54</span><div class="comp-body"><span class="comp-name">Time Management</span><span class="comp-meaning">mengatur waktu agar hal-hal penting benar-benar dikerjakan.</span></div></li><li class=""><span class="n">55</span><div class="comp-body"><span class="comp-name">Execution</span><span class="comp-meaning">menyelesaikan apa yang sudah direncanakan, bukan berhenti di tahap niat.</span></div></li><li class=""><span class="n">56</span><div class="comp-body"><span class="comp-name">Project Management</span><span class="comp-meaning">mengelola banyak bagian pekerjaan agar selesai tepat waktu dan sesuai tujuan.</span></div></li><li class=""><span class="n">57</span><div class="comp-body"><span class="comp-name">Problem-Solving</span><span class="comp-meaning">mengubah situasi yang membingungkan menjadi langkah-langkah yang bisa dikerjakan.</span></div></li><li class=""><span class="n">58</span><div class="comp-body"><span class="comp-name">Resourcefulness</span><span class="comp-meaning">memaksimalkan apa yang ada, bukan menunggu sumber daya ideal.</span></div></li><li class=""><span class="n">59</span><div class="comp-body"><span class="comp-name">Organization</span><span class="comp-meaning">menata pekerjaan dan informasi agar mudah diakses dan dijalankan.</span></div></li><li class=""><span class="n">60</span><div class="comp-body"><span class="comp-name">Discipline</span><span class="comp-meaning">tetap konsisten menjalankan sesuatu meski motivasi sedang rendah.</span></div></li><li class="added"><span class="n">60a</span><div class="comp-body"><span class="comp-name">Prioritization<span class="new-pill">baru</span></span><span class="comp-meaning">memilih apa yang paling penting dikerjakan lebih dulu saat semua tampak mendesak.</span></div></li><li class="added"><span class="n">60b</span><div class="comp-body"><span class="comp-name">Follow-Through<span class="new-pill">baru</span></span><span class="comp-meaning">menyelesaikan sampai akhir, bukan hanya bersemangat di awal.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#5E8A5A;--text:#557D51;--tint:#EFF4EE;" id="domain-7">
+  <div class="domain-head">
+    <div class="domain-num">07</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.6 5.7L4 16"/><path d="M4 20v-4h4"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 07 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>ADAPTASI &amp; KETAHANAN</h3>
+    <div class="tagline">Bertahan, bangkit, berkembang.</div>
+  </div>
+  <div class="domain-meaning">kemampuan bertahan dan bangkit kembali saat hidup tidak berjalan sesuai rencana.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">61</span><div class="comp-body"><span class="comp-name">AQ (Adversity Quotient)</span><span class="comp-meaning">ukuran seberapa baik kamu merespons kesulitan, bukan menghindarinya.</span></div></li><li class=""><span class="n">62</span><div class="comp-body"><span class="comp-name">RQ (Resilience Quotient)</span><span class="comp-meaning">kapasitas pulih dan tumbuh setelah mengalami tekanan atau kegagalan.</span></div></li><li class=""><span class="n">63</span><div class="comp-body"><span class="comp-name">Flexibility</span><span class="comp-meaning">mudah menyesuaikan diri saat rencana atau keadaan berubah mendadak.</span></div></li><li class=""><span class="n">64</span><div class="comp-body"><span class="comp-name">Learning Agility</span><span class="comp-meaning">cepat mempelajari hal baru dan menerapkannya di situasi yang belum pernah dihadapi.</span></div></li><li class=""><span class="n">65</span><div class="comp-body"><span class="comp-name">Change Management</span><span class="comp-meaning">mengelola perubahan, baik pada diri sendiri maupun lingkungan sekitar, secara terarah.</span></div></li><li class=""><span class="n">66</span><div class="comp-body"><span class="comp-name">Grit</span><span class="comp-meaning">ketekunan jangka panjang mengejar tujuan meski menghadapi rintangan berulang.</span></div></li><li class=""><span class="n">67</span><div class="comp-body"><span class="comp-name">Perseverance</span><span class="comp-meaning">terus melangkah meski hasil belum terlihat.</span></div></li><li class=""><span class="n">68</span><div class="comp-body"><span class="comp-name">Coping Strategy</span><span class="comp-meaning">cara sehat menghadapi tekanan tanpa merusak diri sendiri.</span></div></li><li class=""><span class="n">69</span><div class="comp-body"><span class="comp-name">Stress Tolerance</span><span class="comp-meaning">kemampuan tetap berfungsi baik di bawah tekanan yang tinggi.</span></div></li><li class=""><span class="n">70</span><div class="comp-body"><span class="comp-name">Emotional Stability</span><span class="comp-meaning">menjaga kestabilan batin meski situasi di luar bergejolak.</span></div></li><li class="added"><span class="n">70a</span><div class="comp-body"><span class="comp-name">Uncertainty Tolerance<span class="new-pill">baru</span></span><span class="comp-meaning">tetap tenang dan bisa bertindak meski masa depan tidak jelas.</span></div></li><li class="added"><span class="n">70b</span><div class="comp-body"><span class="comp-name">Recovery Speed (Bounce-Back)<span class="new-pill">baru</span></span><span class="comp-meaning">seberapa cepat kamu kembali berfungsi normal setelah terpuruk.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#A05A3C;--text:#A05A3C;--tint:#F6EEE8;" id="domain-8">
+  <div class="domain-head">
+    <div class="domain-num">08</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13 13l-4.5 2.5L11 11z"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 08 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>MORAL &amp; KARAKTER</h3>
+    <div class="tagline">Membedakan yang benar dan yang salah.</div>
+  </div>
+  <div class="domain-meaning">nilai dan prinsip yang menjadi arah — menentukan bukan hanya apa yang bisa kamu lakukan, tapi apa yang seharusnya kamu lakukan.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">71</span><div class="comp-body"><span class="comp-name">MQ (Moral Quotient)</span><span class="comp-meaning">kapasitas menilai benar dan salah secara konsisten dalam bertindak.</span></div></li><li class=""><span class="n">72</span><div class="comp-body"><span class="comp-name">Moral Intelligence</span><span class="comp-meaning">kemampuan menerapkan prinsip etika dalam situasi nyata yang rumit.</span></div></li><li class=""><span class="n">73</span><div class="comp-body"><span class="comp-name">Integrity</span><span class="comp-meaning">selaras antara apa yang kamu katakan, yakini, dan lakukan.</span></div></li><li class=""><span class="n">74</span><div class="comp-body"><span class="comp-name">Responsibility</span><span class="comp-meaning">menanggung akibat dari pilihan dan tindakanmu sendiri.</span></div></li><li class=""><span class="n">75</span><div class="comp-body"><span class="comp-name">Courage</span><span class="comp-meaning">berani bertindak benar meski ada risiko atau ketakutan.</span></div></li><li class=""><span class="n">76</span><div class="comp-body"><span class="comp-name">Humility</span><span class="comp-meaning">mengakui keterbatasan diri tanpa merendahkan diri sendiri.</span></div></li><li class=""><span class="n">77</span><div class="comp-body"><span class="comp-name">Fairness</span><span class="comp-meaning">memperlakukan orang lain secara adil, bukan berdasarkan keberpihakan pribadi.</span></div></li><li class=""><span class="n">78</span><div class="comp-body"><span class="comp-name">Justice</span><span class="comp-meaning">membela apa yang benar, bahkan ketika tidak menguntungkan diri sendiri.</span></div></li><li class=""><span class="n">79</span><div class="comp-body"><span class="comp-name">Self-Control</span><span class="comp-meaning">mengendalikan dorongan agar sejalan dengan nilai yang kamu pegang.</span></div></li><li class=""><span class="n">80</span><div class="comp-body"><span class="comp-name">Consistency</span><span class="comp-meaning">bersikap dan bertindak sama, baik saat dilihat orang maupun tidak.</span></div></li><li class="added"><span class="n">80a</span><div class="comp-body"><span class="comp-name">Accountability<span class="new-pill">baru</span></span><span class="comp-meaning">bersedia dimintai pertanggungjawaban atas dampak dari tindakanmu.</span></div></li><li class="added"><span class="n">80b</span><div class="comp-body"><span class="comp-name">Moral Courage under Pressure<span class="new-pill">baru</span></span><span class="comp-meaning">tetap memegang prinsip meski ada tekanan sosial untuk menyerah.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#8A5478;--text:#8A5478;--tint:#F5EEF3;" id="domain-9">
+  <div class="domain-head">
+    <div class="domain-num">09</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="3.6" ry="9" transform="rotate(35 12 12)"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 09 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>SPIRITUAL &amp; MAKNA</h3>
+    <div class="tagline">Menemukan tujuan, nilai, dan ketenangan.</div>
+  </div>
+  <div class="domain-meaning">mencari makna, tujuan, dan hubungan dengan sesuatu yang lebih besar dari diri sendiri.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">81</span><div class="comp-body"><span class="comp-name">SQ (Spiritual Quotient)</span><span class="comp-meaning">kapasitas mencari makna dan menghubungkan hidup dengan nilai yang lebih tinggi.</span></div></li><li class=""><span class="n">82</span><div class="comp-body"><span class="comp-name">Purpose</span><span class="comp-meaning">alasan mendasar mengapa kamu melakukan apa yang kamu lakukan.</span></div></li><li class=""><span class="n">83</span><div class="comp-body"><span class="comp-name">Philosophy</span><span class="comp-meaning">cara berpikir mendalam tentang hakikat hidup dan kebenaran.</span></div></li><li class=""><span class="n">84</span><div class="comp-body"><span class="comp-name">Meaning</span><span class="comp-meaning">merasakan bahwa hidup dan usahamu berarti, bukan sia-sia.</span></div></li><li class=""><span class="n">85</span><div class="comp-body"><span class="comp-name">Mindfulness</span><span class="comp-meaning">hadir sepenuhnya pada saat ini, tanpa terseret masa lalu atau masa depan.</span></div></li><li class=""><span class="n">86</span><div class="comp-body"><span class="comp-name">Gratitude</span><span class="comp-meaning">kemampuan mengenali dan menghargai kebaikan yang sudah dimiliki.</span></div></li><li class=""><span class="n">87</span><div class="comp-body"><span class="comp-name">Faith</span><span class="comp-meaning">kepercayaan yang menjadi pegangan saat logika saja tidak cukup.</span></div></li><li class=""><span class="n">88</span><div class="comp-body"><span class="comp-name">Transcendence</span><span class="comp-meaning">merasakan sesuatu yang melampaui diri dan kepentingan pribadi.</span></div></li><li class=""><span class="n">89</span><div class="comp-body"><span class="comp-name">Inner Peace</span><span class="comp-meaning">ketenangan batin yang tidak tergantung pada kondisi luar.</span></div></li><li class=""><span class="n">90</span><div class="comp-body"><span class="comp-name">Self-Realization</span><span class="comp-meaning">memahami dan mewujudkan potensi sejati diri sendiri.</span></div></li><li class="added"><span class="n">90a</span><div class="comp-body"><span class="comp-name">Sacred Awe &amp; Wonder<span class="new-pill">baru</span></span><span class="comp-meaning">kemampuan takjub pada keindahan dan misteri hidup.</span></div></li><li class="added"><span class="n">90b</span><div class="comp-body"><span class="comp-name">Surrender &amp; Acceptance<span class="new-pill">baru</span></span><span class="comp-meaning">melepaskan kendali atas hal yang memang di luar kuasamu.</span></div></li></ul>
+</article></div>
+<div class="domain-group-label reveal"><span class="tag">DUNIA &amp; SUMBER DAYA</span><span class="rule"></span></div>
+<div class="domain-grid"><article class="domain-card reveal" style="--accent:#2E7A82;--text:#2E7A82;--tint:#EAF4F4;" id="domain-10">
+  <div class="domain-head">
+    <div class="domain-num">10</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 4 5.7 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.7-4-9s1.4-6.5 4-9z"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 10 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>BUDAYA &amp; GLOBAL</h3>
+    <div class="tagline">Beradaptasi di dunia yang beragam.</div>
+  </div>
+  <div class="domain-meaning">memahami dan menghargai keberagaman manusia di luar lingkup budaya sendiri.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">91</span><div class="comp-body"><span class="comp-name">CQ (Cultural Intelligence)</span><span class="comp-meaning">kemampuan beradaptasi dan berfungsi baik di lintas budaya.</span></div></li><li class=""><span class="n">92</span><div class="comp-body"><span class="comp-name">Cross-Cultural Communication</span><span class="comp-meaning">berkomunikasi efektif dengan orang dari latar budaya berbeda.</span></div></li><li class=""><span class="n">93</span><div class="comp-body"><span class="comp-name">Global Mindset</span><span class="comp-meaning">cara pandang yang melampaui batas negara dan budaya sendiri.</span></div></li><li class=""><span class="n">94</span><div class="comp-body"><span class="comp-name">Social Awareness</span><span class="comp-meaning">memahami norma dan dinamika sosial di sekitarmu.</span></div></li><li class=""><span class="n">95</span><div class="comp-body"><span class="comp-name">Tolerance</span><span class="comp-meaning">menerima perbedaan tanpa harus menyetujui semuanya.</span></div></li><li class=""><span class="n">96</span><div class="comp-body"><span class="comp-name">Diversity &amp; Inclusion</span><span class="comp-meaning">menghargai keberagaman dan memastikan semua orang punya tempat.</span></div></li><li class=""><span class="n">97</span><div class="comp-body"><span class="comp-name">Respect</span><span class="comp-meaning">memperlakukan orang lain dengan hormat meski berbeda dari dirimu.</span></div></li><li class=""><span class="n">98</span><div class="comp-body"><span class="comp-name">Intercultural Competence</span><span class="comp-meaning">mampu bekerja dan berhubungan efektif lintas budaya.</span></div></li><li class=""><span class="n">99</span><div class="comp-body"><span class="comp-name">Global Citizenship</span><span class="comp-meaning">merasa bertanggung jawab terhadap dunia, bukan hanya komunitas sendiri.</span></div></li><li class=""><span class="n">100</span><div class="comp-body"><span class="comp-name">Worldview</span><span class="comp-meaning">kerangka besar yang membentuk cara kamu memahami dunia.</span></div></li><li class="added"><span class="n">100a</span><div class="comp-body"><span class="comp-name">Historical Literacy<span class="new-pill">baru</span></span><span class="comp-meaning">memahami konteks sejarah untuk memaknai kondisi saat ini.</span></div></li><li class="added"><span class="n">100b</span><div class="comp-body"><span class="comp-name">Civic Engagement<span class="new-pill">baru</span></span><span class="comp-meaning">terlibat aktif dalam kehidupan bermasyarakat dan bernegara.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#3E5A9E;--text:#3E5A9E;--tint:#EDF0F9;" id="domain-11">
+  <div class="domain-head">
+    <div class="domain-num">11</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="12" r="1.6"/><circle cx="7" cy="19" r="1.6"/><path d="M6.4 6.9 12 11M12 11l5.6 0.6M12 11 8 18"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 11 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>TEKNOLOGI &amp; DIGITAL</h3>
+    <div class="tagline">Mengelola teknologi, informasi, dan dunia digital.</div>
+  </div>
+  <div class="domain-meaning">menguasai alat dan dunia digital sebagai bagian tak terhindarkan dari hidup modern.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">101</span><div class="comp-body"><span class="comp-name">TQ (Technological Quotient)</span><span class="comp-meaning">kapasitas memahami dan memanfaatkan teknologi secara efektif.</span></div></li><li class=""><span class="n">102</span><div class="comp-body"><span class="comp-name">DQ (Digital Intelligence)</span><span class="comp-meaning">kecerdasan menavigasi dunia digital secara aman dan bijak.</span></div></li><li class=""><span class="n">103</span><div class="comp-body"><span class="comp-name">AI Literacy</span><span class="comp-meaning">memahami cara kerja dan batasan kecerdasan buatan agar bisa memakainya secara tepat.</span></div></li><li class=""><span class="n">104</span><div class="comp-body"><span class="comp-name">Information Literacy</span><span class="comp-meaning">mampu mencari, menilai, dan memakai informasi secara kritis.</span></div></li><li class=""><span class="n">105</span><div class="comp-body"><span class="comp-name">Media Literacy</span><span class="comp-meaning">memahami cara media membentuk persepsi, agar tidak mudah termakan bias.</span></div></li><li class=""><span class="n">106</span><div class="comp-body"><span class="comp-name">Cybersecurity Awareness</span><span class="comp-meaning">menjaga diri dan data dari ancaman dunia maya.</span></div></li><li class=""><span class="n">107</span><div class="comp-body"><span class="comp-name">Digital Citizenship</span><span class="comp-meaning">berperilaku bertanggung jawab dan etis di ruang digital.</span></div></li><li class=""><span class="n">108</span><div class="comp-body"><span class="comp-name">Data Literacy</span><span class="comp-meaning">mampu membaca dan memahami data untuk mengambil keputusan.</span></div></li><li class=""><span class="n">109</span><div class="comp-body"><span class="comp-name">Tech Adaptability</span><span class="comp-meaning">cepat menyesuaikan diri dengan perubahan alat dan teknologi baru.</span></div></li><li class=""><span class="n">110</span><div class="comp-body"><span class="comp-name">Digital Creativity</span><span class="comp-meaning">memakai teknologi sebagai alat untuk berkarya, bukan sekadar konsumsi.</span></div></li><li class="added"><span class="n">110a</span><div class="comp-body"><span class="comp-name">Digital Wellbeing &amp; Detox<span class="new-pill">baru</span></span><span class="comp-meaning">menjaga kesehatan mental dari paparan digital yang berlebihan.</span></div></li><li class="added"><span class="n">110b</span><div class="comp-body"><span class="comp-name">Privacy Management<span class="new-pill">baru</span></span><span class="comp-meaning">melindungi data dan jejak pribadi di dunia digital.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#B85040;--text:#B85040;--tint:#F7EDEA;" id="domain-12">
+  <div class="domain-head">
+    <div class="domain-num">12</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h4l2-6 3 12 2.5-9 1.5 3h7"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 12 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>FISIK &amp; KESEHATAN</h3>
+    <div class="tagline">Menjaga energi, fokus, dan daya tahan.</div>
+  </div>
+  <div class="domain-meaning">tubuh sebagai fondasi — tempat semua kemampuan lain dijalankan.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">111</span><div class="comp-body"><span class="comp-name">PQ (Physical Quotient)</span><span class="comp-meaning">kapasitas fisik dasar untuk menjalani hidup secara aktif dan sehat.</span></div></li><li class=""><span class="n">112</span><div class="comp-body"><span class="comp-name">Strength</span><span class="comp-meaning">kekuatan otot untuk mendukung aktivitas fisik sehari-hari.</span></div></li><li class=""><span class="n">113</span><div class="comp-body"><span class="comp-name">Endurance</span><span class="comp-meaning">daya tahan tubuh menjalani aktivitas dalam waktu lama.</span></div></li><li class=""><span class="n">114</span><div class="comp-body"><span class="comp-name">Coordination</span><span class="comp-meaning">keselarasan gerak antara mata, tangan, dan tubuh.</span></div></li><li class=""><span class="n">115</span><div class="comp-body"><span class="comp-name">Nutrition</span><span class="comp-meaning">memahami dan menjaga pola makan yang mendukung kesehatan.</span></div></li><li class=""><span class="n">116</span><div class="comp-body"><span class="comp-name">Sleep Quality</span><span class="comp-meaning">memastikan tidur cukup dan berkualitas untuk pemulihan tubuh dan pikiran.</span></div></li><li class=""><span class="n">117</span><div class="comp-body"><span class="comp-name">Recovery</span><span class="comp-meaning">memberi waktu bagi tubuh untuk pulih setelah beraktivitas berat.</span></div></li><li class=""><span class="n">118</span><div class="comp-body"><span class="comp-name">Flexibility</span><span class="comp-meaning">kelenturan tubuh yang menunjang gerak dan mencegah cedera.</span></div></li><li class=""><span class="n">119</span><div class="comp-body"><span class="comp-name">Posture</span><span class="comp-meaning">menjaga sikap tubuh yang baik untuk kesehatan jangka panjang.</span></div></li><li class=""><span class="n">120</span><div class="comp-body"><span class="comp-name">Health Awareness</span><span class="comp-meaning">peka terhadap sinyal tubuh dan proaktif menjaga kesehatan.</span></div></li><li class="added"><span class="n">120a</span><div class="comp-body"><span class="comp-name">Sexual Health Awareness<span class="new-pill">baru</span></span><span class="comp-meaning">memahami dan menjaga kesehatan seksual secara bertanggung jawab.</span></div></li><li class="added"><span class="n">120b</span><div class="comp-body"><span class="comp-name">Preventive Health Habit<span class="new-pill">baru</span></span><span class="comp-meaning">kebiasaan mencegah penyakit sebelum terjadi, bukan hanya mengobati.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#2F8272;--text:#2F8272;--tint:#EAF4F1;" id="domain-13">
+  <div class="domain-head">
+    <div class="domain-num">13</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 20 7.5v9L12 21 4 16.5v-9z"/><path d="M12 3v9M4 7.5 12 12l8-4.5M12 12v9"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 13 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>SPASIAL &amp; VISUAL</h3>
+    <div class="tagline">Membayangkan, menavigasi, dan memanipulasi ruang.</div>
+  </div>
+  <div class="domain-meaning">memahami dan memanipulasi ruang serta bentuk — cara berpikir dalam gambar dan dimensi, bukan hanya kata.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">121</span><div class="comp-body"><span class="comp-name">VSI (Visual-Spatial Intelligence)</span><span class="comp-meaning">kemampuan memahami dan menavigasi ruang serta bentuk secara mental.</span></div></li><li class=""><span class="n">122</span><div class="comp-body"><span class="comp-name">Mental Rotation</span><span class="comp-meaning">membayangkan objek berputar atau berubah posisi tanpa melihatnya langsung.</span></div></li><li class=""><span class="n">123</span><div class="comp-body"><span class="comp-name">Navigasi &amp; Orientasi Arah</span><span class="comp-meaning">kemampuan menemukan arah dan mengingat rute di ruang nyata.</span></div></li><li class=""><span class="n">124</span><div class="comp-body"><span class="comp-name">Visualisasi 3 Dimensi</span><span class="comp-meaning">membayangkan bentuk dan struktur tiga dimensi di dalam pikiran.</span></div></li><li class=""><span class="n">125</span><div class="comp-body"><span class="comp-name">Design Thinking Spasial</span><span class="comp-meaning">memecahkan masalah dengan mempertimbangkan ruang dan bentuk fisiknya.</span></div></li><li class=""><span class="n">126</span><div class="comp-body"><span class="comp-name">Spatial Awareness</span><span class="comp-meaning">peka terhadap posisi dan hubungan antar objek di sekitarmu.</span></div></li><li class=""><span class="n">127</span><div class="comp-body"><span class="comp-name">Geometri &amp; Struktur</span><span class="comp-meaning">memahami pola bentuk dan bagaimana struktur dibangun.</span></div></li><li class=""><span class="n">128</span><div class="comp-body"><span class="comp-name">Mapping</span><span class="comp-meaning">kemampuan menyusun dan membaca representasi ruang, seperti peta.</span></div></li><li class=""><span class="n">129</span><div class="comp-body"><span class="comp-name">Visual Perception</span><span class="comp-meaning">menangkap dan memaknai informasi visual secara akurat.</span></div></li><li class=""><span class="n">130</span><div class="comp-body"><span class="comp-name">Artistic Vision</span><span class="comp-meaning">kepekaan melihat komposisi dan keindahan visual.</span></div></li><li class="added"><span class="n">130a</span><div class="comp-body"><span class="comp-name">Perspective Drawing<span class="new-pill">baru</span></span><span class="comp-meaning">kemampuan menggambarkan kedalaman dan ruang di atas bidang datar.</span></div></li><li class="added"><span class="n">130b</span><div class="comp-body"><span class="comp-name">Environmental Design Sense<span class="new-pill">baru</span></span><span class="comp-meaning">kepekaan terhadap bagaimana ruang fisik memengaruhi pengalaman orang di dalamnya.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#96872E;--text:#827528;--tint:#F6F4E9;" id="domain-14">
+  <div class="domain-head">
+    <div class="domain-num">14</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4v4M12 16v4"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 14 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>FINANSIAL &amp; KEKAYAAN</h3>
+    <div class="tagline">Mengelola, menumbuhkan, dan membuat keputusan bijak.</div>
+  </div>
+  <div class="domain-meaning">mengelola sumber daya material agar hidup lebih bebas dan aman, bukan sekadar mengejar angka.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">131</span><div class="comp-body"><span class="comp-name">FQ (Financial Quotient)</span><span class="comp-meaning">kapasitas dasar memahami dan mengelola uang secara bijak.</span></div></li><li class=""><span class="n">132</span><div class="comp-body"><span class="comp-name">Literasi Keuangan</span><span class="comp-meaning">memahami konsep dasar keuangan agar bisa membuat keputusan yang tepat.</span></div></li><li class=""><span class="n">133</span><div class="comp-body"><span class="comp-name">Manajemen Anggaran</span><span class="comp-meaning">mengatur pemasukan dan pengeluaran agar sesuai prioritas.</span></div></li><li class=""><span class="n">134</span><div class="comp-body"><span class="comp-name">Investasi &amp; Compounding</span><span class="comp-meaning">memahami cara uang bisa bertumbuh seiring waktu lewat investasi.</span></div></li><li class=""><span class="n">135</span><div class="comp-body"><span class="comp-name">Delayed Gratification</span><span class="comp-meaning">mampu menunda kesenangan sesaat demi tujuan finansial yang lebih besar.</span></div></li><li class=""><span class="n">136</span><div class="comp-body"><span class="comp-name">Manajemen Risiko Finansial</span><span class="comp-meaning">mengenali dan mengelola risiko agar keuangan tetap aman.</span></div></li><li class=""><span class="n">137</span><div class="comp-body"><span class="comp-name">Financial Planning</span><span class="comp-meaning">menyusun rencana keuangan jangka panjang yang jelas.</span></div></li><li class=""><span class="n">138</span><div class="comp-body"><span class="comp-name">Wealth Building</span><span class="comp-meaning">membangun kekayaan secara bertahap dan berkelanjutan.</span></div></li><li class=""><span class="n">139</span><div class="comp-body"><span class="comp-name">Economic Understanding</span><span class="comp-meaning">memahami bagaimana ekonomi memengaruhi keputusan finansial pribadi.</span></div></li><li class=""><span class="n">140</span><div class="comp-body"><span class="comp-name">Financial Independence</span><span class="comp-meaning">mencapai titik di mana hidup tidak lagi bergantung sepenuhnya pada penghasilan aktif.</span></div></li><li class="added"><span class="n">140a</span><div class="comp-body"><span class="comp-name">Literasi Pajak<span class="new-pill">baru</span></span><span class="comp-meaning">memahami kewajiban dan hak perpajakan sebagai bagian dari pengelolaan uang.</span></div></li><li class="added"><span class="n">140b</span><div class="comp-body"><span class="comp-name">Etika Berbagi &amp; Sedekah (Financial Generosity)<span class="new-pill">baru</span></span><span class="comp-meaning">menjadikan berbagi sebagai bagian dari cara mengelola rezeki, bukan beban.</span></div></li></ul>
+</article></div>
+<div class="domain-group-label reveal"><span class="tag">GERAK &amp; PENGARUH</span><span class="rule"></span></div>
+<div class="domain-grid"><article class="domain-card reveal" style="--accent:#B0632E;--text:#A35C2A;--tint:#F7F0E7;" id="domain-15">
+  <div class="domain-head">
+    <div class="domain-num">15</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18 10 10l4 4 6-9"/><path d="M15 5h5v5"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 15 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>KINESTETIK &amp; GERAK TUBUH</h3>
+    <div class="tagline">Mengendalikan tubuh dengan presisi, kekuatan, dan keanggunan.</div>
+  </div>
+  <div class="domain-meaning">kecerdasan lewat gerak — tubuh sebagai alat ekspresi dan pemahaman, bukan hanya kendaraan.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">141</span><div class="comp-body"><span class="comp-name">BKI (Bodily-Kinesthetic Intelligence)</span><span class="comp-meaning">kecerdasan memahami dan mengendalikan gerak tubuh secara presisi.</span></div></li><li class=""><span class="n">142</span><div class="comp-body"><span class="comp-name">Motorik Halus</span><span class="comp-meaning">kemampuan mengontrol gerakan kecil dan detail, seperti tangan dan jari.</span></div></li><li class=""><span class="n">143</span><div class="comp-body"><span class="comp-name">Motorik Kasar</span><span class="comp-meaning">kemampuan mengontrol gerakan besar tubuh, seperti berlari dan melompat.</span></div></li><li class=""><span class="n">144</span><div class="comp-body"><span class="comp-name">Proprioception</span><span class="comp-meaning">kesadaran posisi tubuh sendiri di ruang tanpa harus melihatnya.</span></div></li><li class=""><span class="n">145</span><div class="comp-body"><span class="comp-name">Balance</span><span class="comp-meaning">kemampuan menjaga keseimbangan tubuh saat bergerak atau diam.</span></div></li><li class=""><span class="n">146</span><div class="comp-body"><span class="comp-name">Agility</span><span class="comp-meaning">kelincahan bergerak dan berubah arah dengan cepat.</span></div></li><li class=""><span class="n">147</span><div class="comp-body"><span class="comp-name">Coordination</span><span class="comp-meaning">keselarasan gerak antar bagian tubuh saat melakukan aktivitas.</span></div></li><li class=""><span class="n">148</span><div class="comp-body"><span class="comp-name">Craftsmanship</span><span class="comp-meaning">keterampilan tangan yang halus dalam menghasilkan karya fisik.</span></div></li><li class=""><span class="n">149</span><div class="comp-body"><span class="comp-name">Body Awareness</span><span class="comp-meaning">kepekaan terhadap sinyal dan kondisi tubuh sendiri.</span></div></li><li class=""><span class="n">150</span><div class="comp-body"><span class="comp-name">Physical Expression</span><span class="comp-meaning">mengekspresikan perasaan atau gagasan lewat gerak tubuh.</span></div></li><li class="added"><span class="n">150a</span><div class="comp-body"><span class="comp-name">Reflex &amp; Reaction Speed<span class="new-pill">baru</span></span><span class="comp-meaning">kecepatan tubuh merespons rangsangan secara otomatis.</span></div></li><li class="added"><span class="n">150b</span><div class="comp-body"><span class="comp-name">Movement Confidence (Dance/Sport Flow)<span class="new-pill">baru</span></span><span class="comp-meaning">merasa nyaman dan mengalir saat bergerak, seperti dalam tari atau olahraga.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#4E7A3E;--text:#4E7A3E;--tint:#EEF4EA;" id="domain-16">
+  <div class="domain-head">
+    <div class="domain-num">16</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c8-1 13-6 14-14-8 1-13 6-14 14z"/><path d="M6 18c3-4 6-7 12-12"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 16 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>NATURALIS &amp; EKOLOGIS</h3>
+    <div class="tagline">Hidup selaras dengan alam dan lingkungan.</div>
+  </div>
+  <div class="domain-meaning">hubungan dan tanggung jawab terhadap alam — memahami bahwa manusia adalah bagian dari ekosistem, bukan di luarnya.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">151</span><div class="comp-body"><span class="comp-name">NQ (Naturalistic Quotient)</span><span class="comp-meaning">kepekaan memahami dan berhubungan dengan alam.</span></div></li><li class=""><span class="n">152</span><div class="comp-body"><span class="comp-name">Kesadaran Lingkungan</span><span class="comp-meaning">peka terhadap kondisi dan dampak tindakan manusia pada lingkungan.</span></div></li><li class=""><span class="n">153</span><div class="comp-body"><span class="comp-name">Sustainability Mindset</span><span class="comp-meaning">cara berpikir yang mempertimbangkan keberlanjutan jangka panjang.</span></div></li><li class=""><span class="n">154</span><div class="comp-body"><span class="comp-name">Ekosistem &amp; Keanekaragaman</span><span class="comp-meaning">memahami bagaimana makhluk hidup saling terhubung dalam sebuah sistem.</span></div></li><li class=""><span class="n">155</span><div class="comp-body"><span class="comp-name">Pertanian &amp; Pertumbuhan</span><span class="comp-meaning">memahami proses menumbuhkan dan merawat tanaman atau sumber pangan.</span></div></li><li class=""><span class="n">156</span><div class="comp-body"><span class="comp-name">Observasi Alam</span><span class="comp-meaning">kemampuan mengamati pola dan perubahan di alam dengan cermat.</span></div></li><li class=""><span class="n">157</span><div class="comp-body"><span class="comp-name">Animal Understanding</span><span class="comp-meaning">memahami perilaku dan kebutuhan makhluk hidup lain.</span></div></li><li class=""><span class="n">158</span><div class="comp-body"><span class="comp-name">Eco-Living</span><span class="comp-meaning">menjalani gaya hidup yang selaras dan ramah terhadap lingkungan.</span></div></li><li class=""><span class="n">159</span><div class="comp-body"><span class="comp-name">Conservation</span><span class="comp-meaning">upaya aktif menjaga dan melestarikan sumber daya alam.</span></div></li><li class=""><span class="n">160</span><div class="comp-body"><span class="comp-name">Land &amp; Resource Management</span><span class="comp-meaning">mengelola lahan dan sumber daya secara bertanggung jawab.</span></div></li><li class="added"><span class="n">160a</span><div class="comp-body"><span class="comp-name">Carbon Footprint Awareness<span class="new-pill">baru</span></span><span class="comp-meaning">menyadari dampak jejak karbon dari gaya hidup sendiri.</span></div></li><li class="added"><span class="n">160b</span><div class="comp-body"><span class="comp-name">Personal Sustainability Habits<span class="new-pill">baru</span></span><span class="comp-meaning">kebiasaan sehari-hari yang mendukung keberlanjutan lingkungan.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#8A5488;--text:#8A5488;--tint:#F4EEF4;" id="domain-17">
+  <div class="domain-head">
+    <div class="domain-num">17</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17.5V5l10-2v12.5"/><circle cx="7" cy="17.5" r="2.5"/><circle cx="17" cy="15.5" r="2.5"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 17 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>MUSIKAL &amp; ESTETIKA</h3>
+    <div class="tagline">Merasakan keindahan bentuk, suara, dan harmoni.</div>
+  </div>
+  <div class="domain-meaning">kepekaan terhadap keindahan dan bunyi — cara memaknai dunia lewat rasa, bukan hanya logika.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">161</span><div class="comp-body"><span class="comp-name">Musical Intelligence</span><span class="comp-meaning">kepekaan memahami dan menciptakan pola bunyi dan musik.</span></div></li><li class=""><span class="n">162</span><div class="comp-body"><span class="comp-name">Ritme &amp; Harmoni</span><span class="comp-meaning">kemampuan merasakan dan menyelaraskan pola ketukan dan nada.</span></div></li><li class=""><span class="n">163</span><div class="comp-body"><span class="comp-name">Aesthetic Sense</span><span class="comp-meaning">kepekaan merasakan apa yang indah dan selaras.</span></div></li><li class=""><span class="n">164</span><div class="comp-body"><span class="comp-name">Apresiasi Seni &amp; Desain</span><span class="comp-meaning">kemampuan menghargai dan memahami karya seni dan desain.</span></div></li><li class=""><span class="n">165</span><div class="comp-body"><span class="comp-name">Ekspresi Kreatif</span><span class="comp-meaning">menuangkan perasaan dan gagasan lewat bentuk seni.</span></div></li><li class=""><span class="n">166</span><div class="comp-body"><span class="comp-name">Seni Pertunjukan</span><span class="comp-meaning">kemampuan tampil dan mengekspresikan diri di depan orang lain lewat seni.</span></div></li><li class=""><span class="n">167</span><div class="comp-body"><span class="comp-name">Desain Visual</span><span class="comp-meaning">kemampuan menyusun elemen visual agar komunikatif dan indah.</span></div></li><li class=""><span class="n">168</span><div class="comp-body"><span class="comp-name">Estetika Kehidupan</span><span class="comp-meaning">menghadirkan keindahan dalam hal-hal kecil sehari-hari.</span></div></li><li class=""><span class="n">169</span><div class="comp-body"><span class="comp-name">Sense of Beauty</span><span class="comp-meaning">kepekaan alami mengenali keindahan di sekitar.</span></div></li><li class=""><span class="n">170</span><div class="comp-body"><span class="comp-name">Creative Expression</span><span class="comp-meaning">mengekspresikan diri secara orisinal lewat berbagai medium.</span></div></li><li class="added"><span class="n">170a</span><div class="comp-body"><span class="comp-name">Auditory Discrimination (Kepekaan Bunyi)<span class="new-pill">baru</span></span><span class="comp-meaning">kemampuan membedakan nuansa halus dalam bunyi dan suara.</span></div></li><li class="added"><span class="n">170b</span><div class="comp-body"><span class="comp-name">Curatorial Taste<span class="new-pill">baru</span></span><span class="comp-meaning">kepekaan memilih dan menyusun karya atau elemen menjadi satu kesatuan yang bermakna.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#3A4A7A;--text:#3A4A7A;--tint:#EDEFF6;" id="domain-18">
+  <div class="domain-head">
+    <div class="domain-num">18</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 15h20"/><path d="M6 15a6 6 0 0 1 12 0"/><circle cx="12" cy="8" r="2"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 18 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>EKSISTENSIAL &amp; FILOSOFIS</h3>
+    <div class="tagline">Bertanya tentang makna, kehidupan, dan tujuan terdalam.</div>
+  </div>
+  <div class="domain-meaning">merenungkan pertanyaan besar tentang keberadaan — mengapa kita ada, dan apa artinya hidup dengan baik.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">171</span><div class="comp-body"><span class="comp-name">Existential Intelligence</span><span class="comp-meaning">kapasitas merenungkan pertanyaan besar tentang keberadaan dan makna hidup.</span></div></li><li class=""><span class="n">172</span><div class="comp-body"><span class="comp-name">Mortality Awareness</span><span class="comp-meaning">kesadaran akan kefanaan hidup yang justru membuatmu hidup lebih sadar.</span></div></li><li class=""><span class="n">173</span><div class="comp-body"><span class="comp-name">Refleksi Makna Eksistensi</span><span class="comp-meaning">merenungkan untuk apa sebenarnya kamu hidup.</span></div></li><li class=""><span class="n">174</span><div class="comp-body"><span class="comp-name">Big-Picture Thinking</span><span class="comp-meaning">melihat hidup dan keputusan dalam konteks yang lebih luas, bukan hanya jangka pendek.</span></div></li><li class=""><span class="n">175</span><div class="comp-body"><span class="comp-name">Ethical Thinking</span><span class="comp-meaning">mempertimbangkan benar-salah secara mendalam, bukan sekadar aturan.</span></div></li><li class=""><span class="n">176</span><div class="comp-body"><span class="comp-name">Life Purpose</span><span class="comp-meaning">pemahaman yang jelas tentang arah dan alasan hidupmu.</span></div></li><li class=""><span class="n">177</span><div class="comp-body"><span class="comp-name">Philosophical Inquiry</span><span class="comp-meaning">kebiasaan bertanya secara mendalam tentang hakikat sesuatu.</span></div></li><li class=""><span class="n">178</span><div class="comp-body"><span class="comp-name">Self-Transcendence</span><span class="comp-meaning">melampaui kepentingan diri sendiri demi sesuatu yang lebih besar.</span></div></li><li class=""><span class="n">179</span><div class="comp-body"><span class="comp-name">Meaning in Life</span><span class="comp-meaning">merasakan bahwa hidupmu, dengan segala isinya, benar-benar berarti.</span></div></li><li class=""><span class="n">180</span><div class="comp-body"><span class="comp-name">Wisdom</span><span class="comp-meaning">kebijaksanaan hasil perpaduan pengetahuan, pengalaman, dan refleksi mendalam.</span></div></li><li class="added"><span class="n">180a</span><div class="comp-body"><span class="comp-name">Paradox Tolerance (Duduk dengan Ambiguitas)<span class="new-pill">baru</span></span><span class="comp-meaning">mampu menerima bahwa dua hal yang tampak bertentangan bisa sama-sama benar.</span></div></li><li class="added"><span class="n">180b</span><div class="comp-body"><span class="comp-name">Legacy Thinking<span class="new-pill">baru</span></span><span class="comp-meaning">mempertimbangkan warisan apa yang ingin kamu tinggalkan setelah tiada.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#245E6E;--text:#245E6E;--tint:#E9F1F3;" id="domain-19">
+  <div class="domain-head">
+    <div class="domain-num">19</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="4.5" cy="18.5" r="1.6"/><circle cx="11" cy="13" r="1.6"/><circle cx="17.5" cy="7" r="1.6"/><circle cx="21" cy="3.5" r="1.3"/><path d="M6 17.2 9.5 14.3M12.6 11.8 16 8.3M18.8 5.8 20 4.6"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 19 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>KEPEMIMPINAN &amp; PENGARUH</h3>
+    <div class="tagline">Menggerakkan orang lain, menuju visi bersama.</div>
+  </div>
+  <div class="domain-meaning">mengarahkan dan memberdayakan orang lain menuju tujuan bersama — pengaruh yang bertanggung jawab, bukan sekadar kekuasaan.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">181</span><div class="comp-body"><span class="comp-name">Leadership Intelligence</span><span class="comp-meaning">kapasitas memahami kapan dan bagaimana memimpin secara efektif.</span></div></li><li class=""><span class="n">182</span><div class="comp-body"><span class="comp-name">Vision-Setting</span><span class="comp-meaning">kemampuan merumuskan arah masa depan yang jelas dan menggerakkan orang lain.</span></div></li><li class=""><span class="n">183</span><div class="comp-body"><span class="comp-name">Delegasi &amp; Pemberdayaan</span><span class="comp-meaning">mempercayakan tugas kepada orang lain sambil membantu mereka bertumbuh.</span></div></li><li class=""><span class="n">184</span><div class="comp-body"><span class="comp-name">Mentoring &amp; Coaching</span><span class="comp-meaning">membimbing orang lain mengembangkan potensinya.</span></div></li><li class=""><span class="n">185</span><div class="comp-body"><span class="comp-name">Team Building</span><span class="comp-meaning">membangun tim yang solid dan saling melengkapi.</span></div></li><li class=""><span class="n">186</span><div class="comp-body"><span class="comp-name">Influencing</span><span class="comp-meaning">menggerakkan orang lain menuju suatu arah tanpa memaksa.</span></div></li><li class=""><span class="n">187</span><div class="comp-body"><span class="comp-name">Public Speaking</span><span class="comp-meaning">menyampaikan gagasan di depan banyak orang secara meyakinkan dan jelas.</span></div></li><li class=""><span class="n">188</span><div class="comp-body"><span class="comp-name">Strategic Thinking</span><span class="comp-meaning">merancang langkah jangka panjang dengan mempertimbangkan banyak faktor sekaligus.</span></div></li><li class=""><span class="n">189</span><div class="comp-body"><span class="comp-name">Change Leadership</span><span class="comp-meaning">memimpin orang lain melalui masa perubahan yang tidak nyaman.</span></div></li><li class=""><span class="n">190</span><div class="comp-body"><span class="comp-name">Empowerment</span><span class="comp-meaning">membuat orang lain merasa mampu dan percaya diri untuk bertindak.</span></div></li><li class="added"><span class="n">190a</span><div class="comp-body"><span class="comp-name">Servant Leadership<span class="new-pill">baru</span></span><span class="comp-meaning">memimpin dengan melayani kebutuhan tim, bukan mendahulukan diri sendiri.</span></div></li><li class="added"><span class="n">190b</span><div class="comp-body"><span class="comp-name">Decision Ownership under Pressure<span class="new-pill">baru</span></span><span class="comp-meaning">berani mengambil dan bertanggung jawab atas keputusan sulit saat tekanan tinggi.</span></div></li></ul>
+</article></div>
+<div class="domain-group-label reveal"><span class="tag">KESADARAN &amp; INTEGRASI</span><span class="rule"></span></div>
+<div class="domain-grid"><article class="domain-card reveal" style="--accent:#78507E;--text:#78507E;--tint:#F3EEF4;" id="domain-20">
+  <div class="domain-head">
+    <div class="domain-num">20</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.8-6.5 10-6.5S22 12 22 12s-3.8 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 20 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>INTUISI &amp; KESADARAN MENDALAM</h3>
+    <div class="tagline">Mengakses kebijaksanaan bawah sadar dan hadir sepenuhnya.</div>
+  </div>
+  <div class="domain-meaning">kepekaan batin yang bekerja di luar logika sadar — cara mengenali kebenaran sebelum bisa dijelaskan dengan kata-kata.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">191</span><div class="comp-body"><span class="comp-name">Intuitive Intelligence</span><span class="comp-meaning">kepekaan mengenali sesuatu secara langsung tanpa proses berpikir panjang.</span></div></li><li class=""><span class="n">192</span><div class="comp-body"><span class="comp-name">Flow State &amp; Fokus Mendalam</span><span class="comp-meaning">kondisi larut sepenuhnya dalam suatu aktivitas hingga terasa mengalir.</span></div></li><li class=""><span class="n">193</span><div class="comp-body"><span class="comp-name">Memori &amp; Retensi</span><span class="comp-meaning">kemampuan menyimpan dan mengingat kembali informasi secara efektif.</span></div></li><li class=""><span class="n">194</span><div class="comp-body"><span class="comp-name">Self-Compassion</span><span class="comp-meaning">memperlakukan diri sendiri dengan kebaikan, terutama saat gagal.</span></div></li><li class=""><span class="n">195</span><div class="comp-body"><span class="comp-name">Inner Guidance</span><span class="comp-meaning">kepekaan mendengarkan suara batin sebagai penuntun keputusan.</span></div></li><li class=""><span class="n">196</span><div class="comp-body"><span class="comp-name">Subconscious Mind</span><span class="comp-meaning">memahami bagaimana pikiran bawah sadar memengaruhi perilaku.</span></div></li><li class=""><span class="n">197</span><div class="comp-body"><span class="comp-name">Presence</span><span class="comp-meaning">kemampuan benar-benar hadir sepenuhnya di momen saat ini.</span></div></li><li class=""><span class="n">198</span><div class="comp-body"><span class="comp-name">Mind-Body Connection</span><span class="comp-meaning">kesadaran akan hubungan erat antara kondisi pikiran dan tubuh.</span></div></li><li class=""><span class="n">199</span><div class="comp-body"><span class="comp-name">Emotional Balance</span><span class="comp-meaning">menjaga keseimbangan emosi meski situasi berubah-ubah.</span></div></li><li class=""><span class="n">200</span><div class="comp-body"><span class="comp-name">Deep Awareness</span><span class="comp-meaning">kesadaran yang lebih dalam terhadap diri sendiri dan sekitar, melampaui permukaan.</span></div></li><li class="added"><span class="n">200a</span><div class="comp-body"><span class="comp-name">Humor &amp; Playfulness<span class="new-pill">baru</span></span><span class="comp-meaning">kemampuan tetap ringan dan bisa tertawa, bahkan dalam situasi serius.</span></div></li><li class="added"><span class="n">200b</span><div class="comp-body"><span class="comp-name">Somatic Awareness (Kepekaan Sinyal Tubuh)<span class="new-pill">baru</span></span><span class="comp-meaning">kepekaan membaca sinyal fisik tubuh sebagai informasi tentang kondisi batin.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#A8632E;--text:#A8632E;--tint:#F7F1E7;" id="domain-21">
+  <div class="domain-head">
+    <div class="domain-num">21</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 9 5l4 10 3-7 4 12"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 21 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>KARIER, KEWIRAUSAHAAN &amp; KONTRIBUSI</h3>
+    <div class="tagline">Mengubah kemampuan menjadi karya, pekerjaan, dan manfaat.</div>
+  </div>
+  <div class="domain-meaning">membangun kehidupan profesional yang bermakna, sekaligus memberi dampak pada dunia di luar diri sendiri.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">201</span><div class="comp-body"><span class="comp-name">Career Intelligence</span><span class="comp-meaning">kemampuan merencanakan dan mengelola perjalanan karier secara strategis.</span></div></li><li class=""><span class="n">202</span><div class="comp-body"><span class="comp-name">Entrepreneurship</span><span class="comp-meaning">kemampuan menciptakan nilai dan peluang baru dari sumber daya yang ada.</span></div></li><li class=""><span class="n">203</span><div class="comp-body"><span class="comp-name">Professionalism</span><span class="comp-meaning">bersikap dan bekerja dengan standar profesional yang bisa diandalkan.</span></div></li><li class=""><span class="n">204</span><div class="comp-body"><span class="comp-name">Work Ethic</span><span class="comp-meaning">komitmen bekerja dengan sungguh-sungguh dan bertanggung jawab.</span></div></li><li class=""><span class="n">205</span><div class="comp-body"><span class="comp-name">Teamwork</span><span class="comp-meaning">kemampuan bekerja sama efektif dalam konteks profesional.</span></div></li><li class=""><span class="n">206</span><div class="comp-body"><span class="comp-name">Networking</span><span class="comp-meaning">membangun dan merawat jaringan relasi profesional.</span></div></li><li class=""><span class="n">207</span><div class="comp-body"><span class="comp-name">Project Management</span><span class="comp-meaning">mengelola pekerjaan agar selesai tepat waktu dan sesuai tujuan.</span></div></li><li class=""><span class="n">208</span><div class="comp-body"><span class="comp-name">Leadership in Work</span><span class="comp-meaning">memimpin dan mengambil inisiatif dalam konteks pekerjaan.</span></div></li><li class=""><span class="n">209</span><div class="comp-body"><span class="comp-name">Community Contribution</span><span class="comp-meaning">memberi kontribusi nyata bagi komunitas di sekitarmu.</span></div></li><li class=""><span class="n">210</span><div class="comp-body"><span class="comp-name">Social Impact</span><span class="comp-meaning">menciptakan dampak positif yang lebih luas dari sekadar keuntungan pribadi.</span></div></li><li class="added"><span class="n">210a</span><div class="comp-body"><span class="comp-name">Personal Branding<span class="new-pill">baru</span></span><span class="comp-meaning">membangun reputasi profesional yang autentik dan konsisten.</span></div></li><li class="added"><span class="n">210b</span><div class="comp-body"><span class="comp-name">Risk-Taking in Venture<span class="new-pill">baru</span></span><span class="comp-meaning">berani mengambil risiko terukur dalam merintis sesuatu yang baru.</span></div></li></ul>
+</article><article class="domain-card reveal" style="--accent:#A0525E;--text:#A0525E;--tint:#F6EEEF;" id="domain-22">
+  <div class="domain-head">
+    <div class="domain-num">22</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V11L12 4l8 7v10z"/><path d="M9.5 21v-6h5v6"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 22 </span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>KELUARGA &amp; PENGASUHAN</h3>
+    <div class="tagline">Membesarkan, mendidik, dan mewariskan nilai.</div>
+  </div>
+  <div class="domain-meaning">membangun dan merawat kehidupan keluarga — tempat pertama seseorang belajar tentang cinta dan tanggung jawab.</div>
+  
+  <ul class="comp-list "><li class=""><span class="n">211</span><div class="comp-body"><span class="comp-name">Parenting Intelligence</span><span class="comp-meaning">kemampuan mengasuh anak secara bijak dan sesuai kebutuhan perkembangannya.</span></div></li><li class=""><span class="n">212</span><div class="comp-body"><span class="comp-name">Family Dynamics</span><span class="comp-meaning">memahami pola relasi dan interaksi di dalam keluarga.</span></div></li><li class=""><span class="n">213</span><div class="comp-body"><span class="comp-name">Communication in Family</span><span class="comp-meaning">berkomunikasi secara terbuka dan sehat dengan anggota keluarga.</span></div></li><li class=""><span class="n">214</span><div class="comp-body"><span class="comp-name">Emotional Bonding</span><span class="comp-meaning">membangun kedekatan emosional yang kuat dengan keluarga.</span></div></li><li class=""><span class="n">215</span><div class="comp-body"><span class="comp-name">Child Development</span><span class="comp-meaning">memahami tahapan tumbuh kembang anak agar bisa mendampingi dengan tepat.</span></div></li><li class=""><span class="n">216</span><div class="comp-body"><span class="comp-name">Education &amp; Guidance</span><span class="comp-meaning">membimbing dan mendidik anggota keluarga, terutama anak, dengan arah yang jelas.</span></div></li><li class=""><span class="n">217</span><div class="comp-body"><span class="comp-name">Family Wellbeing</span><span class="comp-meaning">menjaga kesejahteraan fisik, emosional, dan mental seluruh keluarga.</span></div></li><li class=""><span class="n">218</span><div class="comp-body"><span class="comp-name">Legacy-Building</span><span class="comp-meaning">membangun nilai dan warisan yang akan diteruskan ke generasi berikutnya.</span></div></li><li class=""><span class="n">219</span><div class="comp-body"><span class="comp-name">Relationship Management</span><span class="comp-meaning">mengelola dinamika dan konflik dalam hubungan keluarga dengan sehat.</span></div></li><li class=""><span class="n">220</span><div class="comp-body"><span class="comp-name">Generational Impact</span><span class="comp-meaning">menyadari bagaimana pola asuh memengaruhi generasi setelahnya.</span></div></li><li class="added"><span class="n">220a</span><div class="comp-body"><span class="comp-name">Intergenerational Forgiveness<span class="new-pill">baru</span></span><span class="comp-meaning">melepaskan luka lama antar generasi agar tidak terus diwariskan.</span></div></li><li class="added"><span class="n">220b</span><div class="comp-body"><span class="comp-name">Household Resource Stewardship<span class="new-pill">baru</span></span><span class="comp-meaning">mengelola sumber daya rumah tangga secara bijak dan bertanggung jawab.</span></div></li></ul>
+</article><article class="domain-card is-new reveal" style="--accent:#9C4E58;--text:#9C4E58;--tint:#F5EDEE;" id="domain-23">
+  <div class="domain-head">
+    <div class="domain-num">23</div>
+    <div class="domain-icon-wrap"><svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8a3 3 0 0 0-4.2 4.2L9 16.4l4.2-4.2A3 3 0 0 0 9 8z" transform="translate(1,-1) scale(0.95)"/><path d="M9.5 6.5 6 10l3 3 7-7-3-3z"/></svg></div>
+  </div>
+  <div class="domain-category"><span>DOMAIN 23 <span class="new-domain-badge"><span class="dot"></span>DOMAIN BARU</span></span><span class="badge-count">12 kompetensi</span></div>
+  <div class="domain-titles">
+    <h3>RELASIONAL &amp; KEINTIMAN</h3>
+    <div class="tagline">Membangun kedekatan, kepercayaan, dan keintiman yang sehat.</div>
+  </div>
+  <div class="domain-meaning">membangun kedekatan, kepercayaan, dan keintiman yang sehat — lebih dalam dari relasi sosial pada umumnya.</div>
+  <div class="why-added"><span class="lbl">Mengapa ditambahkan</span>Ditambahkan karena kedekatan &amp; keintiman adalah kompetensi hidup nyata yang jarang dipetakan eksplisit, meski berbeda dari domain Sosial (2) yang lebih umum.</div>
+  <ul class="comp-list "><li class="added"><span class="n">221</span><div class="comp-body"><span class="comp-name">Intimacy Intelligence<span class="new-pill">baru</span></span><span class="comp-meaning">kemampuan membangun kedekatan emosional dan fisik yang sehat dalam relasi.</span></div></li><li class="added"><span class="n">222</span><div class="comp-body"><span class="comp-name">Vulnerability &amp; Openness<span class="new-pill">baru</span></span><span class="comp-meaning">berani menunjukkan sisi rapuh diri tanpa merasa terancam.</span></div></li><li class="added"><span class="n">223</span><div class="comp-body"><span class="comp-name">Attachment Security<span class="new-pill">baru</span></span><span class="comp-meaning">merasa aman dan percaya dalam sebuah ikatan hubungan.</span></div></li><li class="added"><span class="n">224</span><div class="comp-body"><span class="comp-name">Consent &amp; Boundaries<span class="new-pill">baru</span></span><span class="comp-meaning">menghormati persetujuan dan batas diri sendiri maupun orang lain.</span></div></li><li class="added"><span class="n">225</span><div class="comp-body"><span class="comp-name">Conflict Repair in Relationship<span class="new-pill">baru</span></span><span class="comp-meaning">memperbaiki hubungan setelah terjadi konflik atau kesalahpahaman.</span></div></li><li class="added"><span class="n">226</span><div class="comp-body"><span class="comp-name">Emotional Availability<span class="new-pill">baru</span></span><span class="comp-meaning">bersedia dan mampu hadir secara emosional bagi pasangan atau orang terdekat.</span></div></li><li class="added"><span class="n">227</span><div class="comp-body"><span class="comp-name">Commitment &amp; Reliability<span class="new-pill">baru</span></span><span class="comp-meaning">menjadi orang yang bisa diandalkan dan dipercaya dalam jangka panjang.</span></div></li><li class="added"><span class="n">228</span><div class="comp-body"><span class="comp-name">Love Languages Fluency<span class="new-pill">baru</span></span><span class="comp-meaning">memahami dan menggunakan cara mengekspresikan serta menerima kasih sayang yang tepat bagi pasangan.</span></div></li><li class="added"><span class="n">229</span><div class="comp-body"><span class="comp-name">Friendship Maintenance<span class="new-pill">baru</span></span><span class="comp-meaning">merawat dan menjaga persahabatan agar tetap bertahan lama.</span></div></li><li class="added"><span class="n">230</span><div class="comp-body"><span class="comp-name">Loneliness Regulation<span class="new-pill">baru</span></span><span class="comp-meaning">mengelola rasa kesepian tanpa harus bergantung penuh pada orang lain.</span></div></li><li class="added"><span class="n">230a</span><div class="comp-body"><span class="comp-name">Repair after Rupture<span class="new-pill">baru</span></span><span class="comp-meaning">memulihkan hubungan setelah terjadi keretakan yang menyakitkan.</span></div></li><li class="added"><span class="n">230b</span><div class="comp-body"><span class="comp-name">Interdependence (Sehat, Bukan Codependent)<span class="new-pill">baru</span></span><span class="comp-meaning">saling bergantung secara sehat tanpa kehilangan diri sendiri.</span></div></li></ul>
+</article></div>
+
+<!-- ============ VISUAL BREAK ============ -->
+<div class="visual-break">
+  <div class="visual-break-inner reveal">
+    <div class="visual-break-text">
+      <span class="eyebrow">SATU SISTEM</span>
+      <p>Dua puluh tiga domain berikutnya bukan berdiri sendiri — semuanya mengarah pada satu titik pertemuan.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DOMAIN 24 — INTEGRATION CHAMBER ============ -->
+<section class="integration-chamber" id="domain-24">
+  <div class="chamber-inner reveal">
+    <div class="chamber-head">
+      <span class="eyebrow" style="display:flex;justify-content:center;">THE INTEGRATION CHAMBER</span>
+      <div class="chamber-num">24</div>
+      <h3 class="chamber-title">INTEGRASI &amp; KEBIJAKSANAAN HIDUP</h3>
+      <p class="chamber-tagline">Menyatukan seluruh kecerdasan menjadi satu cara hidup yang utuh.<br>domain puncak — tempat ke-23 domain lain bertemu dan menyatu menjadi satu cara hidup yang koheren, bukan sekadar daftar kemampuan terpisah.</p>
+    </div>
+    <div class="chamber-converge"><svg viewBox="0 0 600 180" role="img" aria-label="Ilustrasi 23 domain menyatu ke domain integrasi">
+<g><path d="M40.0,30.0 Q170.0,60.0 300,130" stroke="#3E5C9A" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M63.6,46.8 Q181.8,68.4 300,130" stroke="#2B7A78" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M87.3,42.2 Q193.6,66.1 300,130" stroke="#B85C6B" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M110.9,22.0 Q205.5,56.0 300,130" stroke="#B8813A" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M134.5,12.1 Q217.3,51.0 300,130" stroke="#7A5AA8" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M158.2,25.0 Q229.1,57.5 300,130" stroke="#2E7DA8" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M181.8,44.3 Q240.9,67.1 300,130" stroke="#5E8A5A" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M205.5,45.4 Q252.7,67.7 300,130" stroke="#A05A3C" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M229.1,26.9 Q264.5,58.4 300,130" stroke="#8A5478" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M252.7,12.3 Q276.4,51.2 300,130" stroke="#2E7A82" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M276.4,20.3 Q288.2,55.2 300,130" stroke="#3E5A9E" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M300.0,40.6 Q300.0,65.3 300,130" stroke="#B85040" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M323.6,47.4 Q311.8,68.7 300,130" stroke="#2F8272" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M347.3,32.0 Q323.6,61.0 300,130" stroke="#96872E" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M370.9,14.0 Q335.5,52.0 300,130" stroke="#B0632E" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M394.5,16.5 Q347.3,53.2 300,130" stroke="#4E7A3E" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M418.2,36.2 Q359.1,63.1 300,130" stroke="#8A5488" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M441.8,48.0 Q370.9,69.0 300,130" stroke="#3A4A7A" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M465.5,36.9 Q382.7,63.4 300,130" stroke="#245E6E" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M489.1,17.0 Q394.5,53.5 300,130" stroke="#78507E" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M512.7,13.7 Q406.4,51.8 300,130" stroke="#A8632E" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M536.4,31.2 Q418.2,60.6 300,130" stroke="#A0525E" stroke-width="0.9" fill="none" opacity="0.45"/><path d="M560.0,47.2 Q430.0,68.6 300,130" stroke="#9C4E58" stroke-width="0.9" fill="none" opacity="0.45"/></g>
+<g><circle cx="40.0" cy="30.0" r="4" fill="#3E5C9A"/><circle cx="63.6" cy="46.8" r="4" fill="#2B7A78"/><circle cx="87.3" cy="42.2" r="4" fill="#B85C6B"/><circle cx="110.9" cy="22.0" r="4" fill="#B8813A"/><circle cx="134.5" cy="12.1" r="4" fill="#7A5AA8"/><circle cx="158.2" cy="25.0" r="4" fill="#2E7DA8"/><circle cx="181.8" cy="44.3" r="4" fill="#5E8A5A"/><circle cx="205.5" cy="45.4" r="4" fill="#A05A3C"/><circle cx="229.1" cy="26.9" r="4" fill="#8A5478"/><circle cx="252.7" cy="12.3" r="4" fill="#2E7A82"/><circle cx="276.4" cy="20.3" r="4" fill="#3E5A9E"/><circle cx="300.0" cy="40.6" r="4" fill="#B85040"/><circle cx="323.6" cy="47.4" r="4" fill="#2F8272"/><circle cx="347.3" cy="32.0" r="4" fill="#96872E"/><circle cx="370.9" cy="14.0" r="4" fill="#B0632E"/><circle cx="394.5" cy="16.5" r="4" fill="#4E7A3E"/><circle cx="418.2" cy="36.2" r="4" fill="#8A5488"/><circle cx="441.8" cy="48.0" r="4" fill="#3A4A7A"/><circle cx="465.5" cy="36.9" r="4" fill="#245E6E"/><circle cx="489.1" cy="17.0" r="4" fill="#78507E"/><circle cx="512.7" cy="13.7" r="4" fill="#A8632E"/><circle cx="536.4" cy="31.2" r="4" fill="#A0525E"/><circle cx="560.0" cy="47.2" r="4" fill="#9C4E58"/></g>
+<circle cx="300" cy="130" r="26" fill="#6B5AA0"/>
+<text x="300" y="135" text-anchor="middle" font-family="Fraunces, serif" font-size="16" fill="#fff" font-weight="500">24</text>
+</svg></div>
+    <div class="why-added" style="max-width:640px;margin:0 auto var(--sp-7);text-align:left;">
+      <span class="lbl">Mengapa ditambahkan</span>Ditambahkan sebagai domain puncak: tempat ke-23 domain lain bertemu dan disatukan menjadi satu cara hidup yang koheren, bukan sekadar daftar kemampuan terpisah.
+    </div>
+    <ul class="comp-list chamber-comp-grid"><li class="added"><span class="n">231</span><div class="comp-body"><span class="comp-name">Life Integration Intelligence<span class="new-pill">baru</span></span><span class="comp-meaning">kemampuan menyatukan berbagai kompetensi menjadi satu cara hidup yang utuh.</span></div></li><li class="added"><span class="n">232</span><div class="comp-body"><span class="comp-name">Self-Concordance (Selaras Nilai &amp; Tindakan)<span class="new-pill">baru</span></span><span class="comp-meaning">hidup selaras antara apa yang kamu yakini dan apa yang kamu lakukan.</span></div></li><li class="added"><span class="n">233</span><div class="comp-body"><span class="comp-name">Cross-Domain Synthesis<span class="new-pill">baru</span></span><span class="comp-meaning">menghubungkan pelajaran dari berbagai bidang menjadi satu pemahaman yang lebih besar.</span></div></li><li class="added"><span class="n">234</span><div class="comp-body"><span class="comp-name">Long-Term Vision Holding<span class="new-pill">baru</span></span><span class="comp-meaning">memegang teguh arah hidup jangka panjang meski situasi sehari-hari berubah-ubah.</span></div></li><li class="added"><span class="n">235</span><div class="comp-body"><span class="comp-name">Balance Across Roles<span class="new-pill">baru</span></span><span class="comp-meaning">menjaga keseimbangan antara berbagai peran hidup — pekerjaan, keluarga, diri sendiri.</span></div></li><li class="added"><span class="n">236</span><div class="comp-body"><span class="comp-name">Reflective Practice (Jurnal &amp; Evaluasi Diri)<span class="new-pill">baru</span></span><span class="comp-meaning">kebiasaan merenung dan mengevaluasi diri secara teratur.</span></div></li><li class="added"><span class="n">237</span><div class="comp-body"><span class="comp-name">Simplicity &amp; Essentialism<span class="new-pill">baru</span></span><span class="comp-meaning">memilih fokus pada yang benar-benar penting, melepaskan yang tidak perlu.</span></div></li><li class="added"><span class="n">238</span><div class="comp-body"><span class="comp-name">Contentment (Qana'ah)<span class="new-pill">baru</span></span><span class="comp-meaning">merasa cukup dan damai dengan apa yang sudah dimiliki.</span></div></li><li class="added"><span class="n">239</span><div class="comp-body"><span class="comp-name">Wisdom in Action<span class="new-pill">baru</span></span><span class="comp-meaning">menerapkan kebijaksanaan secara nyata dalam keputusan sehari-hari, bukan hanya memahaminya.</span></div></li><li class="added"><span class="n">240</span><div class="comp-body"><span class="comp-name">Wholehearted Living<span class="new-pill">baru</span></span><span class="comp-meaning">menjalani hidup secara utuh dan sepenuh hati, tanpa setengah-setengah.</span></div></li><li class="added"><span class="n">240a</span><div class="comp-body"><span class="comp-name">Teaching What You've Learned<span class="new-pill">baru</span></span><span class="comp-meaning">meneruskan apa yang sudah dipelajari kepada orang lain.</span></div></li><li class="added"><span class="n">240b</span><div class="comp-body"><span class="comp-name">Peace with Impermanence<span class="new-pill">baru</span></span><span class="comp-meaning">berdamai dengan kenyataan bahwa segala sesuatu bersifat sementara.</span></div></li></ul>
+  </div>
+</section>
+
+<!-- ============ FRAMEWORK ============ -->
+<section class="framework-section" id="framework">
+  <div class="section-head" style="padding-top:0;">
+    <span class="eyebrow">PANDUAN</span>
+    <h2>Cara Membaca Peta Ini</h2>
+    <p>Lima lensa untuk menavigasi atlas ini: kategori kecerdasan, jenis kompetensi, tingkat prioritas, urutan belajar yang disarankan, dan prinsip inti di baliknya.</p>
+  </div>
+  <div class="fw-modules">
+
+    <div class="fw-module reveal">
+      <div class="fw-module-head"><span class="idx">01</span><h4>Kategori Kecerdasan</h4>
+        <p>Enam jenis kecerdasan yang mendasari seluruh domain.</p></div>
+      <div class="fw-chip-grid"><div class="fw-chip"><span class="swatch" style="background:#3E5C9A"></span><div><span class="t">IQ — Intelektual</span><span class="d">Berpikir logis, analitis, memecahkan masalah.</span></div></div><div class="fw-chip"><span class="swatch" style="background:#AB5563"></span><div><span class="t">EQ — Emosional</span><span class="d">Mengelola emosi dan hubungan diri sendiri.</span></div></div><div class="fw-chip"><span class="swatch" style="background:#8A5478"></span><div><span class="t">SQ — Spiritual</span><span class="d">Makna, nilai, dan tujuan hidup.</span></div></div><div class="fw-chip"><span class="swatch" style="background:#557D51"></span><div><span class="t">AQ — Adaptif</span><span class="d">Bertahan dan bangkit dalam perubahan.</span></div></div><div class="fw-chip"><span class="swatch" style="background:#2E7A82"></span><div><span class="t">CQ — Budaya</span><span class="d">Memahami perbedaan dan keberagaman.</span></div></div><div class="fw-chip"><span class="swatch" style="background:#3E5A9E"></span><div><span class="t">TQ — Teknologi</span><span class="d">Menguasai informasi dan dunia digital.</span></div></div></div>
+    </div>
+
+    <div class="fw-module reveal">
+      <div class="fw-module-head"><span class="idx">02</span><h4>Jenis Kompetensi</h4>
+        <p>Setiap kompetensi termasuk salah satu dari enam jenis ini.</p></div>
+      <div class="fw-chip-grid"><div class="fw-chip"><span class="swatch" style="background:var(--gold)"></span><div><span class="t">Intelligence</span><span class="d">Kemampuan berpikir dan memahami.</span></div></div><div class="fw-chip"><span class="swatch" style="background:var(--gold)"></span><div><span class="t">Capacity</span><span class="d">Kemampuan yang mendukung fungsi lain.</span></div></div><div class="fw-chip"><span class="swatch" style="background:var(--gold)"></span><div><span class="t">Skill</span><span class="d">Keterampilan yang bisa dilatih dan diasah.</span></div></div><div class="fw-chip"><span class="swatch" style="background:var(--gold)"></span><div><span class="t">Character</span><span class="d">Nilai, sikap, dan kebiasaan batin.</span></div></div><div class="fw-chip"><span class="swatch" style="background:var(--gold)"></span><div><span class="t">Knowledge</span><span class="d">Pengetahuan dan informasi yang dikuasai.</span></div></div><div class="fw-chip"><span class="swatch" style="background:var(--gold)"></span><div><span class="t">Framework</span><span class="d">Cara pandang dan sistem berpikir.</span></div></div></div>
+    </div>
+
+    <div class="fw-module reveal">
+      <div class="fw-module-head"><span class="idx">03</span><h4>Tingkat Prioritas</h4>
+        <p>Progresi dari fondasi menuju eksekusi praktis.</p></div>
+      <div class="fw-priority-flow"><div class="fw-priority-step"><span class="pnum" style="background:#AB5563">1</span><div><span class="t">Paling Dasar (Fondasi)</span><span class="d">Wajib dikuasai untuk membangun yang lain.</span></div></div><div class="fw-priority-step"><span class="pnum" style="background:#986B30">2</span><div><span class="t">Penggerak</span><span class="d">Memberi energi dan arah.</span></div></div><div class="fw-priority-step"><span class="pnum" style="background:#A9822F">3</span><div><span class="t">Penguat</span><span class="d">Memperkuat dan memperluas kemampuan.</span></div></div><div class="fw-priority-step"><span class="pnum" style="background:#2E7DA8">4</span><div><span class="t">Esensial</span><span class="d">Menentukan kualitas hidup jangka panjang.</span></div></div><div class="fw-priority-step"><span class="pnum" style="background:#557D51">5</span><div><span class="t">Pendukung</span><span class="d">Memperkaya pengalaman dan kualitas hidup.</span></div></div><div class="fw-priority-step"><span class="pnum" style="background:#7A5AA8">6</span><div><span class="t">Praktis &amp; Eksekusi</span><span class="d">Mengubah rencana menjadi hasil nyata.</span></div></div></div>
+    </div>
+
+    <div class="fw-module reveal">
+      <div class="fw-module-head"><span class="idx">04</span><h4>Urutan Belajar Disarankan</h4>
+        <p>24 langkah perjalanan belajar yang disarankan, dari diri hingga warisan.</p></div>
+      <div class="fw-path"><div class="fw-path-item"><span class="circ">1</span>Diri</div><div class="fw-path-item"><span class="circ">2</span>Pikiran</div><div class="fw-path-item"><span class="circ">3</span>Emosi</div><div class="fw-path-item"><span class="circ">4</span>Manusia</div><div class="fw-path-item"><span class="circ">5</span>Tindakan</div><div class="fw-path-item"><span class="circ">6</span>Kreasi</div><div class="fw-path-item"><span class="circ">7</span>Karakter</div><div class="fw-path-item"><span class="circ">8</span>Finansial</div><div class="fw-path-item"><span class="circ">9</span>Makna</div><div class="fw-path-item"><span class="circ">10</span>Tubuh</div><div class="fw-path-item"><span class="circ">11</span>Keluarga</div><div class="fw-path-item"><span class="circ">12</span>Teknologi</div><div class="fw-path-item"><span class="circ">13</span>Spasial</div><div class="fw-path-item"><span class="circ">14</span>Alam</div><div class="fw-path-item"><span class="circ">15</span>Sosial</div><div class="fw-path-item"><span class="circ">16</span>Belajar</div><div class="fw-path-item"><span class="circ">17</span>Karier</div><div class="fw-path-item"><span class="circ">18</span>Kebijaksanaan</div><div class="fw-path-item"><span class="circ">19</span>Kepemimpinan</div><div class="fw-path-item"><span class="circ">20</span>Intuisi</div><div class="fw-path-item"><span class="circ">21</span>Kontribusi</div><div class="fw-path-item"><span class="circ">22</span>Relasi Intim</div><div class="fw-path-item"><span class="circ">23</span>Integrasi</div><div class="fw-path-item"><span class="circ">24</span>Warisan</div></div>
+    </div>
+
+    <div class="fw-module reveal">
+      <div class="fw-module-head"><span class="idx">05</span><h4>Satu Aktivitas, Banyak Manfaat</h4>
+        <p>Satu aktivitas bisa melatih beberapa kompetensi dan domain sekaligus.</p></div>
+      <div class="fw-activity">
+        <div class="fw-activity-diagram"><svg viewBox="0 0 700 240" role="img" aria-label="Diagram satu aktivitas melatih beberapa kompetensi">
+<g><path d="M124,110 C 260.0,110 260.0,26 422,26" stroke="#A35C2A" stroke-width="1.4" fill="none" opacity="0.55"/><path d="M124,110 C 260.0,110 260.0,80 422,80" stroke="#7A5AA8" stroke-width="1.4" fill="none" opacity="0.55"/><path d="M124,110 C 260.0,110 260.0,134 422,134" stroke="#AB5563" stroke-width="1.4" fill="none" opacity="0.55"/><path d="M124,110 C 260.0,110 260.0,188 422,188" stroke="#2F8272" stroke-width="1.4" fill="none" opacity="0.55"/></g>
+<circle cx="90" cy="110" r="36" fill="var(--gold-tint)" stroke="var(--gold)" stroke-width="1.3"/>
+<text x="90" y="105" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="var(--ink-1)">Belajar</text>
+<text x="90" y="122" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="var(--ink-1)">Tari</text>
+<g><circle cx="430.0" cy="26" r="4" fill="#A35C2A"/><circle cx="430.0" cy="80" r="4" fill="#7A5AA8"/><circle cx="430.0" cy="134" r="4" fill="#AB5563"/><circle cx="430.0" cy="188" r="4" fill="#2F8272"/></g>
+<g><text x="442" y="30" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="600" fill="var(--ink-1)">Kinestetik</text><text x="442" y="84" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="600" fill="var(--ink-1)">Ekspresi Kreatif</text><text x="442" y="138" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="600" fill="var(--ink-1)">Kepercayaan Diri</text><text x="442" y="192" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="600" fill="var(--ink-1)">Koneksi Tubuh-Pikiran</text></g>
+</svg></div>
+        <blockquote>&ldquo;Belajarlah dari hidup untuk hidup yang lebih baik esok hari.&rdquo;</blockquote>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="philosophy" id="philosophy">
+  <span class="eyebrow" style="display:flex;justify-content:center;">CORE PHILOSOPHY</span>
+  <div class="quote">Kemampuan adalah alat. Karakter adalah arah. Nilai adalah tujuan. Manfaat adalah warisan.</div>
+  <div class="attr">M.C. FATHUL ADZIM — DIPERLUAS &amp; DISEMPURNAKAN</div>
+  <div class="pillars">
+    <div class="pillar">Build</div>
+    <div class="pillar">Grow</div>
+    <div class="pillar">Upgrade</div>
+    <div class="pillar">Integrate</div>
+  </div>
+</section>
+
+<footer>
+  <div><span class="brand">Atlas Potensi Manusia</span> — Edisi Diperluas, 24 Domain</div>
+  <div>Mengenal • Memahami • Mengembangkan • Menjadi Versi Terbaik Diri</div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
