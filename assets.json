@@ -1,0 +1,149 @@
+{
+  "build": "20261107.6",
+  "note": "Registri aset terpusat. Struktur SATU TINGKAT: semua berkas berada langsung di root (tanpa subfolder). Path relatif terhadap root proyek; dipakai uji integritas. CSS/JS dipanggil dengan ?v=<build>.",
+  "html": [
+    "index.html",
+    "atlas_redesign.html"
+  ],
+  "pwa": [
+    "manifest.json",
+    "sw.js"
+  ],
+  "icons": {
+    "icon-192.svg": "ikon aplikasi (Bismillah + MCFA PROJECT)",
+    "icon-512.svg": "ikon aplikasi (Bismillah + MCFA PROJECT)",
+    "icon-192.png": "ikon aplikasi (Bismillah + MCFA PROJECT)",
+    "icon-512.png": "ikon aplikasi (Bismillah + MCFA PROJECT)",
+    "apple-touch-icon.png": "ikon aplikasi (Bismillah + MCFA PROJECT)",
+    "favicon.svg": "ikon aplikasi (Bismillah + MCFA PROJECT)"
+  },
+  "images": {
+    "alley.jpg": {
+      "bytes": 26820,
+      "md5": "ddfa37ae11bec37beffe1538065cfee1"
+    },
+    "ayla.jpg": {
+      "bytes": 22535,
+      "md5": "1c84b865fe11ef8b9a5a63eaa6ffe9cc"
+    },
+    "barongsukma.jpg": {
+      "bytes": 19646,
+      "md5": "731533e3ee8a2ddc326d15b5bfbfa9cc"
+    },
+    "cne.jpg": {
+      "bytes": 12308,
+      "md5": "9ab5cfad0a796c55afe2e3783e38b30a"
+    },
+    "fathulmeme.jpg": {
+      "bytes": 40072,
+      "md5": "b61d089de49658b6f041347df7caf2fd"
+    },
+    "kpc.jpg": {
+      "bytes": 26828,
+      "md5": "453e7258faea5e4135527fe07bf263fa"
+    },
+    "lol.jpg": {
+      "bytes": 24981,
+      "md5": "47039f55fb473af9f48513a403a9359c"
+    },
+    "mcfa-studio-logo.jpg": {
+      "bytes": 12493,
+      "md5": "6502d3ca72f2ccb2798175d722358316"
+    },
+    "mcfa.jpg": {
+      "bytes": 30267,
+      "md5": "fdb2d0af1801b24ef201d7e647357540"
+    },
+    "monkipedia.jpg": {
+      "bytes": 17182,
+      "md5": "4ea4ad16ff0c3bf482d5d33b6832be6c"
+    },
+    "oh-launch-bg.jpg": {
+      "bytes": 304702,
+      "md5": "5cc9d8acea03bf886fbf21a17d1d9654"
+    },
+    "oh-launch-cta.png": {
+      "bytes": 85635,
+      "md5": "a3a938d59640d9d6e4f7c06c5f18ffc0"
+    },
+    "oh-naskah.png": {
+      "bytes": 53619,
+      "md5": "31318b36bc68f34816e2f863f547ac01"
+    },
+    "okk.jpg": {
+      "bytes": 29715,
+      "md5": "d0d2b19871ef27882f62626e89de637c"
+    },
+    "sheina.jpg": {
+      "bytes": 23730,
+      "md5": "1fbed2dda4534902711a1fa5c1f96e6e"
+    },
+    "zona.jpg": {
+      "bytes": 42136,
+      "md5": "8842ef4634c64ce681fb3b1694fa5fcc"
+    }
+  },
+  "css": [
+    "main.css",
+    "layout.css",
+    "components.css",
+    "tahap.css",
+    "polish.css",
+    "avatar-ring.css",
+    "stats-info.css",
+    "kpc-profile.css"
+  ],
+  "js": [
+    "01-power-saver.js",
+    "02-icons-helper.js",
+    "03-nav-back-stack.js",
+    "04-core-timeline.js",
+    "05-splash-particles.js",
+    "06-life-phases-intro.js",
+    "07-adaptation-program.js",
+    "08-adaptation-content-production.js",
+    "09-activity-hero-toggle.js",
+    "10-activity-daily-calendar.js",
+    "11-initial-tasks-nov.js",
+    "12-app-core-intro-canvas.js",
+    "13-page-navigation.js",
+    "14-premium-upgrades.js",
+    "15-avatar-upload.js",
+    "16-production-polish.js",
+    "17-motion-layer.js",
+    "18-fx-preferences.js",
+    "19-cloud-account-sync.js",
+    "20-finance-milestones.js",
+    "21-finance-ledger.js",
+    "22-overlay-back-bridge.js",
+    "23-stage-system.js",
+    "24-activity-stage.js",
+    "25-studio-stage.js",
+    "26-life-stage.js",
+    "27-career-stage.js",
+    "28-finance-stage.js",
+    "29-narrative-account-count.js",
+    "30-local-backup-json.js",
+    "31-studio-account-hub.js",
+    "32-career-growth-map.js",
+    "33-finance-tabs.js",
+    "34-life-summary.js",
+    "35-sfx-ambient-dashboard.js",
+    "36-stage-ordering.js",
+    "37-finance-stage-widgets.js",
+    "38-studio-stage-head.js",
+    "39-finance-totals.js",
+    "40-card-shimmer.js",
+    "41-midnight-rollover.js",
+    "42-content-bridge-studio.js",
+    "43-visibility-pause.js",
+    "44-stats-info.js",
+    "45-kpc-profile.js"
+  ],
+  "docs": [
+    "README.md",
+    "CHANGELOG.md",
+    "DATABASE.md",
+    "TESTING.md"
+  ]
+}
