@@ -1,0 +1,664 @@
+/* ── bloco #49 (mcfa-polish-final) ── */
+/* ═══════════════════════════════════════════════════════════════════════
+   M.C.F.A — LAPISAN PENYEMPURNAAN VISUAL (dimuat paling akhir)
+   Hanya mengubah tampilan: kontras teks, kartu, tombol, navigasi, jarak.
+   TIDAK mengubah data, fungsi, login, Firebase, maupun sinkronisasi.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root{
+  --pf-ink:#0b1b3f; --pf-ink2:#2d4a7c; --pf-mute:#4a638c; --pf-line:#d6e0f5;
+  --pf-shadow:0 1px 2px rgba(15,42,94,.06),0 8px 24px rgba(15,42,94,.09);
+  --pf-ts:0 1px 2px rgba(4,12,44,.32);
+}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+button,[role="button"],a,select,input,textarea{touch-action:manipulation}
+:focus-visible{outline:3px solid rgba(37,99,235,.55)!important;outline-offset:2px!important;border-radius:10px}
+img{max-width:100%}
+
+/* ───────── 1. NAVIGASI BAWAH — buram penuh agar teks di belakang tidak tembus ───────── */
+html body .bottom-nav,html body #bottomNav{
+  background:#ffffff!important;
+  border-top:1px solid #d9e3f7!important;
+  box-shadow:0 -8px 28px rgba(15,42,94,.12)!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html body .bn-item .bn-label{color:#35507f!important;font-weight:700!important;letter-spacing:.1px}
+html body .bn-item.active .bn-label{color:#1549d3!important;font-weight:800!important}
+html body .bn-item .bn-icon{color:#4a638c}
+html body .bn-item.active .bn-icon{color:#1549d3}
+
+/* ───────── 2. DEKORASI ANGKASA tidak lagi menimpa tulisan ───────── */
+html body .space-fx .sfx-layer{z-index:0!important;pointer-events:none!important}
+html body .space-fx .sfx-planet,html body .space-fx .sfx-ufo,
+html body .space-fx .sfx-astro,html body .space-fx .sfx-alien{opacity:.5!important}
+html body .project-banner>*:not(.sfx-layer),
+html body .bp-frame-header>*:not(.sfx-layer){position:relative;z-index:2}
+
+/* Teks di atas gradien warna: bayangan halus + lapisan gelap tipis di bawah isi */
+html body .project-banner{
+  box-shadow:inset 0 0 0 999px rgba(5,18,84,.17),0 14px 34px rgba(21,73,211,.30)!important}
+html body .project-banner,html body .hero-card,html body .kr-header-banner,
+html body .identity-intro-card,html body .dash-wrap,html body #krRoadmap,
+html body .bp-frame-header,html body .akt-hero-card,html body .mt-card,html body .ah-hero{
+  text-shadow:var(--pf-ts)}
+html body .pb-mono{font-size:10px!important;letter-spacing:4px!important}
+html body .pb-sep-days{
+  font-size:9.5px!important;letter-spacing:1.1px!important;color:#fff!important;font-weight:800!important;
+  background:rgba(6,20,92,.38);padding:3px 9px;border-radius:99px;text-shadow:none}
+html body .pb-date-val{color:#fff!important}
+html body .pb-date-day{background:rgba(6,20,92,.42)!important;color:#fef08a!important}
+html body .project-banner div[style*="text-transform:uppercase"]{font-size:10.5px!important;line-height:1.5}
+
+/* ───────── 3. HEADER "BLUEPRINT IDENTITAS · M.C.F.A STUDIO" ───────── */
+html body .bp-frame-header{box-shadow:inset 0 0 0 999px rgba(6,22,92,.26),0 12px 30px rgba(21,73,211,.28)!important}
+html body .bp-fh-mono{color:rgba(255,255,255,.92)!important;font-size:9.5px!important;letter-spacing:3.5px!important;font-weight:700}
+html body .bp-fh-title{color:#fff!important}
+html body .bp-fh-sub,html body .bp-fh-sub *{color:#fff!important;font-size:11px!important;font-weight:700}
+html body .bp-fh-badge{background:rgba(6,20,80,.55)!important;color:#fecaca!important;border-color:rgba(254,202,202,.6)!important;font-size:9.5px!important;text-shadow:none}
+
+/* ───────── 4. KARTU IDENTITAS PEMILIK (usia, chip, tag) ───────── */
+html body #page-identitas .identity-intro-card[data-premium]{
+  box-shadow:inset 0 0 0 999px rgba(8,22,100,.20),0 14px 32px rgba(47,100,246,.32)!important}
+html body .identity-intro-card>div:first-child,
+html body .identity-intro-card [style*="147,197,253"]{color:#e0ecff!important}
+html body .mcfa-age-card{background:rgba(6,18,86,.34)!important;border:1px solid rgba(255,255,255,.34)!important;border-radius:20px}
+html body #mcfa-age-card>div:first-child{color:#dbeafe!important;font-size:10px!important}
+html body #mcfa-age-next{color:#fff!important;font-size:11px!important}
+html body #mcfa-age-phase{color:#f1f6ff!important;font-size:10.5px!important;font-weight:700}
+html body .mcfa-age-hint{color:#fde68a!important;font-size:10.5px!important;font-weight:800}
+html body .mcfa-chip{color:#fff!important;background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.4)!important}
+html body .mcfa-chip.is-past{opacity:1!important;color:#e3ecff!important;background:rgba(255,255,255,.08)!important}
+html body .mcfa-chip.is-now{background:#fff!important;color:#1549d3!important;border-color:#fff!important}
+html body .mcfa-chip.is-next{background:rgba(255,255,255,.26)!important;color:#fff!important;border-color:#fff!important}
+/* tag persona: pil terang dengan teks pekat */
+html body .identity-intro-card span[style*="rgba(248,113,113,.22)"]{background:#fff1f2!important;color:#9f1239!important;border-color:#fda4af!important;text-shadow:none}
+html body .identity-intro-card span[style*="rgba(74,222,128,.22)"]{background:#ecfdf5!important;color:#065f46!important;border-color:#6ee7b7!important;text-shadow:none}
+html body .identity-intro-card span[style*="rgba(167,139,250,.22)"]{background:#f5f3ff!important;color:#4c1d95!important;border-color:#c4b5fd!important;text-shadow:none}
+html body .identity-intro-card span[style*="border-radius:20px"]{font-size:11px!important;padding:5px 12px!important;box-shadow:0 2px 8px rgba(5,15,60,.18)}
+html body .identity-intro-card [style*="MC FATHUL ADZIM"]{text-shadow:none}
+
+/* ───────── 5. LABEL & KETERANGAN KECIL ───────── */
+html body .bp-section-label{color:#35507f!important;font-weight:700!important;font-size:10px!important}
+html body #page-identitas div[style*="margin-top:6px"][style*="opacity:.6"][style*="letter-spacing:.5px"]{opacity:1!important;font-size:10.5px!important;font-weight:700!important}
+
+/* ───────── 6. TIMELINE / PERJALANAN (BIBIT BARU · SEMPURNA …) ───────── */
+html body .mt-card{box-shadow:inset 0 0 0 999px rgba(6,16,80,.22),0 12px 30px rgba(37,99,235,.30)!important}
+html body .mt-row{background:rgba(6,16,76,.34)!important;border:1px solid rgba(255,255,255,.22)!important}
+html body .mt-row.mt-next{opacity:1!important;background:rgba(6,16,76,.28)!important;border-style:solid!important;border-color:rgba(255,255,255,.3)!important}
+html body .mt-row.mt-now{background:rgba(253,224,130,.22)!important;border-color:#fde68a!important}
+html body .mt-kicker{color:#fde68a!important;font-size:10.5px!important}
+html body .mt-no{color:#fde68a!important}
+html body .mt-title,html body .mt-row b{color:#fff!important}
+html body .mt-sub{color:#e6efff!important;font-size:10.5px!important;font-weight:700}
+html body .mt-range{color:#fef3c7!important;font-size:10.5px!important}
+html body .mt-age{color:#eaf1ff!important;font-size:10.5px!important}
+html body .mt-tr{color:#f1f6ff!important;font-size:11px!important}
+html body .mt-note{color:#fde68a!important;font-size:10.5px!important}
+html body .mt-count,html body .mt-prog-t{color:#eef4ff!important;font-size:10.5px!important}
+html body .mt-badge{background:rgba(255,255,255,.92)!important;color:#1e3a8a!important;font-size:9.5px!important}
+html body .mt-row.mt-done .mt-badge{background:#fef3c7!important;color:#78350f!important}
+html body .mt-row.mt-now .mt-badge{background:#fde68a!important;color:#3b2a05!important}
+html body .mt-row em{color:#d9ffb8!important}
+
+/* ───────── 7. AKTIVITAS — kartu oranye & biru ───────── */
+html body .akt-hero-card.tugas{background:linear-gradient(145deg,#7c1d1d 0%,#b4310a 42%,#cf4308 100%)!important}
+html body .akt-hero-card.harian{background:linear-gradient(145deg,#0d1f4e 0%,#1a3a8f 38%,#1f4fcf 100%)!important}
+html body .akt-hero-mono{color:#fff!important;font-size:9.5px!important;opacity:.95}
+html body .akt-hero-desc,html body .akt-hero-desc *{color:#fff!important;font-size:12px!important}
+html body .akt-hero-chip{background:rgba(0,0,0,.24)!important;border-color:rgba(255,255,255,.4)!important;color:#fff!important;font-size:10.5px!important}
+html body .akt-hero-arrow{background:rgba(0,0,0,.28)!important;color:#fff!important;border-color:rgba(255,255,255,.5)!important}
+html body .akt-hero-progtext,html body .akt-hero-progtext *{color:#fff!important;font-size:10.5px!important;font-weight:700}
+html body #akSfx,html body #akLite{background:rgba(5,25,60,.42)!important;border-color:rgba(255,255,255,.55)!important;color:#fff!important;font-size:10.5px!important}
+
+/* ───────── 8. TAHAP 1·2·3 di dalam kartu berwarna ───────── */
+html body .dw-akt{background:linear-gradient(145deg,#06283d 0%,#055683 52%,#0a6c68 100%)!important}
+html body .dw-keh{background:linear-gradient(145deg,#4c0d3a 0%,#a3124f 52%,#6527c9 100%)!important}
+html body .dw-keu{background:linear-gradient(145deg,#064e3b 0%,#047857 55%,#0f766e 100%)!important}
+html body .dash-wrap .tp-wrap .tp-card{background:rgba(0,0,0,.18)!important;border-color:rgba(255,255,255,.34)!important}
+html body .dash-wrap .tp-wrap .tp-card[aria-selected="true"]{background:rgba(255,255,255,.26)!important;border-color:#fde68a!important}
+html body .tp-lbl{color:#fff!important;font-size:10.5px!important;opacity:1!important}
+html body .tp-dsub,html body .tp-psub{color:#fff!important;opacity:1!important;font-size:11px!important}
+html body .tp-pname{color:#fff!important}
+html body .tp-dhead{color:#fde68a!important}
+html body #stuHead{text-shadow:var(--pf-ts)}
+html body .kh-live{background:rgba(0,0,0,.28)!important;border-color:rgba(255,255,255,.5)!important;color:#fff!important;font-size:10px!important}
+html body .kh-k{color:#fde68a!important;font-size:10px!important}
+html body .ah-hs small,html body .rm-goal small{font-size:8.5px!important;opacity:1!important}
+
+/* ───────── 9. KEHIDUPAN ───────── */
+html body .hero-card{box-shadow:inset 0 0 0 999px rgba(5,18,84,.14),0 14px 34px rgba(21,73,211,.28)!important}
+html body .hero-label{color:#fff!important;opacity:.95}
+html body .phase-tab.active .pt-num,html body .phase-tab.active .pt-title,html body .phase-tab.active .pt-amt{color:#fff!important;opacity:1!important}
+html body .pt-amt{opacity:1!important;color:#35507f!important}
+html body .pt-num{opacity:1!important;font-size:9.5px!important}
+html body .lv-name{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;line-height:1.3}
+html body .lv-head{gap:10px}
+html body .lv-amt{white-space:nowrap}
+
+/* ───────── 10. KARIR ───────── */
+html body .kr-header-banner{box-shadow:inset 0 0 0 999px rgba(5,18,84,.16),0 14px 38px rgba(26,86,219,.34)!important}
+html body .kr-header-mono{color:#fff!important;font-size:10px!important;opacity:.95}
+html body .kr-header-sub,html body .kr-header-sub *{color:#fff!important;font-size:12.5px!important}
+html body .kr-hchip{background:rgba(0,0,0,.26)!important;color:#fff!important;border-color:rgba(255,255,255,.4)!important}
+html body .kr-hchip.kr-hchip-gold{color:#fde68a!important}
+html body .rm-c .g{color:#a7f3d0!important;font-size:10px!important}
+html body .rm-c .n{opacity:1!important}
+
+/* ───────── 11. KEUANGAN ───────── */
+html body #finTabs button.on{background:#047857!important;color:#fff!important}
+html body .fd-hint,html body .fd-sub{color:#fff!important;opacity:1!important}
+html body .fm-balance-hint{color:#065f46!important;font-weight:700!important}
+html body .fg-note,html body #fgNote{color:#065f46!important;font-weight:700!important}
+html body .dtarget-eq{color:#6ee7b7!important}
+html body .dtarget-rate{color:#a7f3d0!important;font-size:10px!important}
+html body .dtarget-period{color:#a7f3d0!important;font-size:10.5px!important}
+html body .dtarget-curr-label{color:#bbf7d0!important;font-size:10px!important}
+html body .dtarget-eyebrow{color:#bbf7d0!important}
+html body .f-arabic{color:#8a6100!important}
+html body .tp-dhead{text-shadow:var(--pf-ts)}
+
+/* ───────── 12. JENDELA AKUN (modal) ───────── */
+html body .am-cred-label{color:rgba(255,255,255,.78)!important;font-size:9.5px!important}
+html body .am-cred-toggle,html body .am-cred-copy{color:rgba(255,255,255,.92)!important;background:rgba(255,255,255,.14)!important;border-color:rgba(255,255,255,.28)!important;min-width:40px;min-height:36px}
+html body .am-cred-lock{color:rgba(255,255,255,.8)!important;font-size:9.5px!important}
+html body .akun-modal-close{color:#334e7a!important;min-width:40px;min-height:40px}
+html body .psys-pill.nx{color:#475569!important;font-size:9.5px!important}
+html body #akunOverlay small{color:#52627a}
+
+/* ───────── 13. HUB AKUN — kartu kategori & statistik ───────── */
+html body #akunHub .ah-cat{box-shadow:inset 0 0 0 999px rgba(0,0,0,.07),0 10px 24px color-mix(in srgb,var(--c) 34%,transparent)!important}
+html body #akunHub .ah-cat .ds{color:#fff!important;font-size:11px!important;font-weight:600}
+html body #akunHub .ah-cat .nm{font-size:16px!important}
+html body #akunHub .ah-cat.ayla{background:linear-gradient(140deg,#e0457b 0%,#c61f52 50%,#8f0f2e 100%)!important}
+html body #akunHub .ah-hero{box-shadow:inset 0 0 0 999px rgba(5,14,70,.12),0 12px 30px rgba(21,73,211,.32)!important}
+html body #akunHub .ah-hs b.ah-num{color:#fff!important;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+html body #akunHub .ah-hs{background:rgba(5,14,70,.34)!important}
+html body #akunHub .ah-hk{color:#fde68a!important;font-size:10px!important}
+html body #akunHub .ah-ni,html body #akunHub .ah-user{color:#3f5a86!important}
+html body #akunHub .ah-st.prep{background:#fff3d6!important;color:#8a4a07!important}
+html body #akunHub .ah-st.aktif{background:#d9f9e8!important;color:#065f46!important}
+html body #akunHub .ah-st.jeda{background:#e5eaf3!important;color:#334155!important}
+html body #akunHub .ah-ib{min-width:38px;min-height:38px}
+html body #akunHub .ah-chip,html body #akunHub .ah-seg button{min-height:34px}
+
+/* ───────── 14. DUNIA AYLA — kontras kartu utama ───────── */
+html body #akunHub .ay-hero{background:linear-gradient(140deg,#d93a74 0%,#c31f55 50%,#9a0d2b 100%)!important;box-shadow:0 14px 30px rgba(190,18,60,.30),inset 0 1px 0 rgba(255,255,255,.3)!important}
+html body #akunHub .ay-top span{opacity:1!important;color:#fff!important;font-size:12px!important}
+html body #akunHub .ay-btns .gh{background:rgba(70,0,20,.34)!important;color:#fff!important;border:1px solid rgba(255,255,255,.45)!important}
+html body #akunHub .ay-btns button,html body #akunHub .ay-btns a{min-height:40px;box-shadow:0 4px 12px rgba(80,0,25,.22)}
+html body #akunHub .ay-st small{color:#4a638c!important}
+
+/* ═════════════ 15. SHEINA SHAFIRA ANGGRENI — kartu istimewa ═════════════ */
+html body #akunHub .ah-person.ah-sheina{
+  position:relative;display:flex;align-items:center;gap:14px;
+  margin:14px 0 14px;padding:16px 14px 15px 14px;border-radius:26px;overflow:hidden;
+  border:1.5px solid transparent;
+  background:
+    radial-gradient(130% 150% at 100% 0%,rgba(244,114,182,.20) 0%,transparent 55%),
+    radial-gradient(100% 130% at 0% 100%,rgba(167,139,250,.26) 0%,transparent 60%),
+    linear-gradient(150deg,#ffffff 0%,#f7f1ff 55%,#fff0f8 100%) padding-box,
+    linear-gradient(135deg,#c4b5fd 0%,#f9a8d4 50%,#fcd34d 100%) border-box;
+  box-shadow:0 16px 34px rgba(124,58,237,.18),0 2px 6px rgba(124,58,237,.10);
+  transition:transform .18s ease,box-shadow .18s ease;cursor:pointer;-webkit-tap-highlight-color:transparent}
+html body #akunHub .ah-person.ah-sheina:active{transform:scale(.975)}
+html body #akunHub .ah-person.ah-sheina::before{
+  content:"";position:absolute;left:0;top:24px;bottom:24px;width:4px;border-radius:0 4px 4px 0;
+  background:linear-gradient(180deg,#8b5cf6,#ec4899 60%,#f59e0b)}
+html body #akunHub .ah-sheina .sh-sp{position:absolute;pointer-events:none;color:#d99a06;opacity:.85;text-shadow:none}
+html body #akunHub .ah-sheina .sh-sp.a{right:56px;top:9px;font-size:12px}
+html body #akunHub .ah-sheina .sh-sp.b{right:34px;top:24px;font-size:8px;color:#ec4899}
+html body #akunHub .ah-sheina .sh-sp.c{right:16px;top:8px;font-size:9px;color:#8b5cf6}
+html body #akunHub .ah-sheina .pi{
+  position:relative;flex:none;width:68px;height:68px;border-radius:50%;padding:3px;display:block;overflow:visible;
+  background:conic-gradient(from 200deg,#8b5cf6,#ec4899,#f59e0b,#8b5cf6);
+  box-shadow:0 8px 18px rgba(139,92,246,.38)}
+html body #akunHub .ah-sheina .pi .pf{
+  display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;
+  background:linear-gradient(145deg,#ede9fe,#fce7f3);border:2.5px solid #fff;color:#6d28d9}
+html body #akunHub .ah-sheina .pi .pf img{width:100%;height:100%;object-fit:cover;display:block}
+html body #akunHub .ah-sheina .pi .pf svg{width:30px;height:30px}
+html body #akunHub .ah-sheina .pi .pf b{font-size:26px;font-weight:800;color:#6d28d9;font-family:'Playfair Display',Georgia,serif}
+html body #akunHub .ah-sheina .pi .sh-crown{
+  position:absolute;right:-4px;bottom:-3px;width:24px;height:24px;border-radius:50%;
+  display:grid;place-items:center;font-size:12px;line-height:1;font-style:normal;
+  background:linear-gradient(145deg,#fde68a,#f59e0b);color:#5a3a00;border:2px solid #fff;box-shadow:0 3px 8px rgba(245,158,11,.5)}
+html body #akunHub .ah-sheina .pt{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+html body #akunHub .ah-sheina .sh-k{
+  font-size:9.5px;letter-spacing:2.2px;font-weight:800;color:#6d28d9;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:6px}
+html body #akunHub .ah-sheina .sh-k::before{content:"";width:16px;height:2px;border-radius:2px;background:linear-gradient(90deg,#8b5cf6,#ec4899)}
+html body #akunHub .ah-sheina b.sh-n{
+  font-family:'Playfair Display','Cormorant Garamond',Georgia,'Times New Roman',serif;
+  font-size:19px;line-height:1.2;font-weight:700;color:#3b0f78;letter-spacing:.1px;text-shadow:none}
+html body #akunHub .ah-sheina .sh-r{font-size:12px;font-weight:700;color:#6b46b3;line-height:1.35}
+html body #akunHub .ah-sheina .sh-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+html body #akunHub .ah-sheina .sh-tags span{
+  font-size:10px;font-weight:800;letter-spacing:.2px;padding:3px 9px;border-radius:99px;
+  background:#fff;color:#5b21b6;border:1px solid #d9ccfb;box-shadow:0 1px 3px rgba(91,33,182,.08)}
+html body #akunHub .ah-sheina .sh-tags span.g{background:#fff7e0;color:#7a4a00;border-color:#f6d98a}
+html body #akunHub .ah-sheina .sh-prog{margin-top:7px}
+html body #akunHub .ah-sheina .sh-bar{height:6px;border-radius:99px;background:rgba(124,58,237,.14);overflow:hidden}
+html body #akunHub .ah-sheina .sh-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#8b5cf6,#ec4899);min-width:0}
+html body #akunHub .ah-sheina .sh-pt{margin-top:4px;font-size:10.5px;font-weight:700;color:#5b3a99}
+html body #akunHub .ah-sheina .go{
+  flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+  font-size:22px;line-height:1;font-weight:800;color:#fff;padding-bottom:2px;
+  background:linear-gradient(145deg,#8b5cf6,#d946ef);box-shadow:0 6px 14px rgba(139,92,246,.4)}
+
+/* grup "PROJECT ADIK SENDIRI" di beranda hub — dua avatar rapi */
+html body #akunHub .ah-cat.ayla .ah-stack{align-items:center}
+html body #akunHub .ah-cat.ayla .ah-pph{width:26px;height:26px;margin-left:-8px;border:2px solid #fff;background:linear-gradient(145deg,#ede9fe,#fce7f3);color:#6d28d9;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+html body #akunHub .ah-cat.ayla .ah-pph img{width:100%;height:100%;object-fit:cover}
+
+/* Halaman profil Sheina (jendela) */
+html body .pp-hero{
+  background:radial-gradient(120% 130% at 100% 0%,rgba(251,191,36,.30) 0%,transparent 52%),
+             linear-gradient(145deg,#5b21b6 0%,#9333ea 55%,#c0267f 100%)!important;
+  border:1px solid rgba(255,255,255,.4);border-radius:26px;padding:18px 16px;
+  box-shadow:0 16px 32px rgba(124,58,237,.34),inset 0 1px 0 rgba(255,255,255,.4)!important;text-shadow:var(--pf-ts)}
+html body .pp-ph{border:3px solid #fff!important;box-shadow:0 0 0 3px rgba(253,224,130,.85),0 10px 22px rgba(0,0,0,.30)!important}
+html body .pp-k{color:#fde68a!important;font-size:10px!important}
+html body .pp-n{font-family:'Playfair Display',Georgia,serif;font-size:21px!important;font-weight:700;margin:4px 0 8px!important}
+html body .pp-role{background:#fff!important;color:#4c1d95!important;border:0!important;font-size:9.5px!important;letter-spacing:.4px!important;white-space:nowrap;font-weight:800!important;text-shadow:none;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+html body .pp-cam{min-width:34px;min-height:34px;width:34px!important;height:34px!important}
+
+/* ───────── 16. KONSISTENSI & UKURAN TEKS MINIMUM DI HP ───────── */
+@media (max-width:520px){
+  html body .pb-sep-days{font-size:9px!important}
+}
+@media (prefers-reduced-motion:reduce){
+  html body #akunHub .ah-person.ah-sheina,html body #akunHub .ah-sheina *{animation:none!important;transition:none!important}
+}
+
+/* ───────── 17. PENYEMPURNAAN LANJUTAN ───────── */
+html body .dw-stu{background:linear-gradient(145deg,#3730a3 0%,#1d5fd8 55%,#0e78b0 100%)!important}
+html body #page-identitas #mcfaTreeWrap.mt-card,html body #page-identitas .mt-card{background:linear-gradient(160deg,#3730a3 0%,#1d4ed8 55%,#0a6aa8 100%)!important}
+html body .bp-frame-header{box-shadow:inset 0 0 0 999px rgba(6,22,92,.38),0 12px 30px rgba(21,73,211,.28)!important}
+html body .ah-seg button.on{background:color-mix(in srgb,var(--c) 86%,#000)!important;color:#fff!important}
+html body .bp-mf-credit{color:#dbe7ff!important;font-size:9.5px!important}
+html body .dash-wrap small,html body #finHead small{color:#fff!important;opacity:1!important}
+html body .fm-balance-hint,html body .fm-balance-hint *,html body .fg-note,html body .fg-note *{color:#065f46!important}
+html body #page-identitas [style*="color:#6b7280"]{color:#475569!important}
+html body #page-identitas .bp-frame-header,html body #page-identitas #bp-fh-studio{background:linear-gradient(135deg,#3730a3 0%,#1d5fd8 55%,#0e78b0 100%)!important}
+html body .mt-sess-r>span{color:#fff3c4!important}
+html body .dash-wrap .tp-wrap .tp-card{background:rgba(0,0,0,.24)!important}
+html body .dw-keu{background:linear-gradient(145deg,#053d2f 0%,#046248 55%,#0b5f58 100%)!important}
+html body #finDompet .fd-hint,html body #finDompet .fd-sub{text-shadow:0 1px 2px rgba(0,30,20,.45)}
+html body .ah-seg button.on{background:#1a4fb0!important}
+html body .ah-seg[style*="c44d18"] button.on{background:#a63d10!important}
+html body .ah-seg[style*="c8102e"] button.on{background:#b00d28!important}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   18. VERSI CERIA & MENGKILAP — menggantikan lapisan gelap/bayangan tebal
+   ═══════════════════════════════════════════════════════════════════════ */
+:root{--pf-hi:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,0) 44%)}
+
+/* 18a. Tanpa bayangan teks (bikin sakit mata) */
+html body :is(.project-banner,.hero-card,.kr-header-banner,.identity-intro-card,.dash-wrap,#krRoadmap,.bp-frame-header,.akt-hero-card,.mt-card,.ah-hero,.ah-cat,.ay-hero,.pp-hero,#stuHead,#finHead,#akunHub,#akunOverlay),
+html body :is(.project-banner,.hero-card,.kr-header-banner,.identity-intro-card,.dash-wrap,#krRoadmap,.bp-frame-header,.akt-hero-card,.mt-card,.ah-hero,.ah-cat,.ay-hero,.pp-hero,#stuHead,#finHead,#akunHub,#akunOverlay) *{text-shadow:none!important}
+html body .tp-dhead,html body .fd-hint,html body .fd-sub,html body #stuHead,html body .ah-hs b.ah-num{text-shadow:none!important}
+
+/* 18b. Gradien cerah (putih tetap terbaca: kontras ≥ 4.5 di area teks) */
+html body .project-banner{
+  background:radial-gradient(60% 80% at 12% 10%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(135deg,#2a5fe8 0%,#4a3fe0 55%,#7a35dc 100%)!important;
+  box-shadow:0 14px 30px rgba(47,107,255,.34),inset 0 1px 0 rgba(255,255,255,.65),inset 0 -12px 24px rgba(255,255,255,.06)!important}
+html body #page-identitas .identity-intro-card[data-premium]{
+  background:radial-gradient(70% 70% at 90% 0%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#2858e8 0%,#4338ca 52%,#6d28d9 100%)!important;
+  box-shadow:0 16px 34px rgba(79,70,229,.34),inset 0 1px 0 rgba(255,255,255,.6)!important}
+html body #page-identitas .bp-frame-header,html body #page-identitas #bp-fh-studio{
+  background:var(--pf-hi),linear-gradient(135deg,#1f55d6 0%,#4338ca 52%,#0a6f8f 100%)!important;
+  box-shadow:0 12px 28px rgba(37,99,235,.32),inset 0 1px 0 rgba(255,255,255,.55)!important}
+html body .dw-stu{background:radial-gradient(70% 60% at 85% 0%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#3450dd 0%,#2a5fe8 52%,#0a70a3 100%)!important}
+html body .dw-akt{background:radial-gradient(70% 60% at 85% 0%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#0a62a3 0%,#0a7490 52%,#0a7566 100%)!important}
+html body .dw-keh{background:radial-gradient(70% 60% at 85% 0%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#c91f63 0%,#a3158e 55%,#6a28c0 100%)!important}
+html body .dw-keu{background:radial-gradient(70% 60% at 85% 0%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#087a52 0%,#0a7059 55%,#0a6e70 100%)!important}
+html body .dash-wrap{box-shadow:0 14px 30px rgba(30,70,160,.26),inset 0 1px 0 rgba(255,255,255,.55)!important}
+html body .hero-card{
+  background:radial-gradient(60% 70% at 85% 0%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#2a5fe8 0%,#3550d8 50%,#5b32dc 100%)!important;
+  box-shadow:0 14px 30px rgba(59,91,240,.34),inset 0 1px 0 rgba(255,255,255,.6)!important}
+html body .kr-header-banner{
+  background:radial-gradient(60% 70% at 85% 0%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(140deg,#1f55d6 0%,#4338ca 55%,#6d28d9 100%)!important;
+  box-shadow:0 14px 32px rgba(79,70,229,.34),inset 0 1px 0 rgba(255,255,255,.6)!important}
+html body .akt-hero-card.tugas{
+  background:radial-gradient(60% 70% at 88% 0%,rgba(255,255,255,.12) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#e0600f 0%,#c23808 46%,#a82808 100%)!important;
+  box-shadow:0 14px 30px rgba(217,67,10,.34),inset 0 1px 0 rgba(255,255,255,.6)!important;border-color:rgba(255,255,255,.35)!important}
+html body .akt-hero-card.harian{
+  background:radial-gradient(60% 70% at 88% 0%,rgba(255,255,255,.10) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#2a5fe8 0%,#334cd8 50%,#5b32dc 100%)!important;
+  box-shadow:0 14px 30px rgba(59,91,240,.34),inset 0 1px 0 rgba(255,255,255,.6)!important;border-color:rgba(255,255,255,.35)!important}
+html body #page-identitas .mt-card,html body #page-identitas #mcfaTreeWrap.mt-card,html body .mt-card{
+  background:radial-gradient(60% 40% at 85% 0%,rgba(255,255,255,.10) 0%,transparent 60%),linear-gradient(160deg,#3450dd 0%,#1f55d6 55%,#0a6a97 100%)!important;
+  border-color:rgba(255,255,255,.4)!important;
+  box-shadow:0 14px 30px rgba(37,99,235,.32),inset 0 1px 0 rgba(255,255,255,.55)!important}
+html body #akunHub .ah-hero{background:var(--pf-hi),linear-gradient(145deg,#2a5fe8 0%,#4338ca 55%,#6d28d9 100%)!important;box-shadow:0 14px 30px rgba(79,70,229,.32),inset 0 1px 0 rgba(255,255,255,.6)!important}
+html body #akunHub .ay-hero{background:radial-gradient(60% 70% at 88% 0%,rgba(255,255,255,.12) 0%,transparent 60%),var(--pf-hi),linear-gradient(140deg,#d93474 0%,#c21e5c 50%,#a31248 100%)!important}
+html body #akunHub .ah-cat{box-shadow:0 12px 24px color-mix(in srgb,var(--c) 38%,transparent),inset 0 1px 0 rgba(255,255,255,.55)!important}
+html body #akunHub .ah-cat.ayla{background:var(--pf-hi),linear-gradient(140deg,#d93474 0%,#c21e5c 50%,#a31248 100%)!important}
+html body .pp-hero{background:radial-gradient(120% 130% at 100% 0%,rgba(253,224,130,.22) 0%,transparent 52%),var(--pf-hi),linear-gradient(145deg,#6d2fe0 0%,#9e26c0 55%,#d12b72 100%)!important}
+
+/* panel dalam: kaca gelap tipis (bukan hitam pekat) */
+html body .mcfa-age-card{background:rgba(10,20,110,.26)!important}
+html body .mt-row,html body .mt-row.mt-next{background:rgba(10,20,110,.2)!important;border-color:rgba(255,255,255,.34)!important}
+html body .mt-row.mt-now{background:rgba(253,224,130,.26)!important}
+html body #akunHub .ah-hs{background:rgba(10,20,110,.24)!important}
+html body .akt-hero-chip,html body .kr-hchip,html body .kh-live{background:rgba(255,255,255,.2)!important}
+html body #akSfx,html body #akLite{background:rgba(10,20,110,.28)!important}
+
+/* Tahap 1·2·3: kaca terang; yang aktif = putih bersih bertulisan biru tua */
+html body .dash-wrap .tp-wrap .tp-card{background:rgba(255,255,255,.18)!important;border-color:rgba(255,255,255,.6)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+html body .dash-wrap .tp-wrap .tp-card[aria-selected="true"]{background:#fff!important;border-color:#fde68a!important;box-shadow:0 8px 20px rgba(10,30,100,.28),0 0 0 3px rgba(253,230,138,.55)!important}
+html body .dash-wrap .tp-card[aria-selected="true"] .tp-lbl,html body .dash-wrap .tp-card[aria-selected="true"] .tp-num{color:#1e3a8a!important}
+html body .dash-wrap .tp-card[aria-selected="true"]::after{color:#1e3a8a}
+html body #stuHead,html body #finHead{background:none!important}
+
+/* 18c. KILAU BERGERAK (elemen <i class="pf-sh"> disisipkan oleh skrip kecil di bawah) */
+.pf-sh{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:4}
+.pf-sh::before{
+  content:"";position:absolute;top:-25%;bottom:-25%;left:-55%;width:42%;
+  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.34) 50%,rgba(255,255,255,0) 100%);
+  transform:translateX(0) skewX(-18deg);opacity:.9;
+  animation:pfSweep 6s ease-in-out infinite;animation-delay:var(--d,0s);animation-play-state:paused}
+.pf-sh.on::before{animation-play-state:running}
+@keyframes pfSweep{0%,58%{transform:translateX(0) skewX(-18deg)}100%{transform:translateX(480%) skewX(-18deg)}}
+/* tetap berjalan di mode hemat (hanya transform → ringan) */
+html:not(.full-fx) .pf-sh::before{animation-iteration-count:infinite!important}
+
+/* 18d. Gerak ceria lainnya (ringan) */
+html body .tp-card[aria-selected="true"],html body .ah-cat,html body .akt-hero-card{will-change:auto}
+@keyframes pfPop{0%{transform:scale(.97)}60%{transform:scale(1.015)}100%{transform:scale(1)}}
+html body .dash-wrap .tp-card[aria-selected="true"]{animation:pfPop .45s ease-out 1}
+html body .akt-hero-card:active,html body .ah-cat:active,html body .tp-card:active{transform:scale(.975)!important}
+@media (prefers-reduced-motion:reduce){.pf-sh::before{animation:none!important;opacity:0}}
+
+/* 18e. Penyetelan kontras akhir untuk panel kaca */
+html body .dash-wrap .tp-wrap .tp-card{background:rgba(10,20,110,.24)!important}
+html body .dash-wrap .tp-wrap .tp-card .tp-lbl,html body .dash-wrap .tp-wrap .tp-card .tp-num{color:#fff!important}
+html body .kh-live{background:rgba(8,30,90,.34)!important}
+html body .ak-d{background:rgba(8,30,90,.26)!important}
+html body .ak-d.now{background:rgba(8,30,90,.42)!important}
+html body .akt-hero-chip{background:rgba(90,20,0,.30)!important}
+html body .kr-hchip{background:rgba(10,20,110,.30)!important}
+html body .kh-k{color:#fff3a6!important}
+html body .dw-keu{background:radial-gradient(70% 60% at 85% 0%,rgba(255,255,255,.08) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#06704a 0%,#08684f 55%,#08666a 100%)!important}
+html body .dw-akt{background:radial-gradient(70% 60% at 85% 0%,rgba(255,255,255,.08) 0%,transparent 60%),var(--pf-hi),linear-gradient(145deg,#095a97 0%,#09698a 55%,#096a5e 100%)!important}
+html body #page-identitas .mt-card,html body .mt-card{background:radial-gradient(60% 40% at 85% 0%,rgba(255,255,255,.08) 0%,transparent 60%),linear-gradient(160deg,#3248d0 0%,#1a4cc4 55%,#08608a 100%)!important}
+html body .mt-row{background:rgba(6,16,90,.28)!important}
+html body .dash-wrap small{font-size:9px!important}
+html body .dash-wrap .tp-wrap .tp-card[aria-selected="true"] .tp-lbl,
+html body .dash-wrap .tp-wrap .tp-card[aria-selected="true"] .tp-num{color:#1e3a8a!important}
+
+/* ── Tahap 10: jeda animasi saat aplikasi di latar belakang (diatur oleh js/43-visibility-pause.js) ── */
+html.mcfa-bg *, html.mcfa-bg *::before, html.mcfa-bg *::after { animation-play-state: paused !important; }
+
+/* ═══ PRESISI TEKS, TANGGAL & JADWAL OLAHRAGA (build 20261103.3) ═══ */
+/* Tanggal di baris 1, DAY tepat di bawahnya, rata tengah & simetris */
+html body .dt-date,html body .dt-day{display:block;text-align:center;white-space:nowrap}
+html body .dt-day{font-family:'JetBrains Mono',monospace;font-size:.72em;letter-spacing:2px;margin-top:3px;opacity:.95}
+html body .idp-main{display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.2;max-width:100%}
+html body .dt-stack{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:3px;font-weight:800;line-height:1.25}
+html body .pb-dates{align-items:flex-start;gap:6px}
+html body .pb-date-block{flex:0 0 auto;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+html body .pb-date-val{margin-top:0!important;white-space:nowrap;font-size:clamp(9px,2.9vw,11.5px)!important;line-height:1.2}
+html body .pb-date-day{margin-top:6px;white-space:nowrap;line-height:1.2}
+html body .pb-sep{flex:1 1 0;min-width:0;align-self:center;padding:0 2px}
+html body .pb-sep-days{text-align:center;text-wrap:balance;line-height:1.5;max-width:100%}
+html body .pb-ident{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;margin:-2px 0 10px;position:relative;z-index:1;color:rgba(255,255,255,.96);text-transform:uppercase;font-weight:800;letter-spacing:.5px;text-shadow:0 1px 6px rgba(0,0,0,.28)}
+html body .pb-id-line{display:block;white-space:nowrap;font-size:clamp(9px,2.8vw,11px);line-height:1.35}
+html body .pb-id-gold{color:#fef08a;font-weight:900;text-shadow:0 1px 10px rgba(253,240,138,.5)}
+html body .hero-date{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+html body .hd-row{display:flex;align-items:flex-start;justify-content:center;gap:10px;max-width:100%}
+html body .hd-b{display:flex;flex-direction:column;align-items:center;gap:3px;white-space:nowrap;font-size:clamp(10.5px,3.1vw,12.5px);line-height:1.2}
+html body .hd-b em{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:.78em;letter-spacing:2px;opacity:.9}
+html body .hd-sep{align-self:center;opacity:.7}
+html body .hd-total{font-size:.82em;letter-spacing:1.5px;opacity:.85}
+html body .gf-meta .gf-dates{display:flex;align-items:flex-start;justify-content:center;gap:10px;margin-bottom:8px}
+html body .gf-meta .gf-d{display:flex;flex-direction:column;align-items:center;gap:3px;white-space:nowrap;font-size:clamp(10px,3vw,11.5px);line-height:1.2}
+html body .gf-meta .gf-d b{font-family:'JetBrains Mono',monospace;font-size:.88em;letter-spacing:2px;color:#fde047;font-weight:800}
+html body .gf-meta .gf-dash{align-self:center;opacity:.7}
+html body .gf-meta .gf-who{display:block;text-align:center;white-space:nowrap;line-height:1.7;font-size:clamp(9.5px,2.9vw,11.5px)}
+
+/* Jadwal olahraga (Running / Strength Training) */
+.wk-wrap{margin:0 0 12px}
+.wk-bar{margin:10px 0 12px;padding:10px 10px 11px;border-radius:14px;background:linear-gradient(135deg,#1e1b4b,#312e81);border:1px solid rgba(253,224,71,.35);box-shadow:0 4px 14px rgba(15,23,42,.25)}
+.wk-today{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 10px;text-align:center;margin-bottom:9px;color:#e0e7ff}
+.wk-today span{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.6px;font-weight:700}
+.wk-today b{font-size:13px;font-weight:800;letter-spacing:.4px;padding:3px 11px;border-radius:99px;color:#0f172a;background:#fde047;white-space:nowrap}
+.wk-today b.str{background:#a5f3fc}
+.wk-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.wk-d{display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 0;border-radius:9px;background:rgba(255,255,255,.08);border:1px solid transparent;color:#c7d2fe;min-width:0}
+.wk-d small{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.6px;font-weight:700}
+.wk-d i{font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.5px;color:#fde047}
+.wk-d.str i{color:#a5f3fc}
+.wk-d.on{background:rgba(253,224,71,.18);border-color:#fde047;color:#fff}
+.wk-d.str.on{background:rgba(165,243,252,.18);border-color:#a5f3fc}
+.adp-lb,.ba-label,.ta-label{overflow-wrap:anywhere}
+html body .pb-sep-days{letter-spacing:.4px!important;font-size:9px!important;overflow-wrap:anywhere}
+@media (max-width:340px){html body .pb-sep-days{letter-spacing:.2px!important;font-size:7.5px!important;padding:3px 4px}}
+html body .pb-sep{padding:0}
+@media (max-width:340px){html body .hd-row{gap:6px}html body .hd-b{font-size:10px}html body .gf-meta .gf-dates{gap:6px}}
+/* Pemenggalan baris seimbang: judul/subjudul/deskripsi pendek tidak menyisakan 1 kata menggantung */
+html body h1,html body h2,html body h3,html body h4,
+html body [class*="title"],html body [class*="-sub"],html body [class*="subtitle"],html body [class*="-desc"],
+html body .hero-label,html body .hero-name,html body .oh-vision-days,html body .bp-fh-sub,html body .bp-tl-phase,html body .bp-tl-intro{text-wrap:balance}
+html body p,html body .oh-body,html body .oh-fineprint,html body .tah-note{text-wrap:pretty}
+html body .ba-label,html body .adp-lb,html body .ta-label{text-wrap:pretty}
+
+/* ═══ HEADER — posisi vertikal tanggal & badge (build 20261104.1) ═══
+   Hanya menggeser posisi (position:relative + top). Ukuran font, kartu, ikon, jarak horizontal & alignment TIDAK diubah.
+   Atur --tb-date-shift / --tb-badge-shift untuk menaik-turunkan; 0px = posisi lama. */
+:root{ --tb-date-shift:2px; --tb-badge-shift:2px; }
+.topbar-sub [data-mcfa-date]{ position:relative; top:var(--tb-date-shift); }
+.topbar-right .topbar-badge{ position:relative; top:var(--tb-badge-shift); }
+
+/* ═══ JADWAL OLAHRAGA — rencana harian (Pagi / Sore / Malam) di bawah bilah mingguan ═══ */
+.wk-plan{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin-top:8px}
+.wk-p{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:6px 9px;border-radius:9px;background:rgba(255,255,255,.08);border-left:3px solid #fde047;min-width:0}
+.wk-p small{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.2px;font-weight:700;color:#c7d2fe}
+.wk-p b{font-size:11.5px;font-weight:800;color:#fff;line-height:1.25;overflow-wrap:anywhere}
+.wk-p.sore{border-left-color:#fb923c}
+.wk-p.malam{border-left-color:#a5b4fc}
+
+/* ═══ HEADER KARTU UNGU — baris tanggal / Day / Tugas Awal sedikit lebih ke bawah (build 20261104.2) ═══
+   Hanya menggeser posisi (relative + top): ukuran tulisan, badge, kartu, dan susunan 3 kolom tidak berubah. Atur --pb-dates-shift; 0px = posisi lama. */
+:root{ --pb-dates-shift:10px; }
+html body .pb-dates{ position:relative; top:var(--pb-dates-shift); }
+
+/* ═══ PROGRAM ADAPTASI — kategori accordion + tugas tambahan ═══ */
+#adpRoot .adp-bh{ cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; }
+#adpRoot .adp-bh:focus-visible{ outline:3px solid #fde047; outline-offset:-3px; }
+#adpRoot .adp-bh i{ flex:none; }
+#adpRoot .adp-chev{ flex:none; width:9px; height:9px; margin:0 3px 0 2px; border-right:2.5px solid rgba(255,255,255,.95); border-bottom:2.5px solid rgba(255,255,255,.95); transform:rotate(-45deg); transition:transform .22s ease; }
+#adpRoot .adp-block.open .adp-chev{ transform:rotate(45deg); }
+#adpRoot .adp-body{ display:none; }
+#adpRoot .adp-block.open .adp-body{ display:block; }
+#adpRoot .adp-cu .adp-lb{ min-width:0; }
+#adpRoot .adp-del{ flex:none; margin-left:auto; width:30px; height:30px; border:0; border-radius:9px; background:rgba(239,68,68,.1); color:#b91c1c; font-size:18px; line-height:1; font-weight:800; cursor:pointer; }
+#adpRoot .adp-add{ display:flex; gap:8px; align-items:center; padding:10px 14px 12px; border-top:1px dashed rgba(148,163,184,.45); background:rgba(148,163,184,.06); }
+#adpRoot .adp-add input{ flex:1; min-width:0; border:1px solid #cbd5e1; border-radius:12px; padding:9px 11px; font:inherit; font-size:13px; background:#fff; color:#0f172a; box-sizing:border-box; }
+#adpRoot .adp-add .adp-btn{ flex:none; white-space:nowrap; }
+#adpRoot .adp-empty{ padding:12px 14px; font-size:12px; color:var(--text2,#64748b); font-weight:600; }
+
+/* ── Foto profil Sheina: tegak & proporsional di semua slot (build 20261104.6) ──
+   Berkas sheina.jpg sudah diluruskan (−2,3°). Aturan ini memastikan foto tidak pernah
+   miring/tertarik: rasio asli dipertahankan (cover pada slot persegi/bulat),
+   EXIF orientasi dihormati untuk foto unggahan sendiri. */
+img.bp-sheina-img,
+.ah-sheina .pf img,
+.ah-pph img,
+.pp-ph img,
+#am-icon img{
+  image-orientation:from-image;
+  object-fit:cover;
+  object-position:50% 50%;
+  transform:none;
+  aspect-ratio:1/1;
+}
+
+/* ── Poin 2: panel aktivitas per kategori akun (Persona / Kolaborasi / Adik) ── */
+.psys-adj{display:inline-flex;align-items:center;gap:8px}
+.psys-b{width:26px;height:26px;border-radius:8px;border:1px solid #cbd5e1;background:#f8fafc;color:#0f172a;font-size:15px;font-weight:800;line-height:1;padding:0;cursor:pointer}
+.psys-b:active{transform:scale(.92)}
+
+/* ── Poin 4: Saldo Saat Ini read-only (otomatis dari Buku Transaksi) ── */
+.fm-balance-input.fm-balance-ro{border-bottom:0;cursor:default;-webkit-user-select:text;user-select:text;pointer-events:none;display:inline-block}
+
+/* ═══ PROGRAM ADAPTASI — tata letak horizontal (build 20261106.7) ═══
+   Struktur sama dengan Kegiatan Sehari-hari (header, navigasi hari, progres, Qhodo, strip pill, bilah olahraga, 10 kategori berurutan sama).
+   Kategori tertutup = kartu ringkas berdampingan (auto-fill, ≥148px); kategori yang dibuka melebar penuh dan daftar tugasnya menyusun kolom bila ruang cukup.
+   Hanya tampilan: data, ID tugas, kunci penyimpanan, dan logika tidak diubah. */
+#adpRoot .adp-qh{ background:linear-gradient(135deg,#faf5ff,#ede9fe); border:1px solid #c4b5fd; }
+#adpRoot .adp-qh .adp-pr,#adpRoot .adp-qh .adp-sub{ color:#7c3aed; }
+#adpRoot .adp-qh .adp-track{ background:#e9d5ff; }
+#adpRoot .adp-qh .adp-fill{ background:linear-gradient(90deg,#7c3aed,#a855f7); }
+#adpRoot .adp-hist{ flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+#adpRoot .adp-hist::-webkit-scrollbar{ display:none; }
+#adpRoot .adp-dot{ flex:none; }
+#adpRoot .adp-pills{ margin:0 10px 6px; }
+#adpRoot .adp-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr)); gap:10px; margin:0 14px 12px; align-items:stretch; }
+#adpRoot .adp-grid > .adp-block{ margin:0; min-width:0; display:flex; flex-direction:column; }
+#adpRoot .adp-grid > .adp-block.open,#adpRoot .adp-grid.adp-focused > .adp-block{ grid-column:1 / -1; }
+#adpRoot .adp-mini{ display:none; height:5px; border-radius:99px; background:rgba(255,255,255,.28); overflow:hidden; }
+#adpRoot .adp-mini b{ display:block; height:100%; border-radius:99px; background:#fff; transition:width .35s ease; }
+#adpRoot .adp-block:not(.open) .adp-bh{ flex:1; flex-wrap:wrap; align-content:space-between; align-items:center; gap:8px 6px; padding:12px; min-height:96px; }
+#adpRoot .adp-block:not(.open) .adp-bh .mi{ order:1; width:24px; height:24px; }
+#adpRoot .adp-block:not(.open) .adp-bh i{ order:2; margin-left:auto; }
+#adpRoot .adp-block:not(.open) .adp-bh span{ order:3; flex:0 0 100%; font-size:12.5px; line-height:1.3; letter-spacing:.2px; }
+#adpRoot .adp-block:not(.open) .adp-bh .adp-chev{ display:none; }
+#adpRoot .adp-block:not(.open) .adp-mini{ order:4; display:block; flex:0 0 100%; }
+#adpRoot .adp-block:not(.open) .adp-bh:active{ transform:scale(.98); }
+#adpRoot .adp-block.open .adp-body{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); }
+#adpRoot .adp-body > .adpp-c,#adpRoot .adp-body > .adp-add,#adpRoot .adp-body > .adp-empty{ grid-column:1 / -1; }
+
+/* ── 7 NOV 2026 · Tugas Awal: hari LIBUR + Adaptasi visual tugas (tampilan saja) ── */
+.tah-t.s3{background:#ecfeff;border-color:#06b6d4}
+.tah-t.s3::after{content:'🌿';position:absolute;top:1px;right:3px;font-size:10px}
+.tah-libur{margin:10px 0;padding:14px;border-radius:14px;background:linear-gradient(135deg,#ecfeff,#f0fdf4);border:1.5px solid #67e8f9;color:#0f766e;text-align:center}
+.tah-libur b{display:block;font-size:18px;letter-spacing:2px}
+.tah-libur span{display:block;font-weight:700;font-size:13px;margin-top:2px}
+.tah-libur small{display:block;font-size:11px;opacity:.8;margin-top:6px}
+.tah-libur-body{font-weight:700;font-size:14px}
+#adpRoot .adp-it[data-cat]{--c:#94a3b8;border-left:3px solid var(--c);padding-left:11px}
+#adpRoot .adp-it[data-cat="ibadah"]{--c:#7c3aed}
+#adpRoot .adp-it[data-cat="olahraga"]{--c:#ea580c}
+#adpRoot .adp-it[data-cat="gizi"]{--c:#16a34a}
+#adpRoot .adp-it[data-cat="belajar"]{--c:#0284c7}
+#adpRoot .adp-it[data-cat="tidur"]{--c:#4f46e5}
+#adpRoot .adp-it[data-cat="relasi"]{--c:#e11d48}
+#adpRoot .adp-it[data-cat="rutin"]{--c:#0d9488}
+#adpRoot .adp-it[data-cat] .adp-cb{border-color:var(--c)}
+#adpRoot .adp-it[data-cat].done .adp-cb{border-color:#10b981}
+#adpRoot .adp-w7 .adp-lb{font-weight:800}
+#adpRoot .adp-w6 .adp-lb{font-weight:600}
+#adpRoot .adp-w4 .adp-lb{font-weight:400}
+#adpRoot .adp-em{margin-left:2px;font-size:14px}
+
+/* ── 7 NOV 2026 · M.C.F.A Studio: tombol panah kartu Persona (hanya panah & interaksinya) ── */
+.bp-persona-header{position:relative;padding:8px 0 4px;margin-top:-8px;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+.bp-persona-header:focus{outline:none}
+.bp-persona-header::after{
+  content:'';position:absolute;right:0;top:50%;width:44px;height:44px;border-radius:50%;box-sizing:border-box;
+  --pc:#475569;background:var(--pc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E") center/24px 24px no-repeat;
+  box-shadow:0 3px 10px rgba(15,23,42,.28),0 0 0 3px rgba(255,255,255,.7);
+  transform:translateY(-50%) rotate(0deg);
+  transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .18s ease,filter .18s ease;
+}
+.red-p .bp-persona-header::after{--pc:#c8102e}
+.green-p .bp-persona-header::after{--pc:#1a6b3a}
+.bp-persona.open .bp-persona-header::after{transform:translateY(-50%) rotate(90deg)}
+@media (hover:hover){.bp-persona-header:hover::after{filter:brightness(1.12);box-shadow:0 5px 14px rgba(15,23,42,.35),0 0 0 3px rgba(255,255,255,.85)}}
+.bp-persona-header:active::after{transform:translateY(-50%) rotate(0deg) scale(.86);filter:brightness(.9);box-shadow:0 1px 4px rgba(15,23,42,.3),0 0 0 6px rgba(255,255,255,.55);transition-duration:.08s}
+.bp-persona.open .bp-persona-header:active::after{transform:translateY(-50%) rotate(90deg) scale(.86)}
+.bp-persona-header:focus-visible::after{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--pc)}
+@media (prefers-reduced-motion:reduce){.bp-persona-header::after{transition:none}}
+
+/* ── 7 NOV 2026 (revisi) · panah Persona lebih kecil, teks header sedikit lebih besar ── */
+.bp-persona-header > div:first-child{min-width:0}
+.bp-persona-header .bp-p-name{padding-right:40px}
+.bp-persona-header::after{width:34px;height:34px;background-size:18px 18px;box-shadow:0 2px 7px rgba(15,23,42,.25),0 0 0 2px rgba(255,255,255,.7)}
+@media (hover:hover){.bp-persona-header:hover::after{box-shadow:0 3px 10px rgba(15,23,42,.32),0 0 0 2px rgba(255,255,255,.85)}}
+.bp-persona-header:active::after{box-shadow:0 1px 3px rgba(15,23,42,.3),0 0 0 5px rgba(255,255,255,.55)}
+.bp-persona-header:focus-visible::after{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--pc)}
+.bp-persona-header .bp-p-badge{font-size:10px !important;letter-spacing:2.4px !important;padding:5px 13px !important}
+.bp-persona-header .bp-p-name{font-size:clamp(21px,6.1vw,25px) !important}
+.bp-persona-header .bp-p-code{font-size:10.5px !important}
+@media (max-width:380px){.bp-persona-header .bp-p-badge{font-size:9px !important;letter-spacing:1.4px !important}.bp-persona-header .bp-p-code{font-size:9.5px !important}}
+
+/* 20261110.6 — Perbaikan teks menyatu dengan latar di panel PERSIAPAN (Tugas Awal + Adaptasi).
+   Panel .psp bertema gelap dan memberi color:#fff ke semua turunannya; isi kartu di dalamnya (.akt-section-body)
+   berlatar terang, sehingga teks yang tidak punya warna sendiri ikut putih di atas putih.
+   Perbaikan: isi bagian (bukan header gelapnya) memakai warna teks gelap. Warna yang ditentukan sendiri
+   oleh elemen (tombol hijau, badge, header berwarna) tidak berubah. */
+#pspGroup .akt-section-body{ color:var(--text,#07101f); }
+/* Tombol tahap produksi pada hari yang belum tiba tetap dinonaktifkan, tetapi tulisannya tetap terbaca. */
+#adpRoot .adpp-chip[disabled]{ opacity:.7; }
+
+/* ═══ 20261111.5 — LENCANA EMAS (#daysLeft): kilau berdenyut tanpa menganimasikan box-shadow ═══
+   Sebelumnya: @keyframes tbBadgeGlowFinal menganimasikan box-shadow tanpa henti (repaint + recalc style tiap frame),
+   dan lolos dari aturan mode hemat (spesifisitas lebih tinggi). Kini bayangan dasar tetap (= keyframe 0%),
+   bayangan puncak (= keyframe 50%) berada di ::after dan hanya opacity-nya yang berdenyut (jalur compositor).
+   Tampilan & ritme sama (2,6 dtk). Tidak mengubah teks/ukuran/warna lencana. */
+.topbar-badge.gold{ animation:none!important; position:relative; box-shadow:0 2px 10px rgba(202,138,4,0.2)!important; }
+.topbar-badge.gold::after{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  box-shadow:0 2px 18px rgba(245,158,11,0.45); opacity:0; animation:tbBadgeGlowOpacity 2.6s ease-in-out infinite; }
+@keyframes tbBadgeGlowOpacity{ 0%,100%{ opacity:0 } 50%{ opacity:1 } }
+
+/* ── Official History: nuansa foto + Bibit dan Akar Baru (3 fase) — kelas bt-* (tidak bentrok dengan widget Tahap tp-*) ── */
+.oh-hero svg{filter:contrast(1.07) saturate(.9)}
+.oh-hero .oh-photo,.bt-hero .oh-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.bt{--ink:#f3e9d2;--mut:#cdbf9e;text-align:left;margin:6px 0 18px;color:var(--ink)}
+.bt-head{text-align:center;margin:4px 0 16px}
+.bt-eyebrow{font:600 10px/1.4 ui-monospace,Menlo,monospace;letter-spacing:3px;color:#e6bd78}
+.bt-h{font:700 25px/1.2 Georgia,'Times New Roman',serif;color:#f8eed4;margin:6px 0 6px}
+.bt-sub{font:400 13px/1.75 Georgia,serif;color:var(--mut);max-width:34em;margin:0 auto}
+.bt-chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 20px}
+.bt-chip{appearance:none;-webkit-appearance:none;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 4px 8px;border-radius:14px;border:1px solid var(--cs);background:#17110a;color:var(--ink);cursor:pointer;font-family:inherit}
+.bt-chip b{font:700 15px/1 Georgia,serif;color:var(--c)}
+.bt-chip span{font:600 10px/1.3 ui-monospace,Menlo,monospace;letter-spacing:1.8px}
+.bt-chip i{font:500 10px/1.3 ui-monospace,Menlo,monospace;color:var(--mut);font-style:normal}
+.bt-list{margin:0;padding:0}
+.bt-item{position:relative;padding:0 0 24px 36px}
+.bt-item:last-child{padding-bottom:0}
+.bt-item::before{content:"";position:absolute;left:12px;top:28px;bottom:0;width:2px;border-radius:2px;background:linear-gradient(180deg,var(--c),var(--cn));opacity:.6;transform-origin:top}
+.bt-item:last-child::before{display:none}
+.bt-node{position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#120d07;border:2px solid var(--c);color:var(--c);font:700 12px/1 Georgia,serif;z-index:1}
+.bt-card{background:linear-gradient(180deg,#1e170d,#110c07);border:1px solid var(--cs);border-radius:18px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.45)}
+.bt-hero{position:relative;aspect-ratio:2/1;overflow:hidden;background:#0b0704}
+.bt-hero svg{display:block;width:100%;height:100%;filter:contrast(1.07) saturate(.92);transform-origin:50% 70%}
+.bt-hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.35;background:radial-gradient(circle,rgba(255,244,214,.9) 0 1px,transparent 1.6px) 0 0/46px 46px,radial-gradient(circle,rgba(255,244,214,.7) 0 .8px,transparent 1.4px) 23px 17px/46px 46px}
+.bt-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(17,12,7,.92))}
+.bt-badge{position:absolute;left:10px;bottom:10px;z-index:2;font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:2px;padding:6px 10px;border-radius:99px;background:rgba(10,7,4,.8);color:var(--c);border:1px solid var(--cs)}
+.bt-main{padding:14px 15px 17px}
+.bt-kicker{font:600 10px/1.4 ui-monospace,Menlo,monospace;letter-spacing:2.2px;color:var(--c)}
+.bt-title{font:700 21px/1.25 Georgia,'Times New Roman',serif;color:#f8eed4;margin:6px 0 8px}
+.bt-date{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font:500 10.5px/1.5 ui-monospace,Menlo,monospace;letter-spacing:1px;color:var(--mut)}
+.bt-date i{font-style:normal;color:var(--c)}
+.bt-date em{font-style:normal;font-weight:700;color:#150f08;background:var(--c);padding:2px 8px;border-radius:99px;letter-spacing:1.2px}
+.bt-text{margin-top:12px}
+.bt-body{font:400 13.5px/1.8 Georgia,serif;color:var(--ink)}
+.bt-lab{font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:2.4px;color:var(--c);margin:12px 0 5px}
+.bt-quote{margin:14px 0 0;padding:3px 0 3px 12px;border-left:2px solid var(--c);font:italic 400 14px/1.7 Georgia,serif;color:#f3e4bf}
+.bt-tags{display:flex;flex-wrap:wrap;gap:6px 8px;margin-top:14px}
+.bt-tag{font:600 10px/1 ui-monospace,Menlo,monospace;letter-spacing:1px;padding:5px 10px;border-radius:99px;border:1px solid var(--cs);color:var(--c);background:rgba(255,255,255,.03)}
+.bt-tag:not(:last-child)::after{content:"→";margin-left:8px;opacity:.55}
+@media(min-width:900px){
+ .bt-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+ .bt-item{padding:36px 0 0}.bt-item::before{left:30px;right:-18px;top:12px;bottom:auto;width:auto;height:2px;transform-origin:left;background:linear-gradient(90deg,var(--c),var(--cn))}
+}
+@media(prefers-reduced-motion:no-preference){
+ .bt-js .bt-card{opacity:0;transform:translateY(26px)}
+ .bt-js .bt-item.on .bt-card{opacity:1;transform:none;transition:opacity .8s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+ .bt-js .bt-item::before{transform:scaleY(0)}
+ .bt-js .bt-item.on::before{transform:scaleY(1);transition:transform 1.2s ease .3s}
+ .bt-js .bt-hero svg{clip-path:inset(100% 0 0 0)}
+ .bt-js .bt-item.on .bt-hero svg{clip-path:inset(0);transition:clip-path 1.7s cubic-bezier(.3,.7,.2,1) .25s;animation:btKen 22s ease-in-out 2s infinite alternate}
+ .bt-js .bt-item.on .bt-hero::before{animation:btDrift 10s linear infinite}
+ .bt-js .bt-main>*{opacity:0;transform:translateY(12px)}
+ .bt-js .bt-item.on .bt-main>*{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+ .bt-js .bt-item.on .bt-main>:nth-child(1){transition-delay:.5s}.bt-js .bt-item.on .bt-main>:nth-child(2){transition-delay:.62s}.bt-js .bt-item.on .bt-main>:nth-child(3){transition-delay:.74s}
+ .bt-js .bt-item.on .bt-main>:nth-child(4){transition-delay:.9s}.bt-js .bt-item.on .bt-main>:nth-child(5){transition-delay:1.05s}.bt-js .bt-item.on .bt-main>:nth-child(6){transition-delay:1.2s}
+ .bt-js .bt-item.on .bt-node{animation:btPulse 2.6s ease-out 2}
+ @keyframes btKen{to{transform:scale(1.09) translateX(-1.5%)}}
+ @keyframes btDrift{to{background-position:0 -46px,23px -29px}}
+ @keyframes btPulse{0%{box-shadow:0 0 0 0 var(--cs)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+}
+@media(prefers-reduced-motion:no-preference) and (min-width:900px){
+ .bt-js .bt-item::before{transform:scaleX(0)}.bt-js .bt-item.on::before{transform:scaleX(1)}
+}

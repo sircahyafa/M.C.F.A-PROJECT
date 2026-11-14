@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   KP.CIHUY — profil & media informasi (build 20261106.3 · Pembaruan 3)
+   Hanya berlaku di dalam .kp (modal akun KP.CIHUY). Warna: oranye bata #c44d18.
+   ═══════════════════════════════════════════════════════════════════════ */
+.kp{--kp:#c44d18;--kp-bg:#fef3ee;--kp-dk:#7c2d0a;--kp-ln:#f3d9cb;text-align:left}
+.kp *{box-sizing:border-box}
+
+/* foto bulat standar (cincin gradasi + celah putih) */
+.kp .kp-logo{flex:none;display:block;width:46px;height:46px;padding:3px;border-radius:50%;
+  background:conic-gradient(from 200deg,var(--c,#c44d18),#f3b392,#f5b83d,var(--c,#c44d18));
+  box-shadow:0 6px 14px rgba(196,77,24,.32),0 1px 3px rgba(15,23,42,.16)}
+.kp .kp-logo img{display:block;width:100%;height:100%;border-radius:50%;border:2.5px solid #fff;background:#fff;object-fit:cover;object-position:50% 40%}
+.kp .kp-logo.kp-lg{width:68px;height:68px;padding:3.5px}
+
+/* kepala profil */
+.kp-hero{display:flex;align-items:center;gap:13px;padding:14px;border-radius:18px;
+  background:linear-gradient(135deg,#fff7f2,#fde6d9);border:1px solid var(--kp-ln)}
+.kp-ht{min-width:0}
+.kp-hk{font-size:9px;font-weight:800;letter-spacing:2px;color:var(--kp)}
+.kp-hn{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;line-height:1.15;color:var(--kp-dk)}
+.kp-hs{font-size:11px;line-height:1.4;color:#7a5a4a;margin-top:2px}
+.kp-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:9px 0 12px}
+.kp-mini>div{background:#fff;border:1px solid var(--kp-ln);border-radius:12px;padding:8px 6px;text-align:center;min-width:0}
+.kp-mini small{display:block;font-size:8px;font-weight:800;letter-spacing:1.2px;color:#94a3b8}
+.kp-mini b{display:block;font-family:'Sora',sans-serif;font-size:13px;color:var(--kp);margin-top:2px;overflow-wrap:anywhere}
+
+/* kategori (akordeon) */
+.kp-grp{border:1px solid var(--kp-ln);border-radius:16px;margin-bottom:9px;background:#fff;overflow:hidden}
+.kp-grp>summary{list-style:none;display:flex;align-items:center;gap:9px;padding:11px 12px;cursor:pointer;background:var(--kp-bg);-webkit-tap-highlight-color:transparent}
+.kp-grp>summary::-webkit-details-marker{display:none}
+.kp-grp>summary::after{content:'';margin-left:auto;flex:none;width:8px;height:8px;border-right:2px solid var(--kp);border-bottom:2px solid var(--kp);transform:rotate(45deg);transition:transform .2s}
+.kp-grp[open]>summary::after{transform:rotate(-135deg)}
+.kp-gi{flex:none;width:28px;height:28px;border-radius:50%;background:var(--kp);color:#fff;display:flex;align-items:center;justify-content:center}
+.kp-gi .mi{width:15px;height:15px}
+.kp-gt{font-family:'Sora',sans-serif;font-weight:800;font-size:13px;color:var(--kp-dk)}
+.kp-gn{font-size:9.5px;font-weight:700;color:#94a3b8;margin-left:4px}
+.kp-gb{padding:10px;display:grid;gap:9px}
+
+/* kartu informasi */
+.kp-card{border:1px solid #e8edf3;border-radius:14px;padding:11px 12px;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.kp-ch{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.kp-ci{flex:none;width:30px;height:30px;border-radius:50%;background:var(--kp-bg);color:var(--kp);display:flex;align-items:center;justify-content:center}
+.kp-ci .mi{width:16px;height:16px}
+.kp-ct{font-family:'Sora',sans-serif;font-weight:800;font-size:12.5px;line-height:1.25;color:#0f172a;overflow-wrap:anywhere}
+.kp-cd{font-size:10.5px;color:#64748b;line-height:1.35;margin-top:1px}
+.kp-cb{min-width:0}
+.kp-sub{font-size:9px;font-weight:800;letter-spacing:1.5px;color:#94a3b8;margin:9px 0 5px}
+.kp-sub:first-child{margin-top:0}
+.kp-p{font-size:12px;line-height:1.6;color:#334155;margin:0}
+.kp-quote{font-size:11.5px;font-style:italic;line-height:1.6;color:#475569;border-left:3px solid var(--kp);padding-left:10px;margin-top:9px}
+.kp-hint{font-size:10.5px;line-height:1.45;color:#64748b;margin-top:6px}
+
+.kp-rows{display:grid;gap:0}
+.kp-row{display:grid;grid-template-columns:minmax(78px,32%) 1fr;gap:9px;padding:7px 0;border-bottom:1px dashed #eadfd8;font-size:11.5px;line-height:1.45}
+.kp-row:last-child{border-bottom:0}
+.kp-row b{color:var(--kp);font-weight:800;overflow-wrap:anywhere}
+.kp-row span{color:#334155;overflow-wrap:anywhere}
+.kp-rows+.kp-sub,.kp-chips+.kp-rows{margin-top:8px}
+
+.kp-chips{display:flex;flex-wrap:wrap;gap:6px}
+.kp-chip{font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--kp-bg);color:var(--kp-dk);border:1px solid var(--kp-ln)}
+.kp-chip.kp-soft{background:#f8fafc;color:#475569;border-color:#e2e8f0}
+
+/* daftar bernomor (BUKAN checklist) */
+.kp-pts{list-style:none;margin:0;padding:0;counter-reset:kp}
+.kp-pts li{counter-increment:kp;display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed #eadfd8;font-size:11.5px;line-height:1.5;color:#334155}
+.kp-pts li:last-child{border-bottom:0}
+.kp-pts li::before{content:counter(kp);flex:none;width:20px;height:20px;border-radius:50%;background:var(--kp-bg);color:var(--kp);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+
+/* identitas visual */
+.kp-brand{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.kp-sw{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.kp-sw i{display:block;width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3px rgba(15,23,42,.18)}
+.kp-sw em{font-style:normal;font-size:10px;font-weight:700;color:#64748b;margin-left:4px}
+
+/* catatan sendiri & isian */
+.kp-empty{display:flex;gap:8px;align-items:flex-start;font-size:11px;line-height:1.5;color:#7a6a60;background:var(--kp-bg);border:1px dashed #e6c3b0;border-radius:11px;padding:9px 10px;margin-top:8px}
+.kp-empty .mi{flex:none;width:14px;height:14px;margin-top:2px;color:var(--kp)}
+.kp-note{font-size:11.5px;line-height:1.55;color:#334155;background:#fffaf6;border:1px solid var(--kp-ln);border-radius:11px;padding:9px 10px;margin-top:8px;overflow-wrap:anywhere}
+.kp-note small{display:block;font-size:8.5px;font-weight:800;letter-spacing:1.4px;color:var(--kp);margin-bottom:3px}
+.kp-act{display:flex;gap:8px;margin-top:8px}
+.kp-btn{font:inherit;font-size:11px;font-weight:800;padding:7px 12px;border-radius:999px;border:1.5px solid var(--kp-ln);background:#fff;color:var(--kp);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.kp-btn.kp-pri{background:var(--kp);border-color:var(--kp);color:#fff}
+.kp-btn:active{transform:scale(.97)}
+.kp-ta{width:100%;font:inherit;font-size:12px;line-height:1.5;padding:9px 10px;border:1.5px solid var(--kp-ln);border-radius:11px;resize:vertical;min-height:84px;background:#fffdfb;color:#0f172a;margin-top:8px}
+.kp-ta:focus{outline:none;border-color:var(--kp)}
+
+/* panel lama (checklist) tidak lagi dipakai di KP.CIHUY */
+.kp-sec .psys-fk,.kp-sec .bx{display:none!important}

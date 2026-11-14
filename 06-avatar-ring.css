@@ -1,0 +1,159 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   KOMPONEN FOTO BULAT STANDAR M.C.F.A STUDIO  (build 20261106.1)
+   Acuan desain: cincin foto Sheina Shafira Anggreni — lingkaran sempurna,
+   cincin gradasi (conic) + celah putih + foto, bayangan lembut berwarna.
+   Satu sumber untuk SELURUH akun: warna cincin mengikuti warna akun/kategori
+   lewat variabel --c (sudah dipasang di tiap kartu akun / kategori).
+   Hanya mengubah tampilan; tidak menyentuh data, logika, atau markup.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --ring-gold:#f5b83d;
+  --ring-gold-soft:#ffe29a;
+}
+
+/* ── 1. Posisi bingkai foto per akun (foto asli 3:4, wajah/logo di bagian atas) ──
+      object-fit:cover agar lingkaran penuh; titik fokus diatur supaya wajah/logo tidak terpotong. */
+#akunHub .ah-av img,
+#akunHub .ah-stack img{object-fit:cover;object-position:50% 25%}
+#akunHub img[src*="ayla.jpg"]{object-position:50% 18%}
+#akunHub img[src*="alley.jpg"]{object-position:50% 30%}
+#akunHub img[src*="barongsukma.jpg"]{object-position:50% 25%}
+#akunHub img[src*="fathulmeme.jpg"]{object-position:50% 12%}
+#akunHub img[src*="kpc.jpg"]{object-position:50% 40%}
+#akunHub img[src*="lol.jpg"]{object-position:50% 30%}
+#akunHub img[src*="mcfa.jpg"]{object-position:50% 15%}
+#akunHub img[src*="monkipedia.jpg"]{object-position:50% 25%}
+#akunHub img[src*="okk.jpg"]{object-position:50% 30%}
+#akunHub img[src*="cne.jpg"]{object-position:50% 45%}
+/* logo Zona Asumsi memuat segitiga + tulisan: tampil utuh (tidak dipotong), latar mengikuti gambar */
+#akunHub img[src*="zona.jpg"]{object-fit:contain!important;object-position:50% 50%;background:#0b0b0d!important}
+
+/* ── 2. Warna cincin: turunan dari --c (warna akun / kategori) ── */
+#akunHub .ah-av,
+#akunHub .ah-stack,
+#akunHub .ah-pph{
+  --rc1:var(--c,#7c3aed);
+  --rc2:#ffffff;
+  --rc3:var(--ring-gold);
+}
+@supports (color:color-mix(in srgb,red 50%,white)){
+  #akunHub .ah-av,
+  #akunHub .ah-stack,
+  #akunHub .ah-pph{--rc2:color-mix(in srgb,var(--c,#7c3aed) 42%,#fff)}
+}
+
+/* ── 3. Baris daftar akun (.ah-av) — ukuran 54px, cincin 3px + celah putih 2.5px ── */
+html body #akunHub .ah-av{
+  flex:none;width:54px;height:54px;box-sizing:border-box;padding:3px;
+  border:0;border-radius:50%;overflow:visible;display:block;
+  background:conic-gradient(from 200deg,var(--rc1),var(--rc2),var(--rc3),var(--rc1));
+  box-shadow:0 7px 15px rgba(15,23,42,.22),0 1px 3px rgba(15,23,42,.16)
+}
+@supports (color:color-mix(in srgb,red 50%,white)){
+  html body #akunHub .ah-av{box-shadow:0 7px 15px color-mix(in srgb,var(--c,#7c3aed) 40%,transparent),0 1px 3px rgba(15,23,42,.16)}
+}
+html body #akunHub .ah-av img,
+html body #akunHub .ah-av i{
+  display:block;width:100%;height:100%;box-sizing:border-box;border-radius:50%;
+  border:2.5px solid #fff;background:#fff
+}
+html body #akunHub .ah-av i{display:flex;background:var(--c,#1a4fb0);font-size:18px}
+/* hero Dunia Ayla (latar merah muda gelap): cincin emas-putih supaya tetap terbaca */
+html body #akunHub .ay-top .ah-av{
+  width:64px;height:64px;border:0;
+  background:conic-gradient(from 200deg,#fff,var(--ring-gold-soft),var(--ring-gold),#fff);
+  box-shadow:0 8px 18px rgba(80,0,30,.38),0 1px 3px rgba(0,0,0,.2)
+}
+
+/* ── 4. Tumpukan foto di kartu kategori (.ah-stack) — latar kartu berwarna: cincin emas-putih ── */
+html body #akunHub .ah-cat .ah-stack img,
+html body #akunHub .ah-cat .ah-stack i{
+  width:28px!important;height:28px!important;box-sizing:border-box;border-radius:50%;
+  margin-left:-11px;padding:1px;border:2.2px solid transparent!important;
+  background:linear-gradient(#fff,#fff) padding-box,
+            conic-gradient(from 200deg,var(--ring-gold-soft),var(--ring-gold),#fff,var(--rc2),var(--ring-gold-soft)) border-box;
+  box-shadow:0 5px 10px rgba(0,0,0,.30);
+  object-fit:cover
+}
+html body #akunHub .ah-cat .ah-stack>:first-child{margin-left:0}
+html body #akunHub .ah-cat .ah-stack i{
+  display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-size:12px;color:#fff;
+  background:linear-gradient(var(--c),var(--c)) padding-box,
+            conic-gradient(from 200deg,var(--ring-gold-soft),var(--ring-gold),#fff,var(--rc2),var(--ring-gold-soft)) border-box
+}
+html body #akunHub .ah-cat .ah-stack img[src*="zona.jpg"]{
+  background:linear-gradient(#0b0b0d,#0b0b0d) padding-box,
+            conic-gradient(from 200deg,var(--ring-gold-soft),var(--ring-gold),#fff,var(--rc2),var(--ring-gold-soft)) border-box!important
+}
+
+/* ── 5. Foto Sheina di dalam tumpukan Project Adik Sendiri (.ah-pph) — palet khas Sheina ── */
+html body #akunHub .ah-pph,
+html body #akunHub .ah-cat.ayla .ah-pph{
+  width:28px;height:28px;box-sizing:border-box;border-radius:50%;margin-left:-11px;
+  padding:1px;border:2.2px solid transparent;overflow:hidden;display:block;
+  background:linear-gradient(#fff,#fff) padding-box,
+            conic-gradient(from 200deg,#8b5cf6,#ec4899,#f59e0b,#8b5cf6) border-box;
+  box-shadow:0 5px 10px rgba(0,0,0,.30);color:#6d28d9;font-size:11px
+}
+html body #akunHub .ah-pph img,
+html body #akunHub .ah-cat.ayla .ah-pph img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 40%;display:block;border:0}
+
+/* ── 6. Halaman profil Sheina (.pp-ph) — cincin sama dengan kartu Sheina ── */
+html body .pp-ph{
+  box-sizing:border-box;padding:4px!important;border:0!important;overflow:visible;
+  background:conic-gradient(from 200deg,#8b5cf6,#ec4899,#f59e0b,#8b5cf6)!important;
+  box-shadow:0 12px 24px rgba(76,29,149,.38),0 2px 6px rgba(0,0,0,.2)!important
+}
+html body .pp-ph img{width:100%;height:100%;border-radius:50%;border:3px solid #fff;box-sizing:border-box;object-fit:cover;object-position:50% 40%;background:#fff}
+
+/* ── 7. Foto Persona Utama & Persona Kedua (.bp-persona) — bingkai 90px ── */
+html body #avatar-red,
+html body #avatar-green{
+  box-sizing:border-box;padding:4px!important;border:0!important;overflow:visible!important;
+  transition:transform .2s ease
+}
+html body #avatar-red{
+  background:conic-gradient(from 200deg,#c8102e,#ff8a9b,var(--ring-gold),#c8102e)!important;
+  box-shadow:0 10px 22px rgba(200,16,46,.36),0 2px 5px rgba(0,0,0,.2)!important
+}
+html body #avatar-green{
+  background:conic-gradient(from 200deg,#1a6b3a,#7bd9a0,var(--ring-gold),#1a6b3a)!important;
+  box-shadow:0 10px 22px rgba(26,107,58,.36),0 2px 5px rgba(0,0,0,.2)!important
+}
+html body #avatar-img-red,
+html body #avatar-img-green{border:3px solid #fff!important;box-sizing:border-box;border-radius:50%!important;background:#fff}
+
+/* ── 8. Foto Sheina di kartu "ADIK · MANAGER": titik fokus wajah di tengah ── */
+html body #akunHub .ah-sheina .pi .pf img{object-position:50% 40%}
+
+/* hormati pengaturan gerak rendah: komponen ini statis, tidak ada animasi tambahan */
+
+/* ── 9. Ikon jendela profil Sheina (#am-icon) — bulat dengan cincin yang sama ── */
+html body #am-icon[data-person="sheina"]{
+  border-radius:50%!important;padding:3px;box-sizing:border-box;
+  background:conic-gradient(from 200deg,#8b5cf6,#ec4899,#f59e0b,#8b5cf6)!important;
+  box-shadow:0 6px 14px rgba(124,58,237,.35)
+}
+html body #am-icon[data-person="sheina"] img{border-radius:50%!important;border:2.5px solid #fff;box-sizing:border-box;object-fit:cover;object-position:50% 40%;background:#fff}
+
+/* ── 10. Foto Sheina di kartu PROJECT ADIK SENDIRI — titik pusat presisi (build 20261106.8) ──
+   Masalah: .ah-pph berada di dalam wrapper .ah-stack kedua, sehingga ikut terkena aturan
+   ".ah-stack img" (lebar/tinggi 28px!important, margin-left:-11px, padding, border ganda).
+   Akibatnya foto menyempit (22×28) dan bergeser ke kiri di dalam cincin.
+   Perbaikan: <img> mengisi bingkai bulat secara penuh, tanpa margin/padding/border sendiri,
+   rasio 1:1 tetap (object-fit:cover, tidak terdistorsi) dan titik fokus tepat di tengah.
+   Posisi lingkaran Sheina dipertahankan: offset -11px dipindah dari .ah-pph ke wrapper-nya. */
+html body #akunHub .ah-cat.ayla .ft .ah-stack + .ah-stack{margin-left:-11px}
+html body #akunHub .ah-cat.ayla .ah-stack .ah-pph{
+  margin-left:0;flex:none;box-sizing:border-box;width:28px;height:28px;
+  padding:1px;border:2.2px solid transparent;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;line-height:1
+}
+html body #akunHub .ah-cat.ayla .ah-stack .ah-pph img{
+  display:block;flex:none;box-sizing:border-box;
+  width:100%!important;height:100%!important;min-width:0;max-width:none;
+  margin:0!important;padding:0!important;border:0!important;border-radius:50%;
+  box-shadow:none!important;background:none!important;
+  aspect-ratio:1/1;object-fit:cover;object-position:50% 50%!important;transform:none
+}
